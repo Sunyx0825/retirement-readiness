@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "synthetic": true,
+    "case_id": "tangshan",
+    "as_of": "2026-09-01",
+    "survey_version": "survey_0909_household_v2.0.1"
+  },
+  "profile": {
+    "display_name": "唐山·王先生家庭（虚构案例）"
+  },
+  "answers": {
+    "Q1": "male",
+    "Q2": 57,
+    "Q3": "senior_high_or_vocational",
+    "Q4": "married",
+    "Q5__blank_1": "1",
+    "Q5__blank_2": "30",
+    "Q6": "parents_deceased",
+    "Q6__blank_1": "73",
+    "Q6__blank_2": "70",
+    "Q7": {
+      "current_province_code": "13",
+      "current_city_code": "1302",
+      "hukou_province_code": "13",
+      "hukou_city_code": "1302"
+    },
+    "Q8": "fulltime",
+    "A8_1": "private_enterprise",
+    "A8_2": "mining_manufacturing",
+    "Q9": [
+      "employee_pension"
+    ],
+    "PENSION_BENEFIT_CITY": "current_city",
+    "PENSION_SEGMENT_COUNT": 2,
+    "PENSION_HISTORY": [
+      {
+        "segment_id": "ts_self_1",
+        "employment_type": "fulltime",
+        "paid_years": 22,
+        "paid_months": 0,
+        "annual_income_wan": 4.8
+      },
+      {
+        "segment_id": "ts_self_2",
+        "employment_type": "fulltime",
+        "paid_years": 10,
+        "paid_months": 0,
+        "annual_income_wan": 9.6
+      }
+    ],
+    "Q10": "no",
+    "Q11": "none",
+    "Q31": "employee_medical",
+    "Q32": [
+      "none"
+    ],
+    "SP_AGE": 55,
+    "P9": [
+      "resident_pension"
+    ],
+    "SP_PENSION_BENEFIT_CITY": "current_city",
+    "SP_PENSION_SEGMENT_COUNT": 1,
+    "SP_PENSION_HISTORY": [
+      {
+        "segment_id": "ts_sp_1",
+        "employment_type": "flexible",
+        "paid_years": 15,
+        "paid_months": 0,
+        "pension_type": "resident_pension",
+        "resident_annual_payment_yuan": 3000,
+        "resident_medical_payment_yuan": 400
+      }
+    ],
+    "P9_5": "resident_medical",
+    "P9_6": [
+      "none"
+    ],
+    "Q12": [
+      "min_years",
+      "account_query"
+    ],
+    "Q34": "current_city",
+    "Q13": "clear",
+    "Q14": "rough",
+    "Q14__blank_1": "4500",
+    "Q15": "roughly_balanced",
+    "Q16": "definitely_yes",
+    "Q17": "equal_shared",
+    "Q18": "very_important",
+    "Q19": "neutral",
+    "Q20": "average",
+    "Q21": "confident",
+    "Q22": "option_1",
+    "Q23": "option_3",
+    "Q24": "false",
+    "Q25": "true",
+    "Q26": "not_sure",
+    "Q27": {
+      "cash_current_wan": 5,
+      "time_deposit_wan": 45,
+      "fund_wan": 0,
+      "stock_wan": 0,
+      "bond_wan": 5,
+      "insurance_total_premium_wan": 0,
+      "property_count": 1,
+      "property_value_wan": 100,
+      "vehicle_count": 1,
+      "vehicle_value_wan": 5
+    },
+    "Q28": {
+      "wage_income": 9.6,
+      "business_income": 2.4,
+      "rent_income": 0,
+      "investment_income": 0,
+      "land_income": 0,
+      "other_income": 0
+    },
+    "Q29": "no",
+    "Q30": {
+      "food": 2400,
+      "medical": 700,
+      "housing": 300,
+      "transport": 400,
+      "elder_support": 0,
+      "utilities": 400,
+      "child_education": 0,
+      "debt_repayment": 0,
+      "leisure_entertainment": 500,
+      "other": 300
+    },
+    "Q35": [
+      "hypertension",
+      "diabetes"
+    ],
+    "Q36": "0",
+    "Q33": [
+      "never_happened"
+    ],
+    "Q37": "quit",
+    "Q38": "never",
+    "Q39": "yes_lt_150",
+    "Q40": "yearly",
+    "Q41": "weekly_recorded",
+    "Q42": "5_6",
+    "Q43": "two_or_more",
+    "Q43_1": [
+      "time",
+      "channel",
+      "partner",
+      "cost"
+    ],
+    "KIN_SUPPORT": "gte_3",
+    "Q45": "gte_3",
+    "LTC_KNOWLEDGE": "some",
+    "LTC_STATUS": "not_sure",
+    "Q46": "family_care",
+    "Q47": "consensus_basic",
+    "Q13__blank_1": "4500",
+    "Q46_4": [
+      "daily_living",
+      "medicine_management"
+    ],
+    "Q13__clear_text__blank_1": "4500",
+    "Q14__rough_text__blank_1": "4500"
+  },
+  "followups": [],
+  "followup_events": []
+}

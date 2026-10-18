@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "synthetic": true,
+    "case_id": "beijing",
+    "as_of": "2026-09-01",
+    "survey_version": "survey_0909_household_v2.0.1"
+  },
+  "profile": {
+    "display_name": "北京·陈先生家庭（虚构案例）"
+  },
+  "answers": {
+    "Q1": "male",
+    "Q2": 45,
+    "Q3": "bachelor",
+    "Q4": "married",
+    "Q5__blank_1": "1",
+    "Q5__blank_2": "12",
+    "Q6": "parents_alive",
+    "Q6__blank_1": "73",
+    "Q6__blank_2": "70",
+    "Q7": {
+      "current_province_code": "11",
+      "current_city_code": "1101",
+      "hukou_province_code": "11",
+      "hukou_city_code": "1101"
+    },
+    "Q8": "fulltime",
+    "A8_1": "private_enterprise",
+    "A8_2": "it_software",
+    "Q9": [
+      "employee_pension",
+      "combined_annuity"
+    ],
+    "PENSION_BENEFIT_CITY": "current_city",
+    "PENSION_SEGMENT_COUNT": 2,
+    "PENSION_HISTORY": [
+      {
+        "segment_id": "bj_self_1",
+        "employment_type": "fulltime",
+        "paid_years": 10,
+        "paid_months": 0,
+        "annual_income_wan": 12
+      },
+      {
+        "segment_id": "bj_self_2",
+        "employment_type": "fulltime",
+        "paid_years": 12,
+        "paid_months": 0,
+        "annual_income_wan": 30
+      }
+    ],
+    "Q10": "yes",
+    "Q11": "none",
+    "Q31": "employee_medical",
+    "Q32": [
+      "none"
+    ],
+    "SP_AGE": 43,
+    "P9": [
+      "employee_pension"
+    ],
+    "SP_PENSION_BENEFIT_CITY": "current_city",
+    "SP_PENSION_SEGMENT_COUNT": 2,
+    "SP_PENSION_HISTORY": [
+      {
+        "segment_id": "bj_sp_1",
+        "employment_type": "fulltime",
+        "paid_years": 10,
+        "paid_months": 0,
+        "annual_income_wan": 8
+      },
+      {
+        "segment_id": "bj_sp_2",
+        "employment_type": "fulltime",
+        "paid_years": 10,
+        "paid_months": 0,
+        "annual_income_wan": 24
+      }
+    ],
+    "P9_5": "employee_medical",
+    "P9_6": [
+      "none"
+    ],
+    "Q12": [
+      "min_years",
+      "account_query",
+      "interruption_effect",
+      "benefit_calculation"
+    ],
+    "Q34": "current_city",
+    "Q13": "clear",
+    "Q14": "rough",
+    "Q14__blank_1": "8500",
+    "Q15": "rather_sufficient",
+    "Q16": "definitely_yes",
+    "Q17": "equal_shared",
+    "Q18": "very_important",
+    "Q19": "easy",
+    "Q20": "average",
+    "Q21": "confident",
+    "Q22": "option_1",
+    "Q23": "option_3",
+    "Q24": "false",
+    "Q25": "true",
+    "Q26": "up",
+    "Q27": {
+      "cash_current_wan": 15,
+      "time_deposit_wan": 40,
+      "fund_wan": 35,
+      "stock_wan": 10,
+      "bond_wan": 10,
+      "insurance_total_premium_wan": 0,
+      "property_count": 1,
+      "property_value_wan": 550,
+      "vehicle_count": 1,
+      "vehicle_value_wan": 12
+    },
+    "Q28": {
+      "wage_income": 54,
+      "business_income": 0,
+      "rent_income": 0,
+      "investment_income": 0,
+      "land_income": 0,
+      "other_income": 0
+    },
+    "Q29": "yes",
+    "Q30": {
+      "food": 4000,
+      "medical": 500,
+      "housing": 800,
+      "transport": 1000,
+      "elder_support": 1500,
+      "utilities": 700,
+      "child_education": 3000,
+      "debt_repayment": 5000,
+      "leisure_entertainment": 1200,
+      "other": 500
+    },
+    "Q35": [
+      "none"
+    ],
+    "Q36": "0",
+    "Q33": [
+      "never_happened"
+    ],
+    "Q37": "never",
+    "Q38": "monthly_lt_1",
+    "Q39": "yes_gte_150",
+    "Q40": "yearly",
+    "Q41": "monthly_or_remember",
+    "Q42": "5_6",
+    "Q43": "two_or_more",
+    "Q43_1": [
+      "time",
+      "channel",
+      "partner"
+    ],
+    "KIN_SUPPORT": "gte_3",
+    "Q45": "1_2",
+    "LTC_KNOWLEDGE": "heard",
+    "LTC_STATUS": "not_sure",
+    "Q46": "home_hired_care",
+    "Q47": "mentioned_no_consensus",
+    "Q10_1": "12000",
+    "Q13__blank_1": "9000",
+    "Q46_2": [
+      "price"
+    ],
+    "Q6__parents_alive_text__blank_1": "73",
+    "Q6__parents_alive_text__blank_2": "70",
+    "Q13__clear_text__blank_1": "9000",
+    "Q14__rough_text__blank_1": "8500",
+    "Q29_1__blank_1": 80,
+    "Q29_1__blank_2": 0,
+    "Q29_1__blank_3": 0
+  },
+  "followups": [],
+  "followup_events": []
+}

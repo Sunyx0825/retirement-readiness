@@ -1,0 +1,6172 @@
+{
+  "schemaVersion": "report-rule-catalog/2.0.0",
+  "rules": [
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-variable_income_floor",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "按低收入月份安排固定开支",
+      "content": "收入波动者按高收入月份承诺长期支出，容易在淡季借债或动用退休资金。",
+      "action": "用过去实际较低收入月份能够承担的水平决定房租、通信、会员和长期分期，高收入月份的增量不转成新的固定开支。",
+      "appliesWhen": {
+        "all": [
+          "income_volatility_high_or_medium"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "income_volatility_high_or_medium"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [],
+        "none": []
+      },
+      "keyData": [
+        "income_volatility_high_or_medium",
+        "expenses_known"
+      ],
+      "priority": 1000,
+      "dedupeKey": "REC4-basic_living-variable_income_floor",
+      "conflictsWith": [],
+      "sourceOrder": 1
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-end_new_installments",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "停止新增分期消费和超前消费",
+      "content": "已有债务或现金流紧张时继续分期，会把未来收入提前占用并延长退休后的还款压力。",
+      "action": "停止新增非必要消费贷和分期，只保留现有合同还款；需要购买的非必需品延后到能一次性支付再决定。",
+      "appliesWhen": {
+        "all": [
+          "debt_yes"
+        ],
+        "any": [
+          "cashflow_gap",
+          "debt_after_retirement"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "debt_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [],
+        "none": []
+      },
+      "keyData": [
+        "debt_yes",
+        "debt_schedule_unknown"
+      ],
+      "priority": 999,
+      "dedupeKey": "REC4-basic_living-end_new_installments",
+      "conflictsWith": [],
+      "sourceOrder": 2
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-highest_cost_debt",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "首先集中清理成本最高的一笔债务",
+      "content": "多类债务同时存在时平均用力，往往让高利息债务持续更久。",
+      "action": "从借款合同或还款明细找出实际年化成本最高的一笔，在各笔按约还款后，把可用于还债的额外结余全部投向这一笔；结清后再处理下一笔。",
+      "appliesWhen": {
+        "all": [
+          "multiple_debt_categories_positive",
+          "debt_payment_positive",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "multiple_debt_categories_positive",
+          "debt_payment_positive",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "debt_no",
+          "debt_unknown",
+          "single_debt_category_positive",
+          "debt_categories_none",
+          "debt_categories_unknown",
+          "debt_payment_none",
+          "debt_payment_unknown",
+          "cashflow_gap",
+          "cashflow_balanced"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "multiple_debt_categories_positive",
+        "cashflow_surplus"
+      ],
+      "priority": 998,
+      "dedupeKey": "REC4-basic_living-highest_cost_debt",
+      "conflictsWith": [],
+      "sourceOrder": 3
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-retirement_debt_exit",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "加快还清会延续到退休后的债务",
+      "content": "退休后收入来源相对固定，若仍背负债务，会挤占日常生活与医疗开支预算。",
+      "action": "不再办理贷款延期或新增同类负债，每月结余优先偿还退休前无法结清的债务；若无法提前还款，至少保证债务本金不再增加。",
+      "appliesWhen": {
+        "all": [
+          "debt_after_retirement",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "debt_after_retirement",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "debt_no",
+          "debt_unknown",
+          "debt_before_retirement",
+          "debt_schedule_unknown",
+          "cashflow_gap",
+          "cashflow_balanced"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "debt_after_retirement",
+        "cashflow_surplus"
+      ],
+      "priority": 997,
+      "dedupeKey": "REC4-basic_living-retirement_debt_exit",
+      "conflictsWith": [],
+      "sourceOrder": 4
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-market_money_for_gap",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "预留基本生活资金，不要拿基本生活资金进行高风险投资",
+      "content": "应该把资金分层，基本生活资金不应该用于高风险投资，剩余闲置资金可以部分用于高风险投资，以换取更高回报。",
+      "action": "将确定要用于近期基本生活的那部分资金转到可随时支取、价格波动较小的工具，其余长期资金再按风险承受能力投资。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "market_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "market_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "market_assets_none",
+          "market_assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "retirement_expense_known",
+        "accessible_financial_assets_positive"
+      ],
+      "priority": 996,
+      "dedupeKey": "REC4-basic_living-market_money_for_gap",
+      "conflictsWith": [],
+      "sourceOrder": 5
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-systematic_drawdown",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "用可用金融资产建立固定补充收入",
+      "content": "有可用金融资产但退休经常性收入不足时，临时取钱容易忽多忽少，也容易过早耗尽。",
+      "action": "按退休基本支出缺口设定固定转入生活账户的金额和节奏，只从本人愿意动用的金融资产中执行，并在支出或收入变化后调整。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "accessible_financial_assets_positive",
+          "asset_use_allowed",
+          "retirement_expense_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "accessible_financial_assets_positive",
+          "asset_use_allowed",
+          "retirement_expense_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_adequate",
+          "accessible_financial_assets_none",
+          "accessible_financial_assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown",
+          "retirement_expense_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "pension_amount_known",
+        "retirement_expense_known",
+        "accessible_financial_assets_positive"
+      ],
+      "priority": 995,
+      "dedupeKey": "REC4-basic_living-systematic_drawdown",
+      "conflictsWith": [],
+      "sourceOrder": 6
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-unlock_before_locking",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "暂停新增锁定型养老投入，以保障短期现金流",
+      "content": "当前基本生活已有缺口时继续把资金锁定到长期账户，会增加眼前的现金压力。",
+      "action": "暂停新增个人养老金或其他长期锁定投入，先让当期收支恢复平衡；已经锁定的资金按原有规则保留，不提前假设可以取出。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "personal_pension_contribution_positive"
+        ],
+        "any": [
+          "cashflow_gap"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "personal_pension_contribution_positive"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_adequate",
+          "personal_pension_contribution_none",
+          "personal_pension_contribution_unknown",
+          "cashflow_balanced",
+          "cashflow_surplus"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cashflow_gap",
+        "personal_pension_contribution_positive"
+      ],
+      "priority": 994,
+      "dedupeKey": "REC4-basic_living-unlock_before_locking",
+      "conflictsWith": [],
+      "sourceOrder": 7
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-education_from_surplus",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "只使用真实结余资金投资子女教育，不盲目借贷",
+      "content": "家庭仍承担教育支出时，把当期结余全部用于教育容易挤占本人的退休准备。",
+      "action": "必要生活、基本参保、日常医疗和现有债务均已安排后，只从剩余的真实结余中支付可选择的教育支持；结余不足时不新增借款。",
+      "appliesWhen": {
+        "all": [
+          "child_education_positive",
+          "basic_adequate",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "child_education_positive",
+          "basic_adequate",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "child_education_none",
+          "child_education_unknown",
+          "basic_gap",
+          "cashflow_gap",
+          "cashflow_balanced",
+          "debt_yes"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "child_education_positive",
+        "basic_adequate",
+        "cashflow_surplus"
+      ],
+      "priority": 993,
+      "dedupeKey": "REC4-basic_living-education_from_surplus",
+      "conflictsWith": [],
+      "sourceOrder": 8
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-unemployment_spending_reset",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "立即停掉可延期的支出，减少短期开支",
+      "content": "没有工资收入时继续维持原消费结构，会快速消耗退休储备。",
+      "action": "暂停旅行、升级型消费、长期会员和新增投资，只保留住房、饮食、交通、基本参保和必要医疗；收入恢复后再逐项恢复。",
+      "appliesWhen": {
+        "all": [
+          "employment_unemployed"
+        ],
+        "any": [
+          "cashflow_gap",
+          "liquid_assets_none"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "employment_unemployed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "employment_fulltime",
+          "employment_flexible",
+          "employment_unknown",
+          "cashflow_balanced",
+          "cashflow_surplus"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "employment_unemployed",
+        "expenses_known"
+      ],
+      "priority": 992,
+      "dedupeKey": "REC4-basic_living-unemployment_spending_reset",
+      "conflictsWith": [],
+      "sourceOrder": 9
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-self_paid_pension_transfer",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "核对基本养老缴费记录，安排后续缴费",
+      "content": "自行缴费需要兼顾后续缴费安排与必要生活支出；已有缴费记录应先核实，不能把中断缴费直接理解为既有记录清零。",
+      "action": "结合必要生活支出安排后续正常缴费。收入波动或发现漏缴时，向参保地经办机构核对适用缴费方式、期限及是否符合补缴或延长缴费条件；不能把一次性补缴当作人人可用的方案。",
+      "appliesWhen": {
+        "all": [
+          "pension_contribution_self_paid_yes",
+          "pension_participation_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "pension_contribution_self_paid_yes",
+          "pension_participation_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "pension_participation_no",
+          "pension_participation_unknown",
+          "pension_contribution_self_paid_no",
+          "pension_contribution_self_paid_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "pension_record_known",
+        "income_positive"
+      ],
+      "priority": 991,
+      "dedupeKey": "REC4-basic_living-self_paid_pension_transfer",
+      "conflictsWith": [],
+      "sourceOrder": 10
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-property_heavy_new_savings",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "新增储蓄优先用于补充流动资产",
+      "content": "资产主要集中在房产而缺少可用金融资产，会让日常生活缺口难以通过本人现有资金解决。",
+      "action": "不改变现有住房安排，把新增结余优先放入本人愿意用于退休的流动或低波动金融资产，暂缓继续增加难变现资产。",
+      "appliesWhen": {
+        "all": [
+          "property_positive",
+          "accessible_financial_assets_none",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "property_positive",
+          "accessible_financial_assets_none",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "property_none",
+          "accessible_financial_assets_positive",
+          "accessible_financial_assets_unknown",
+          "cashflow_gap",
+          "cashflow_balanced"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "property_positive",
+        "accessible_financial_assets_none",
+        "cashflow_surplus"
+      ],
+      "priority": 990,
+      "dedupeKey": "REC4-basic_living-property_heavy_new_savings",
+      "conflictsWith": [],
+      "sourceOrder": 11
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-deposit_maturity_ladder",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "分散定期存款的到期日，减缓现金流压力",
+      "content": "基本生活资金存在缺口或当前收支为赤字时，所有定期存款集中在一个到期日，会让取用资金缺乏弹性。",
+      "action": "新增或续存定期存款时，先安排能覆盖近期基本生活和必要医疗支出的可直接使用资金；其余存款再分成不同到期日，避免一笔资金反复提前支取。",
+      "appliesWhen": {
+        "all": [
+          "time_deposit_positive",
+          "retirement_expense_known",
+          "asset_use_allowed"
+        ],
+        "any": [
+          "basic_gap",
+          "cashflow_gap"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "time_deposit_positive",
+          "retirement_expense_known",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "time_deposit_none",
+          "time_deposit_unknown",
+          "retirement_expense_unknown",
+          "asset_use_refused",
+          "asset_use_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "time_deposit_positive",
+        "retirement_expense_known",
+        "basic_gap",
+        "cashflow_gap"
+      ],
+      "priority": 989,
+      "dedupeKey": "REC4-basic_living-deposit_maturity_ladder",
+      "conflictsWith": [],
+      "sourceOrder": 12
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-surplus_to_uncovered_risk",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "用保险等方法规避潜在的风险",
+      "content": "基本生活已经充足的人继续只增加生活资金，可能让医疗或照护缺口长期存在。",
+      "action": "先保持现有生活资金安排，再把新增结余只投向日常医疗、大额医疗或长期照护中优先级最高且仍有缺口的一项。",
+      "appliesWhen": {
+        "all": [
+          "basic_adequate",
+          "cashflow_surplus"
+        ],
+        "any": [
+          "routine_gap",
+          "major_gap",
+          "care_funding_gap"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_adequate",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_gap",
+          "cashflow_gap",
+          "cashflow_balanced"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_adequate",
+        "routine_gap",
+        "major_gap",
+        "care_funding_gap"
+      ],
+      "priority": 988,
+      "dedupeKey": "REC4-basic_living-surplus_to_uncovered_risk",
+      "conflictsWith": [],
+      "sourceOrder": 13
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-stable_income_new_commitment",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "有资金结余时才进行大额支出，不要提前消费",
+      "content": "退休生活基本充足不代表可以用投资收益或临时收入承诺长期固定支出。",
+      "action": "只在当前确有结余、预计养老金或退休经常性收入已经明确时，才新增会员、分期、长期服务或持续家庭支持；新增后仍只用确定收入判断能否长期承担。",
+      "appliesWhen": {
+        "all": [
+          "basic_adequate",
+          "income_volatility_high_or_medium",
+          "cashflow_surplus",
+          "pension_amount_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_adequate",
+          "income_volatility_high_or_medium",
+          "cashflow_surplus",
+          "pension_amount_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "cashflow_gap",
+          "cashflow_balanced",
+          "pension_amount_unknown",
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "care_funding_gap",
+          "debt_yes"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_adequate",
+        "income_volatility_high_or_medium",
+        "cashflow_surplus",
+        "pension_amount_known"
+      ],
+      "priority": 987,
+      "dedupeKey": "REC4-basic_living-stable_income_new_commitment",
+      "conflictsWith": [],
+      "sourceOrder": 14
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-mortgage_principal_focus",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "使用结余资金提前偿还房贷，减少资金压力",
+      "content": "房贷延续到退休会长期占用固定收入，但多笔债务同时存在时，房贷未必是最应优先偿还的一笔。",
+      "action": "在各笔债务按约还款后，仅在没有其他债务类别、必要生活和医疗照护资金都已安排且合同允许提前还款时，把额外结余集中偿还房贷本金；不为提前还贷新增借款。",
+      "appliesWhen": {
+        "all": [
+          "mortgage_debt_positive",
+          "cashflow_surplus",
+          "debt_after_retirement"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "mortgage_debt_positive",
+          "cashflow_surplus",
+          "debt_after_retirement"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "mortgage_debt_none",
+          "mortgage_debt_unknown",
+          "cashflow_gap",
+          "cashflow_balanced",
+          "multiple_debt_categories_positive",
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "care_funding_gap"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "mortgage_debt_positive",
+        "debt_after_retirement",
+        "cashflow_surplus"
+      ],
+      "priority": 986,
+      "dedupeKey": "REC4-basic_living-mortgage_principal_focus",
+      "conflictsWith": [],
+      "sourceOrder": 15
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-basic_living-adequate_drawdown_guardrail",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "消费应该有规划，不要冲动大额消费",
+      "content": "资金充足的人也可能因大额随意取用破坏长期安排。",
+      "action": "把日常生活提取限定在稳定收入和事先设定的资产提取规则内，大额非必要支出只使用提取后的剩余资金。",
+      "appliesWhen": {
+        "all": [
+          "basic_and_cashflow_adequate",
+          "accessible_financial_assets_positive"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_and_cashflow_adequate",
+          "accessible_financial_assets_positive"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "accessible_financial_assets_none",
+          "accessible_financial_assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "pension_amount_known",
+        "retirement_expense_known",
+        "asset_use_allowed"
+      ],
+      "priority": 985,
+      "dedupeKey": "REC4-basic_living-adequate_drawdown_guardrail",
+      "conflictsWith": [],
+      "sourceOrder": 16
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-basic_living-gap-priority-path",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "先核对基本生活资金来源，再决定支出调整",
+      "content": "纯养老金对基本生活的覆盖不足时，应先核对可用补充资源，不能直接认定家庭整体资金不足或必须降低生活水平。",
+      "action": "先按养老金与基本生活支出核对养老金口径的缺口，再分别查看其他收入和可动用资产的补充情景。未知资产保持待核验，已知部分不足不能直接判断整体不足。若结合现实可用资金后仍需调整支出，优先保留必要生活、基本参保和必要医疗项目，再讨论可延期或非必要支出；资料更新后按同一口径复核。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "basic_pension_coverage_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "basic_pension_coverage_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_adequate"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_gap",
+        "cashflow_gap",
+        "accessible_financial_assets_positive"
+      ],
+      "priority": 984,
+      "dedupeKey": "REC6-basic_living-gap-priority-path",
+      "conflictsWith": [],
+      "sourceOrder": 17
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC62-basic_living-income-reserve-action",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "明确增加退休收入和资金储备的方式并落实首个行动",
+      "content": "退休基本生活资金存在缺口时，仅压缩支出可能仍不能形成足够的退休现金流，需要在已填写事实和本人现实条件范围内选择一项增加收入或储备的路径。",
+      "action": "先核对已有收入来源、养老金预期、真实月度结余和本人可用于退休的资产；只从已经有事实支持、本人能够执行的路径中选择一项，例如改善现有收入来源、恢复或延续可持续收入，或把真实结余固定转入退休储备；写明首个行动、目标金额或频率和首次完成日期，并实际完成首个行动。就业状态或能力信息不明确时，不推断个人技能或增收能力；没有真实结余时，不承诺新增储蓄、长期缴费或投资，也不把不确定投资收益计入退休收入。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_adequate",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_gap",
+        "income_positive",
+        "cashflow_gap",
+        "cashflow_balanced",
+        "cashflow_surplus",
+        "employment_fulltime",
+        "employment_flexible",
+        "employment_unemployed",
+        "employment_unknown"
+      ],
+      "priority": 983,
+      "dedupeKey": "REC62-basic_living-income-reserve-action",
+      "conflictsWith": [],
+      "sourceOrder": 18
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-basic_living-current-gap-reset",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "减少非必要支出，提升收入结余，在财务状况改善后有意识储备退休资金，并落实行动",
+      "content": "目前您的家庭月度总收入不足以覆盖全部开支，首要任务是停止缺口继续扩大；只有在收支持续改善并形成真实结余后，才能把结余用于退休储备。",
+      "action": "整理近一个月消费记录，优先暂停一笔可延期或可取消的非必要支出，并从本人已有就业和收入条件中落实一项短期增收行动；每月复核收支。连续形成真实结余后，再确定可持续的退休储备金额和转入日期；尚未形成结余时，不承诺新增储蓄、长期缴费或投资。",
+      "appliesWhen": {
+        "all": [
+          "cashflow_gap"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "cashflow_gap"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "cashflow_balanced",
+          "cashflow_surplus"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cashflow_gap",
+        "cashflow_surplus",
+        "income_zero",
+        "expenses_known"
+      ],
+      "priority": 982,
+      "dedupeKey": "REC6-basic_living-current-gap-reset",
+      "conflictsWith": [],
+      "sourceOrder": 19
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-basic_living-household-pension-path",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "核对夫妻养老参保情况并保证至少一人持续参保",
+      "content": "已确认夫妻至少一方未参加基本养老保险，需要分别核对参保和未来待遇条件；另一方已有养老金不等于该成员也已获得独立待遇资格。",
+      "action": "分别核对本人和配偶的基本养老参保记录，对已确认未参保且符合参保条件的成员了解可选制度、缴费标准和持续缴费能力；先确认经办要求，不默认支持任意一次性补缴，也不把未参保成员写成已取得待遇资格。",
+      "appliesWhen": {
+        "all": [
+          "married"
+        ],
+        "any": [
+          "pension_not_insured",
+          "spouse_basic_pension_no"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "married"
+        ],
+        "any": [
+          "pension_not_insured",
+          "spouse_basic_pension_no"
+        ]
+      },
+      "disabledWhen": {
+        "all": [
+          "pension_participation_yes",
+          "spouse_basic_pension_yes"
+        ],
+        "any": [
+          "unmarried",
+          "marital_unknown",
+          "pension_participation_unknown",
+          "spouse_basic_pension_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "married",
+        "pension_participation_yes",
+        "pension_participation_no",
+        "spouse_basic_pension_yes",
+        "spouse_basic_pension_no"
+      ],
+      "priority": 981,
+      "dedupeKey": "REC6-basic_living-household-pension-path",
+      "conflictsWith": [],
+      "sourceOrder": 20
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-basic_living-multi-region-benefit-city",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "确认多地参保后的待遇领取地",
+      "content": "多地参保后的待遇领取地尚不明确，需要核对缴费记录和适用条件。就业期间的关系转移与达到领取条件后的待遇领取地认定是不同事项。",
+      "action": "核对各地缴费年限、当前养老保险关系所在地、户籍地及一般账户或临时账户，向新参保地或关系所在地经办机构核实现在是否需要、可以办理转移。临近申领或需延长缴费时，按对应规定确认待遇领取地或继续缴费地；计划养老生活地点不自动等于待遇领取地。",
+      "appliesWhen": {
+        "all": [
+          "employee_pension_yes",
+          "multi_region_yes",
+          "benefit_city_explicit_unknown"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "employee_pension_yes",
+          "multi_region_yes",
+          "benefit_city_explicit_unknown"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "employee_pension_no",
+          "employee_pension_unknown",
+          "multi_region_no",
+          "multi_region_unknown",
+          "benefit_city_known",
+          "benefit_city_answer_missing_or_conflict"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "employee_pension_yes",
+        "multi_region_yes",
+        "benefit_city_explicit_unknown"
+      ],
+      "priority": 980,
+      "dedupeKey": "REC6-basic_living-multi-region-benefit-city",
+      "conflictsWith": [],
+      "sourceOrder": 21
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-basic_living-retirement-city-scenarios",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "考虑可能的养老生活地点，并大致了解当地物价水平，为养老资金的准备提供参考",
+      "content": "养老生活地点尚未确定时，住房、饮食、交通、日常医疗和照护价格缺少稳定参照，退休资金准备容易偏离实际需要。",
+      "action": "先列出一至两个可能的养老生活地点，从当地公开渠道或实际居住经验了解住房、饮食、交通、日常医疗和照护的大致价格区间；在地点最终确定前，以较高但有依据的必要支出水平作为资金准备参考，并记录资料日期。",
+      "appliesWhen": {
+        "all": [
+          "retirement_city_unplanned"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_city_unplanned"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_city_known",
+          "retirement_city_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "retirement_city_unplanned",
+        "retirement_expense_known"
+      ],
+      "priority": 979,
+      "dedupeKey": "REC6-basic_living-retirement-city-scenarios",
+      "conflictsWith": [],
+      "sourceOrder": 22
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-restore_basic_medical",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "参加基本医疗保险",
+      "content": "如果没有参加基本医疗保险，慢病用药、门诊看病产生的费用都需要自行全额承担，医疗负担会明显加重。",
+      "action": "结合自身就业、居住情况，选择参加职工医保或城乡居民医保；等医保待遇正常生效后，再规划商业医疗保险以及自费医疗方案。",
+      "appliesWhen": {
+        "all": [
+          "basic_medical_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_medical_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_yes",
+          "basic_medical_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "employment_fulltime",
+        "employment_flexible",
+        "employment_unemployed",
+        "benefit_city_known"
+      ],
+      "priority": 978,
+      "dedupeKey": "REC4-routine_medical-restore_basic_medical",
+      "conflictsWith": [],
+      "sourceOrder": 23
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-spouse_medical_enrollment",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "为配偶缴纳基本医疗保险",
+      "content": "配偶若无基本医疗保险，家庭资金需要独自承担频繁门诊、住院带来的医疗开销，家庭财务风险有所上升。",
+      "action": "结合配偶就业状况、户籍与常住地点，选择参加职工医保或城乡居民医保；优先配齐基础医疗保障，再规划家庭其余医疗相关开支。",
+      "appliesWhen": {
+        "all": [
+          "spouse_basic_medical_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "spouse_basic_medical_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "unmarried",
+          "marital_unknown",
+          "spouse_basic_medical_yes",
+          "spouse_basic_medical_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "married",
+        "spouse_basic_medical_no"
+      ],
+      "priority": 977,
+      "dedupeKey": "REC4-routine_medical-spouse_medical_enrollment",
+      "conflictsWith": [],
+      "sourceOrder": 24
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-cross_region_filing",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "了解异地就医备案与结算流程",
+      "content": "已有异地就医结算障碍时，应分别核对备案要求、联网定点及参保地待遇；是否有养老多地参保经历与医保异地结算资格无直接对应关系。",
+      "action": "通过参保地官方医保渠道核对本人是否需要备案及备案有效期，按适用规定办理；查询拟就医机构是否开通所需的住院、普通门诊或门诊慢特病直接结算。支付范围原则上按就医地规定，起付标准、支付比例和最高限额等按参保地规定；备案不保证所有费用都可报销，无法直接结算时按参保地要求保留票据并核实手工报销。",
+      "appliesWhen": {
+        "all": [
+          "basic_medical_employee_or_resident",
+          "medical_cross_region_problem"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_medical_employee_or_resident",
+          "medical_cross_region_problem"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_public",
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "medical_cross_region_problem_absent",
+          "medical_path_normal",
+          "medical_path_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_employee_or_resident",
+        "medical_cross_region_problem"
+      ],
+      "priority": 976,
+      "dedupeKey": "REC4-routine_medical-cross_region_filing",
+      "conflictsWith": [],
+      "sourceOrder": 25
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-fixed_prescribing_clinic",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "固定常用医疗机构，以免重复检查、处方中断",
+      "content": "慢病患者频繁更换开药地点，容易出现重复检查、处方中断和信息不连续。",
+      "action": "选择医保结算顺畅且能长期复诊的社区卫生服务中心或医院作为主要开药点，急性问题再转上级医院。",
+      "appliesWhen": {
+        "all": [
+          "chronic_yes",
+          "basic_medical_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_yes",
+          "basic_medical_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown",
+          "basic_medical_no",
+          "basic_medical_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "medical_path_normal",
+        "retirement_city_known"
+      ],
+      "priority": 975,
+      "dedupeKey": "REC4-routine_medical-fixed_prescribing_clinic",
+      "conflictsWith": [],
+      "sourceOrder": 26
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-hypertension_home_data",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "用家庭血压仪长期监测身体指标",
+      "content": "高血压只看诊室一次读数，容易掩盖持续偏高或用药后过低。",
+      "action": "按医生给定的方法在家测量血压，把连续数据带到复诊，由医生据此调整药物和复诊间隔。",
+      "appliesWhen": {
+        "all": [
+          "chronic_hypertension"
+        ],
+        "any": [
+          "monitoring_low"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_hypertension"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown",
+          "monitoring_regular",
+          "monitoring_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "chronic_hypertension",
+        "monitoring_low"
+      ],
+      "priority": 974,
+      "dedupeKey": "REC4-routine_medical-hypertension_home_data",
+      "conflictsWith": [],
+      "sourceOrder": 27
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-diabetes_meal_medication",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "固定进餐与降糖药的配合糖尿病治疗",
+      "content": "糖尿病进餐时间和药物使用不稳定，容易造成血糖大幅波动。",
+      "action": "按医生给出的药物用法固定主要餐次，取消含糖饮料和随意加餐；发现低血糖或持续高血糖后按复诊方案处理，不自行加减药。",
+      "appliesWhen": {
+        "all": [
+          "chronic_diabetes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_diabetes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown",
+          "chronic_not_hypertension_or_diabetes"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "monitoring_low",
+        "diet_low"
+      ],
+      "priority": 973,
+      "dedupeKey": "REC4-routine_medical-diabetes_meal_medication",
+      "conflictsWith": [],
+      "sourceOrder": 28
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-lipid_food_replacement",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "清淡饮食，例如用清蒸炖煮替代油炸和肥肉",
+      "content": "高脂血症持续摄入油炸食品、肥肉和加工肉，会增加心脑血管风险。",
+      "action": "把经常吃的一种油炸食品或肥肉替换为清蒸、炖煮的鱼、禽肉、豆制品或瘦肉，再逐步替换下一种。",
+      "appliesWhen": {
+        "all": [
+          "chronic_hyperlipidemia"
+        ],
+        "any": [
+          "diet_low",
+          "diet_partial"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_hyperlipidemia"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown",
+          "diet_adequate",
+          "diet_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "chronic_hyperlipidemia",
+        "diet_low"
+      ],
+      "priority": 972,
+      "dedupeKey": "REC4-routine_medical-lipid_food_replacement",
+      "conflictsWith": [],
+      "sourceOrder": 29
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-medication_reconciliation",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "多种慢病用药由同一位医生统一检查",
+      "content": "多病共存者从不同科室拿药，可能出现重复成分、相互作用或服药时间冲突。",
+      "action": "选定一位熟悉主要病情的医生，复诊时携带全部处方和非处方药，让其给出统一用药表；以后新增药物先与该表比对。",
+      "appliesWhen": {
+        "all": [
+          "chronic_yes"
+        ],
+        "any": [
+          "hospital_repeat",
+          "chronic_coronary_or_cancer"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "medical_support_need",
+        "monitoring_low"
+      ],
+      "priority": 971,
+      "dedupeKey": "REC4-routine_medical-medication_reconciliation",
+      "conflictsWith": [],
+      "sourceOrder": 30
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-direct_settlement_provider",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "使用能够直接医保结算的定点医疗机构",
+      "content": "长期在不能直接结算的机构就医，会反复垫付并增加报销失败风险。",
+      "action": "在不影响治疗连续性的前提下，把常用门诊和开药转到待遇地认可、可直接结算的定点机构；转诊所需材料在首次就医前办妥。",
+      "appliesWhen": {
+        "all": [
+          "medical_path_problem",
+          "basic_medical_yes"
+        ],
+        "any": [
+          "medical_eligibility_problem",
+          "medical_process_problem"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "medical_path_problem",
+          "basic_medical_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "medical_path_normal",
+          "medical_path_unknown",
+          "medical_cross_region_problem"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "benefit_city_known",
+        "medical_procedure_problem"
+      ],
+      "priority": 970,
+      "dedupeKey": "REC4-routine_medical-direct_settlement_provider",
+      "conflictsWith": [],
+      "sourceOrder": 31
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-catalog_equivalent",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "使用医生认可的医保内同效药物，降低医药成本",
+      "content": "长期使用目录外药物会持续放大慢病费用，但不能为省钱自行换药。",
+      "action": "请主诊医生在疗效和安全性相当的前提下，优先开具医保目录内药物；没有同效替代的继续按必要治疗执行。",
+      "appliesWhen": {
+        "all": [
+          "medical_catalog_problem",
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "medical_catalog_problem",
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "medical_catalog_problem_absent",
+          "medical_path_unknown",
+          "chronic_no",
+          "chronic_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "routine_gap",
+        "basic_medical_yes"
+      ],
+      "priority": 969,
+      "dedupeKey": "REC4-routine_medical-catalog_equivalent",
+      "conflictsWith": [],
+      "sourceOrder": 32
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-supplements_after_treatment",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "不能用保健品替代正规治疗",
+      "content": "慢病支出紧张时把钱花在保健品而减少处方药和复诊，会增加并发症风险。",
+      "action": "先保障处方药、复诊和必要检查，取消不能证明替代治疗效果的保健品支出；处方药只按医生意见调整。",
+      "appliesWhen": {
+        "all": [
+          "chronic_yes"
+        ],
+        "any": [
+          "routine_gap",
+          "finance_comprehension_low"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "diet_low",
+        "monitoring_low"
+      ],
+      "priority": 968,
+      "dedupeKey": "REC4-routine_medical-supplements_after_treatment",
+      "conflictsWith": [],
+      "sourceOrder": 33
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-abnormal_checkup_closure",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "体检异常时，直接在医院进行对应检查",
+      "content": "体检发现需要处理的异常后，应由医生判断复查、治疗、观察或无需进一步处理。",
+      "action": "只有在未来取得明确的体检异常事实且尚未完成后续处理时，才针对报告中需要处理的项目挂对应科室，按医生意见完成复查、治疗或观察；当前问卷只记录体检频率，不能据此推断已经存在体检异常。",
+      "appliesWhen": {
+        "all": [
+          "checkup_regular"
+        ],
+        "any": [
+          "monitoring_low",
+          "chronic_yes"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "checkup_regular"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "checkup_never",
+          "checkup_rare",
+          "checkup_every_2_3y",
+          "checkup_yearly",
+          "checkup_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "checkup_never",
+        "checkup_rare",
+        "checkup_every_2_3y",
+        "checkup_yearly",
+        "checkup_unknown"
+      ],
+      "priority": 967,
+      "dedupeKey": "REC4-routine_medical-abnormal_checkup_closure",
+      "conflictsWith": [],
+      "sourceOrder": 34
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-claim_after_basic_settlement",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "生病后保存单据材料，用于商业医疗费用理赔",
+      "content": "已有商业医疗保险的人若漏交完整结算材料，可能损失本可获得的补偿。",
+      "action": "先完成基本医保结算，再按现有保险合同提交发票、费用清单、病历和结算单；理赔款用于补回实际医疗支出。",
+      "appliesWhen": {
+        "all": [
+          "commercial_medical_yes",
+          "basic_medical_yes"
+        ],
+        "any": [
+          "hospital_yes",
+          "routine_gap"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "commercial_medical_yes",
+          "basic_medical_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "commercial_medical_no",
+          "basic_medical_no",
+          "basic_medical_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_claim_cover_yes",
+        "medical_path_normal"
+      ],
+      "priority": 966,
+      "dedupeKey": "REC4-routine_medical-claim_after_basic_settlement",
+      "conflictsWith": [],
+      "sourceOrder": 35
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-monitoring_drives_visit",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "患慢性病时，进行长期健康监测",
+      "content": "监测规律的人如果只记录不使用，数据不会改善治疗。",
+      "action": "让医生为主要指标给出需要提前复诊的范围；达到该范围就提前就医，稳定则按既定间隔复诊。",
+      "appliesWhen": {
+        "all": [
+          "monitoring_regular",
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "monitoring_regular",
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown",
+          "monitoring_low",
+          "monitoring_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "chronic_hypertension",
+        "chronic_diabetes"
+      ],
+      "priority": 965,
+      "dedupeKey": "REC4-routine_medical-monitoring_drives_visit",
+      "conflictsWith": [],
+      "sourceOrder": 36
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-routine_medical-stable_chronic_visit_bundle",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "集中安排慢性病复诊时间",
+      "content": "病情稳定且费用可覆盖的人，多次分散就医会增加时间成本和漏诊漏药。",
+      "action": "在医生同意的前提下，把可合并的复诊、检查和续方安排在同一次就医中，急性变化仍单独处理。",
+      "appliesWhen": {
+        "all": [
+          "routine_adequate",
+          "chronic_yes",
+          "medical_path_normal"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "routine_adequate",
+          "chronic_yes",
+          "medical_path_normal"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown",
+          "medical_path_problem",
+          "medical_path_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "monitoring_regular",
+        "basic_medical_yes"
+      ],
+      "priority": 964,
+      "dedupeKey": "REC4-routine_medical-stable_chronic_visit_bundle",
+      "conflictsWith": [],
+      "sourceOrder": 37
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC52-routine_medical-continuous_health_record",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "把历年体检和门诊资料接入同一家常用医疗机构",
+      "content": "体检和门诊资料分散在不同机构，医生难以发现连续变化，也容易重复检查。",
+      "action": "把近年的体检报告、门诊检查结果和当前用药资料带到同一家常用医疗机构；报告明确要求复查的项目沿用这条医疗路径完成，没有异常的报告保留用于下一次比较。",
+      "appliesWhen": {
+        "all": [
+          "basic_medical_yes",
+          "medical_path_normal",
+          "checkup_regular"
+        ],
+        "any": [
+          "chronic_no",
+          "routine_adequate"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_medical_yes",
+          "medical_path_normal",
+          "checkup_regular"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "medical_path_problem",
+          "medical_path_unknown",
+          "checkup_never",
+          "checkup_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_yes",
+        "medical_path_normal",
+        "checkup_regular",
+        "chronic_no",
+        "routine_adequate"
+      ],
+      "priority": 963,
+      "dedupeKey": "REC52-routine_medical-continuous_health_record",
+      "conflictsWith": [],
+      "sourceOrder": 38
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-routine_medical-gap-priority-list",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "建立日常医疗缺口的优先支付清单",
+      "content": "本次常规医疗压力情景存在资金缺口，应核对可报销范围及实际自付需求；这不证明本人患有慢病，也不证明正在接受持续治疗。",
+      "action": "核对实际门诊、购药、常规检查等自付费用和基本医保结算路径；如已有医嘱或持续治疗，优先保留医嘱要求的必要项目，不自行中断治疗或换药，并向医生及医保经办渠道核实适用待遇。没有慢病或持续治疗信息时，只讨论一般医疗备用金与结算安排，不推断必须购买保险。",
+      "appliesWhen": {
+        "all": [
+          "routine_gap",
+          "routine_pension_coverage_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "routine_gap",
+          "routine_pension_coverage_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "routine_adequate"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "routine_gap",
+        "basic_medical_yes",
+        "basic_medical_no"
+      ],
+      "priority": 962,
+      "dedupeKey": "REC6-routine_medical-gap-priority-list",
+      "conflictsWith": [],
+      "sourceOrder": 39
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC63-routine_medical-insurance-and-reserve-gap-plan",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "用基本医保、商业医疗险和应急储备共同补足日常医疗缺口",
+      "content": "日常医疗资金存在缺口时，需要按顺序处理基础保障、补充保障和可直接使用的应急资金，但不能把尚未投保或责任不明的商业保险当作已经可用。",
+      "action": "先确认基本医保持续有效；已具备基本医保且商业医疗险状态明确为未配置时，仅在条款可理解、保费可持续并确能补充门诊或住院自付缺口时评估是否投保；只有家庭形成真实月度结余后，才把一部分结余转入可随时支取的医疗应急储备。当前入不敷出时不新增保费或强制储蓄，先恢复收支并保留必要复诊、用药和检查支出。",
+      "appliesWhen": {
+        "all": [
+          "routine_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "routine_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "routine_adequate",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "routine_gap",
+        "basic_medical_yes",
+        "basic_medical_no",
+        "basic_medical_unknown",
+        "commercial_medical_yes",
+        "commercial_medical_no",
+        "commercial_health_unknown",
+        "cashflow_gap",
+        "cashflow_balanced",
+        "cashflow_surplus"
+      ],
+      "priority": 961,
+      "dedupeKey": "REC63-routine_medical-insurance-and-reserve-gap-plan",
+      "conflictsWith": [],
+      "sourceOrder": 40
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-routine_medical-verify-basic-medical",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "核查个人基本医保参保信息",
+      "content": "若不清楚自身基本医保险种，将难以确认参保属地、报销范围以及结算方式，影响就医报销安排。",
+      "action": "通过国家医保服务平台、电子社保卡或参保地医保部门，查询参保状态、险种类型、参保地与待遇生效情况；如查询显示未参保，结合自身就业、居住条件及时办理医保参保。",
+      "appliesWhen": {
+        "all": [
+          "basic_medical_explicit_unknown"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_medical_explicit_unknown"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_yes",
+          "basic_medical_no",
+          "basic_medical_answer_missing_or_conflict"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_explicit_unknown",
+        "employment_fulltime",
+        "employment_flexible",
+        "employment_unemployed"
+      ],
+      "priority": 960,
+      "dedupeKey": "REC6-routine_medical-verify-basic-medical",
+      "conflictsWith": [],
+      "sourceOrder": 41
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-routine_medical-resolve-actual-barrier",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "逐项处理医保问题并完成实际结算",
+      "content": "问卷显示，您在医保待遇、报销流程、药品目录或公费医疗办理上存在实际阻碍。想要妥善解决，不能只知晓政策条文，需要通过真实业务办理落实问题。",
+      "action": "选取近期受医保问题影响的就医、购药记录，联系参保地医保部门或单位公费医疗窗口，确认办理材料与流程，完成备案、实时结算或者报销申请。",
+      "appliesWhen": {
+        "all": [
+          "medical_path_problem"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "medical_path_problem"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "medical_path_normal",
+          "medical_path_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "medical_procedure_problem",
+        "medical_eligibility_problem",
+        "medical_catalog_problem",
+        "medical_cross_region_problem",
+        "medical_hassle_problem"
+      ],
+      "priority": 959,
+      "dedupeKey": "REC6-routine_medical-resolve-actual-barrier",
+      "conflictsWith": [],
+      "sourceOrder": 42
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-major_reserve_from_assets",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "从可用金融资产中划出大额医疗资金",
+      "content": "大额医疗存在缺口且没有明确支付来源，发病后临时筹资会延误治疗或被迫高价卖出资产。",
+      "action": "只从本人愿意动用的金融资产中划出一部分放到流动性高、波动低的工具，专门用于住院押金和医保结算后的自付支出。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "major_payment_source_none",
+          "accessible_financial_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "major_payment_source_none",
+          "accessible_financial_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "major_payment_source_present",
+          "major_payment_source_unknown",
+          "accessible_financial_assets_none",
+          "accessible_financial_assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown",
+          "basic_gap",
+          "routine_gap"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "liquid_assets_positive"
+      ],
+      "priority": 958,
+      "dedupeKey": "REC4-major_medical-major_reserve_from_assets",
+      "conflictsWith": [],
+      "sourceOrder": 43
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-major_gap_stop_risky_saving",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "预留大额医疗资金，不要拿大额医疗资金进行高风险投资",
+      "content": "大额医疗资金存在缺口时，继续让需要承担医疗费用的资金暴露于高波动市场，急用时可能被迫低价卖出。",
+      "action": "只从本人愿意用于退休的股票、基金等资产中，先划出承担住院押金和自付费用的部分，转入可直接使用、波动较低的工具；不因短期恐慌把其余长期投资一次性全部卖出。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "market_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "market_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_gap",
+          "routine_gap",
+          "market_assets_none",
+          "market_assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "market_assets_positive",
+        "asset_use_allowed",
+        "major_payment_source_none"
+      ],
+      "priority": 957,
+      "dedupeKey": "REC4-major_medical-major_gap_stop_risky_saving",
+      "conflictsWith": [],
+      "sourceOrder": 44
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-repeat_hospital_lead_center",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "固定一家主要诊疗机构，统筹治疗计划",
+      "content": "多次住院患者在不同机构重复检查和用药，可能延误连续治疗。",
+      "action": "选择一家掌握完整病史的主要诊疗机构，其他机构的检查和出院资料都回到这里复诊，由同一团队统筹后续治疗。",
+      "appliesWhen": {
+        "all": [
+          "hospital_repeat"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "hospital_repeat"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "hospital_no",
+          "hospital_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "medical_path_normal",
+        "retirement_city_known"
+      ],
+      "priority": 956,
+      "dedupeKey": "REC4-major_medical-repeat_hospital_lead_center",
+      "conflictsWith": [],
+      "sourceOrder": 45
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-serious_disease_second_opinion",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "重大治疗决定听取多位专科医生意见",
+      "content": "冠心病、癌症等重大疾病的手术和长期治疗选择影响大，单次沟通不足容易留下疑问。",
+      "action": "在不延误急救的前提下，到同级或更高层级的规范医疗机构获取另一位专科医生的意见，再由本人结合不同方案决定治疗路径。",
+      "appliesWhen": {
+        "all": [
+          "chronic_coronary_or_cancer"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_coronary_or_cancer"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown",
+          "chronic_not_coronary_or_cancer"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "major_payment_source_present"
+      ],
+      "priority": 955,
+      "dedupeKey": "REC4-major_medical-serious_disease_second_opinion",
+      "conflictsWith": [],
+      "sourceOrder": 46
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-no_revolving_credit_for_treatment",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "不要使用信用、借贷方式长期支付治疗费",
+      "content": "信用卡分期或循环贷款会使一次医疗支出转为长周期高成本债务。",
+      "action": "先使用基本医保、现有商业保障和本人已安排的可用资金；已经使用循环信用的，停止新增并用稳定结余优先降低余额。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "debt_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "debt_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [],
+        "none": []
+      },
+      "keyData": [
+        "major_payment_source_none",
+        "debt_payment_positive"
+      ],
+      "priority": 954,
+      "dedupeKey": "REC4-major_medical-no_revolving_credit_for_treatment",
+      "conflictsWith": [],
+      "sourceOrder": 47
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC64-major_medical-debt-reduction-protect-reserve",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "用真实结余优先降低挤压医疗备用资金的高成本债务",
+      "content": "大额医疗资金存在缺口且仍有需要按月偿还的债务时，高成本债务会持续挤压可用于医疗备用资金的现金流。",
+      "action": "先保留必要生活、基本参保和必要医疗资金，再从借款合同或还款明细中核对实际成本、剩余期限和提前还款条件；只使用每月真实结余，优先降低实际成本最高且提前还款不会产生更大损失的一笔债务，并在每次还款后重新核对医疗备用资金。不得借新还旧、挤占必要资金或动用本人无权使用的家庭资产。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "debt_yes",
+          "debt_payment_positive",
+          "finance_profile_known",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "debt_yes",
+          "debt_payment_positive",
+          "finance_profile_known",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "debt_no",
+          "debt_unknown",
+          "debt_payment_none",
+          "debt_payment_unknown",
+          "finance_profile_missing",
+          "cashflow_gap",
+          "cashflow_balanced"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "debt_yes",
+        "debt_payment_positive",
+        "finance_profile_known",
+        "cashflow_surplus"
+      ],
+      "priority": 953,
+      "dedupeKey": "REC64-major_medical-debt-reduction-protect-reserve",
+      "conflictsWith": [],
+      "sourceOrder": 48
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-catalog_choice_with_clinician",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "优先采用疗效和安全性相当的医保支付方案",
+      "content": "医保目录影响自付金额，但单纯按价格换药或换材料可能损害治疗效果。",
+      "action": "请主诊医生在疗效和安全性相当的方案中优先选择医保可支付的药品、耗材和治疗路径；没有合适替代方案则保留必要治疗。",
+      "appliesWhen": {
+        "all": [
+          "medical_catalog_problem",
+          "major_gap"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "medical_catalog_problem",
+          "major_gap"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "medical_path_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_yes",
+        "hospital_yes"
+      ],
+      "priority": 952,
+      "dedupeKey": "REC4-major_medical-catalog_choice_with_clinician",
+      "conflictsWith": [],
+      "sourceOrder": 49
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-support_agent_payment_access",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "他人协助时，让既定协助者了解医保报销操作",
+      "content": "需要他人协助且已有明确协助者的人，住院后再寻找账户、保单和结算入口会延误办理。",
+      "action": "只向已确认的协助者说明医保电子凭证使用方式、现有保单报案入口和医疗资金所在账户，不交付超出办理所需的资产控制权。",
+      "appliesWhen": {
+        "all": [
+          "medical_support_need",
+          "support_agent_known",
+          "major_payment_source_present"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "medical_support_need",
+          "support_agent_known",
+          "major_payment_source_present"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "medical_support_need_absent",
+          "medical_support_need_unknown",
+          "support_agent_none",
+          "support_agent_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "commercial_health_yes",
+        "basic_medical_yes"
+      ],
+      "priority": 951,
+      "dedupeKey": "REC4-major_medical-support_agent_payment_access",
+      "conflictsWith": [],
+      "sourceOrder": 50
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-commercial_cover_keep_basic",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "优先保障基本医保持续缴纳，有闲置资金时购买补充医疗保险",
+      "content": "商业保险有合同范围、免赔和续保限制，不能替代基本医保的基础支付。",
+      "action": "继续维持适用的基本医保参保，把商业保障只用于合同明确覆盖的自付部分或给付用途。",
+      "appliesWhen": {
+        "all": [
+          "commercial_health_yes",
+          "basic_medical_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "commercial_health_yes",
+          "basic_medical_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "commercial_health_no",
+          "commercial_health_unknown",
+          "basic_medical_no",
+          "basic_medical_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_claim_cover_yes",
+        "major_adequate"
+      ],
+      "priority": 950,
+      "dedupeKey": "REC4-major_medical-commercial_cover_keep_basic",
+      "conflictsWith": [],
+      "sourceOrder": 51
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-major_adequate_separate_liquidity",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "保证大额医疗资金的流动性，可以随时取用",
+      "content": "大额医疗测算充足不等于资金随时可用。",
+      "action": "仅将本人愿意用于退休、且已确定承担住院押金和自付费用的那部分流动金融资产，保留在可支取、低波动的工具中；其余长期资产再按原有风险安排处理。",
+      "appliesWhen": {
+        "all": [
+          "major_adequate",
+          "major_payment_source_present",
+          "liquid_assets_positive",
+          "accessible_financial_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_adequate",
+          "major_payment_source_present",
+          "liquid_assets_positive",
+          "accessible_financial_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "major_payment_source_none",
+          "major_payment_source_unknown",
+          "liquid_assets_none",
+          "assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_adequate",
+        "major_payment_source_present",
+        "liquid_assets_positive",
+        "accessible_financial_assets_positive"
+      ],
+      "priority": 949,
+      "dedupeKey": "REC4-major_medical-major_adequate_separate_liquidity",
+      "conflictsWith": [],
+      "sourceOrder": 52
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-payment_order",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "支付医疗费用时，按医保-现有商业保险-自有资金顺序支付",
+      "content": "支付来源较多时顺序混乱，容易漏理赔或过早动用长期资产。",
+      "action": "先完成基本医保直接结算，再使用合同明确可赔的现有保险，最后由已安排的自有医疗资金承担剩余部分。",
+      "appliesWhen": {
+        "all": [
+          "major_payment_source_present",
+          "basic_medical_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_payment_source_present",
+          "basic_medical_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "major_payment_source_none",
+          "major_payment_source_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_claim_cover_yes",
+        "accessible_financial_assets_positive"
+      ],
+      "priority": 948,
+      "dedupeKey": "REC4-major_medical-payment_order",
+      "conflictsWith": [],
+      "sourceOrder": 53
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-retirement_city_hospital_route",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "确定固定的退休常用住院机构",
+      "content": "居住地改变会影响医保备案、定点机构和家属协助，住院路径不能沿用旧城市假设。",
+      "action": "确定退休居住地后，选择一家具备急诊和住院能力、可直接结算的常用机构，并完成必要的异地备案。",
+      "appliesWhen": {
+        "all": [
+          "retirement_city_known"
+        ],
+        "any": [
+          "multi_region_yes",
+          "medical_cross_region_problem"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_city_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_city_unknown",
+          "retirement_city_unplanned",
+          "retirement_city_answer_unknown",
+          "medical_path_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "benefit_city_known",
+        "major_gap"
+      ],
+      "priority": 947,
+      "dedupeKey": "REC4-major_medical-retirement_city_hospital_route",
+      "conflictsWith": [],
+      "sourceOrder": 54
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-major_gap_after_living",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "集中补足大额医疗缺口",
+      "content": "多个资金缺口同时存在时分散投入，往往让每一项都无法形成实际支付能力。",
+      "action": "在必要生活和日常医疗已有保障后，把可分配结余集中补足大额医疗资金；长期照护资金仍按既定优先顺序另行安排，同一笔结余不同时承担两个目标。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_gap",
+          "routine_gap",
+          "major_adequate",
+          "cashflow_gap",
+          "cashflow_balanced"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "cashflow_surplus",
+        "major_payment_source_none"
+      ],
+      "priority": 946,
+      "dedupeKey": "REC4-major_medical-major_gap_after_living",
+      "conflictsWith": [],
+      "sourceOrder": 55
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-major_medical-stable_case_management",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "住院后按出院医嘱核对复查安排",
+      "content": "近一年住院经历提示可以回查出院后的医疗安排，但住院次数不能确定疾病类型、严重程度或治疗是否结束。",
+      "action": "如出院医嘱要求复诊、复查、用药或康复，按该计划安排并保存记录；不清楚安排时向原诊疗团队核实。没有明确医嘱时，不由一次住院推断必须长期随访或存在复发风险。",
+      "appliesWhen": {
+        "all": [
+          "hospital_yes"
+        ],
+        "any": [
+          "major_adequate",
+          "medical_path_normal"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "hospital_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "hospital_no",
+          "hospital_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "chronic_coronary_or_cancer",
+        "monitoring_regular"
+      ],
+      "priority": 945,
+      "dedupeKey": "REC4-major_medical-stable_case_management",
+      "conflictsWith": [],
+      "sourceOrder": 56
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC52-major_medical-inpatient_recovery_buckets",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "把大额医疗资金分开保留住院付款和出院恢复用途",
+      "content": "有过住院或手术经历的人即使大额医疗资金充足，也可能在住院押金和治疗阶段用掉全部可用资金，出院后的复诊、用药和康复费用只能挤占生活费。",
+      "action": "在现有大额医疗支付来源内部区分住院阶段可直接付款的资金和出院后可连续使用的资金，不增加新的资金占用，也不重复计算同一笔资产。",
+      "appliesWhen": {
+        "all": [
+          "major_adequate",
+          "major_payment_source_present",
+          "hospital_yes"
+        ],
+        "any": [
+          "cashflow_surplus",
+          "liquid_assets_positive"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_adequate",
+          "major_payment_source_present",
+          "hospital_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "major_payment_source_none",
+          "major_payment_source_unknown",
+          "liquid_assets_none",
+          "assets_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_adequate",
+        "major_payment_source_present",
+        "hospital_yes",
+        "cashflow_surplus",
+        "liquid_assets_positive"
+      ],
+      "priority": 944,
+      "dedupeKey": "REC52-major_medical-inpatient_recovery_buckets",
+      "conflictsWith": [],
+      "sourceOrder": 57
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-major_medical-first-payment-source",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "明确大额医疗费用首要资金来源",
+      "content": "面对大额医疗资金缺口，家庭应当提前明确住院押金、医保报销后自付费用的首要资金来源，避免突发疾病时临时筹措资金陷入被动。",
+      "action": "依次梳理可用保障与资金：基本医保、现有商业保险、本人流动性稳定的低风险资产、其他确定可获得的资金支持。优先落实排序靠前、可以即时动用的渠道。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "basic_medical_yes",
+        "commercial_health_yes",
+        "accessible_financial_assets_positive"
+      ],
+      "priority": 943,
+      "dedupeKey": "REC6-major_medical-first-payment-source",
+      "conflictsWith": [],
+      "sourceOrder": 58
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC63-major_medical-insurance-and-liquid-reserve-plan",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "用基本医保、商业健康险和可随时使用的应急资金应对大额医疗费用",
+      "content": "大额医疗资金存在缺口时，应先落实基础医保，再判断现有或拟配置的商业健康险能否按合同分担费用，并逐步形成可随时使用的自有资金；不能把未知保险责任或不确定投资收益计入可用金额。",
+      "action": "先确认基本医保持续有效；对已有商业医疗险或重疾险，只按正式合同核实后的责任和金额计入；尚未配置时，仅在健康告知、保障责任、免赔额、等待期、续保条件和保费均可接受且财务可持续时评估投保。家庭形成真实结余后，再把一部分结余保留在可随时支取、低波动的医疗应急资金中；当前入不敷出时不新增保费或强制储蓄。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "basic_medical_yes",
+        "basic_medical_no",
+        "basic_medical_unknown",
+        "major_claim_cover_yes",
+        "commercial_medical_yes",
+        "commercial_medical_no",
+        "critical_illness_yes",
+        "critical_illness_no",
+        "commercial_health_unknown",
+        "cashflow_gap",
+        "cashflow_balanced",
+        "cashflow_surplus",
+        "accessible_financial_assets_positive"
+      ],
+      "priority": 942,
+      "dedupeKey": "REC63-major_medical-insurance-and-liquid-reserve-plan",
+      "conflictsWith": [],
+      "sourceOrder": 59
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC61-major_medical-evaluate-commercial-health-cover",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "评估商业医疗险或重疾险能否补充大额医疗缺口",
+      "content": "已参加基本医疗保险、尚无商业医疗险和重疾险且大额医疗资金仍有缺口时，部分住院自付费用或收入损失仍可能需要由家庭承担；但是否投保取决于健康告知、保障责任、免赔额、除外责任、续保条件、保费和家庭预算，不能默认必须购买。",
+      "action": "先保证基本医保持续有效和必要生活、现有债务不受影响，再从持牌机构的正式条款中比较商业医疗险或重疾险的保障责任、免赔额、等待期、除外责任、续保条件、保费和理赔材料；只在条款可理解、保费可持续且确能补充现有缺口时决定投保，否则继续落实可直接使用的自有医疗资金方案。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "finance_profile_known",
+          "basic_medical_yes",
+          "commercial_medical_no",
+          "critical_illness_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "finance_profile_known",
+          "basic_medical_yes",
+          "commercial_medical_no",
+          "critical_illness_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "finance_profile_missing",
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "commercial_medical_yes",
+          "critical_illness_yes",
+          "commercial_health_unknown",
+          "cashflow_gap"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "finance_profile_known",
+        "basic_medical_yes",
+        "commercial_medical_no",
+        "critical_illness_no",
+        "cashflow_gap"
+      ],
+      "priority": 941,
+      "dedupeKey": "REC61-major_medical-evaluate-commercial-health-cover",
+      "conflictsWith": [],
+      "sourceOrder": 60
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-care_fund_one_source",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "用月度结余建立长期照护专项资金",
+      "content": "照护资金存在缺口且来源不明，失能后容易挤占基本生活和治疗费用。",
+      "action": "在必要生活、基本参保和医疗资金安排完成后，把真实月度结余只转入照护目标，不同时把这笔结余分给活动或其他账户。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "cashflow_surplus",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "cashflow_surplus",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "cashflow_gap",
+          "cashflow_balanced",
+          "basic_gap",
+          "routine_gap",
+          "major_gap"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_budget_known"
+      ],
+      "priority": 940,
+      "dedupeKey": "REC4-long_term_care-care_fund_one_source",
+      "conflictsWith": [],
+      "sourceOrder": 61
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-home_service_package",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "规划居家照护服务方案，弥补家庭照护不足",
+      "content": "计划聘请居家护工，但尚未核实服务内容、收费标准与家庭承受能力，无法直接敲定长期照护方案，容易出现预算不足、服务不匹配等问题。",
+      "action": "向至少两家正规机构索取同一护理等级的服务与价格清单；结合实际照护需求、人员调换机制、可持续预算确定上门服务方案；涉及专业医疗护理的项目，务必交由具备对应资质的服务人员提供。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_home"
+        ],
+        "any": [
+          "care_home_price_or_affordability_gap",
+          "care_home_resource_incomplete",
+          "care_family_capacity_gap",
+          "care_family_time_gap"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_home"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_institution",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_home_resource_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_mode_home",
+        "care_home_price_or_affordability_gap",
+        "care_home_resource_incomplete",
+        "care_family_capacity_gap",
+        "care_family_time_gap"
+      ],
+      "priority": 939,
+      "dedupeKey": "REC4-long_term_care-home_service_package",
+      "conflictsWith": [],
+      "sourceOrder": 62
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-home_safety_priority",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "完成卫生间和通道防跌倒改造",
+      "content": "居家照护最常见的可避免风险是卫生间湿滑、起身困难和夜间通道不安全。",
+      "action": "优先安装稳固扶手、防滑设施和夜间照明，清除通道绊倒物；需要转移辅助器具的按专业评估配置。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_home"
+        ],
+        "any": [
+          "exercise_medical_guidance_needed",
+          "care_family_capacity_gap"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_home"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_institution",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_home_resource_incomplete"
+      ],
+      "priority": 938,
+      "dedupeKey": "REC4-long_term_care-home_safety_priority",
+      "conflictsWith": [],
+      "sourceOrder": 63
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-trained_nursing_service",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "先把资金用于专业护理费用，有结余时再使用便利型服务",
+      "content": "照护资金有限时先购买陪伴、跑腿等便利服务，可能让换药、压疮处理和康复等必要护理无人承担。",
+      "action": "先用照护预算支付有资质人员提供的必要医疗护理，再安排普通陪伴和便利服务；家人只承担能够安全完成的生活协助。",
+      "appliesWhen": {
+        "all": [
+          "care_family_medication_or_nursing_gap",
+          "care_budget_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_family_medication_or_nursing_gap",
+          "care_budget_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_family_medication_and_nursing_complete",
+          "care_budget_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_funding_gap",
+        "care_mode_family",
+        "care_mode_home"
+      ],
+      "priority": 937,
+      "dedupeKey": "REC4-long_term_care-trained_nursing_service",
+      "conflictsWith": [],
+      "sourceOrder": 64
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-institution_level_cost",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "按护理等级选择可长期承担照护责任的机构",
+      "content": "机构价格会随失能程度和护理等级上升，只看当前床位费会低估长期成本。",
+      "action": "用本人实际需要的护理等级比较月度总费用、押金、耗材和医疗协作，再从可持续承担的机构中选择。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_institution"
+        ],
+        "any": [
+          "care_institution_price_missing",
+          "care_funding_gap"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_institution"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_institution_resource_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_institution_resource_has_details",
+        "care_budget_known"
+      ],
+      "priority": 936,
+      "dedupeKey": "REC4-long_term_care-institution_level_cost",
+      "conflictsWith": [],
+      "sourceOrder": 65
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-institution_trial",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "详细了解照护机构",
+      "content": "当前对养老机构的照护服务、收费标准、入住条件和适用场景了解不足。若未掌握机构养老的实际情况，难以根据自身健康、照护需求和家庭预算合理备选养老方案。",
+      "action": "调研养老地正规养老机构，分清自理、半护理、全护理不同等级的服务内容、收费区间和入住要求。实地走访2至3家不同定位的机构，核实日常照护、生活配套、医疗支持等真实服务情况。结合自身身体条件、长期照护需求与家庭预算，明确机构养老的适配条件、可承受费用区间，补齐认知短板，完善个人养老备选方案。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_institution"
+        ],
+        "any": [
+          "care_institution_resource_none",
+          "care_institution_resource_incomplete",
+          "care_institution_price_missing",
+          "care_institution_resource_has_details"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_institution"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_institution_resource_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_institution_resource_none",
+        "care_institution_resource_incomplete",
+        "care_institution_price_missing",
+        "care_institution_resource_has_details",
+        "care_institution_price_known"
+      ],
+      "priority": 935,
+      "dedupeKey": "REC4-long_term_care-institution_trial",
+      "conflictsWith": [],
+      "sourceOrder": 66
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-community_service_use",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "详细了解社区照护服务",
+      "content": "您倾向于在失能后依托社区照护养老，但目前尚未核实社区照护的服务供给、收费标准及申请流程，若未掌握社区养老的实际情况，难以根据自身健康、照护需求和家庭预算合理备选养老方案。",
+      "action": "主动咨询属地社区或对应养老服务主管机构，核实社区照护的可提供服务项目、准入申请条件及公开收费标准。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_community"
+        ],
+        "any": [
+          "care_community_resource_incomplete",
+          "care_community_availability_missing",
+          "care_community_availability_known"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_community"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_community_resource_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_community_resource_incomplete",
+        "care_community_availability_missing",
+        "care_community_availability_known",
+        "care_community_resource_complete"
+      ],
+      "priority": 934,
+      "dedupeKey": "REC4-long_term_care-community_service_use",
+      "conflictsWith": [],
+      "sourceOrder": 67
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-care_money_liquid",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "尽量选择按月或按年支付的照护服务",
+      "content": "长期照护通常按月持续付费，全部锁在长期或高波动资产中会造成服务中断。",
+      "action": "把预计承担近期照护费的部分放在可按月支取、波动较低的工具，其余长期资金继续保留。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_adequate",
+          "care_budget_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_adequate",
+          "care_budget_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_budget_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "liquid_assets_positive",
+        "market_assets_positive"
+      ],
+      "priority": 933,
+      "dedupeKey": "REC4-long_term_care-care_money_liquid",
+      "conflictsWith": [],
+      "sourceOrder": 68
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-care_budget_service_mix",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "先选择必须的照护服务，再适当补充，控制照护费用",
+      "content": "照护资金不足不等于只能放弃照护，合理组合服务可优先保障安全和基本生活。",
+      "action": "先保障进食、如厕、移动、用药和夜间安全，再用社区、上门和家庭已同意任务组合，减少低优先级陪伴或便利型服务。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_budget_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_budget_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "care_budget_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_arrangement_issue",
+        "care_resource_known"
+      ],
+      "priority": 932,
+      "dedupeKey": "REC4-long_term_care-care_budget_service_mix",
+      "conflictsWith": [],
+      "sourceOrder": 69
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-no_children_service_route",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "用专业服务构成主要照护路径",
+      "content": "没有子女的人更需要让付费服务、社区资源和事务协助者形成可执行路径。",
+      "action": "从居家、社区或机构中选定主要方式，落实一个服务提供方和一个事务协助入口，不把临时朋友帮助当作长期照护。",
+      "appliesWhen": {
+        "all": [
+          "children_none"
+        ],
+        "any": [
+          "care_plan_low",
+          "care_resource_unknown"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "children_none"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "children_positive",
+          "children_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "support_agent_known",
+        "care_budget_known"
+      ],
+      "priority": 931,
+      "dedupeKey": "REC4-long_term_care-no_children_service_route",
+      "conflictsWith": [],
+      "sourceOrder": 70
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-family_time_gap_paid_hours",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "用固定付费照护服务补足家庭照护时间缺口",
+      "content": "家庭成员只能在部分时间提供照护时，空缺时段最容易发生跌倒、漏药和无人进食。",
+      "action": "把家庭无法覆盖的具体时段交给上门服务、日间照料或短期托养，不要求家人扩大未承诺时间。",
+      "appliesWhen": {
+        "all": [
+          "care_family_time_gap"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_family_time_gap"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_family_time_complete",
+          "care_budget_unknown",
+          "care_mode_institution",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_mode_family",
+        "care_mode_home",
+        "care_budget_known"
+      ],
+      "priority": 930,
+      "dedupeKey": "REC4-long_term_care-family_time_gap_paid_hours",
+      "conflictsWith": [],
+      "sourceOrder": 71
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-long_term_care-institution_deposit_separate",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "分别准备机构押金与持续照护费用",
+      "content": "机构押金一次支付后，如果同时占用月度照护资金，入住后可能很快出现服务费缺口。",
+      "action": "将合同明确的一次性押金从本人愿意动用的流动资金中单独支付，持续护理、餐费和耗材费使用能够连续支出的照护资金。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_institution",
+          "care_institution_price_known",
+          "care_funding_adequate",
+          "liquid_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_institution",
+          "care_institution_price_known",
+          "care_funding_adequate",
+          "liquid_assets_positive",
+          "asset_use_allowed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_institution_price_missing",
+          "care_funding_gap",
+          "liquid_assets_none",
+          "assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_budget_known",
+        "liquid_assets_positive"
+      ],
+      "priority": 929,
+      "dedupeKey": "REC4-long_term_care-institution_deposit_separate",
+      "conflictsWith": [],
+      "sourceOrder": 72
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC52-long_term_care-adjustable_service_plan",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "选择能够随失能程度调整服务内容的照护方案",
+      "content": "居家或社区照护需求可能从生活协助逐步增加到用药、康复和专业护理，固定不变的服务包容易出现服务不足或长期支付不需要的项目。",
+      "action": "在已经了解的服务中，优先选择能够按实际照护任务增加、减少或更换项目的方案，并把调整方式、费用变化和退出规则写入服务约定。",
+      "appliesWhen": {
+        "all": [
+          "care_plan_ready",
+          "care_resource_known",
+          "care_budget_known"
+        ],
+        "any": [
+          "care_mode_home",
+          "care_mode_community"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_plan_ready",
+          "care_resource_known",
+          "care_budget_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_plan_low",
+          "care_resource_unknown",
+          "care_budget_unknown",
+          "care_mode_family",
+          "care_mode_institution",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_plan_ready",
+        "care_resource_known",
+        "care_budget_known",
+        "care_mode_home",
+        "care_mode_community"
+      ],
+      "priority": 928,
+      "dedupeKey": "REC52-long_term_care-adjustable_service_plan",
+      "conflictsWith": [],
+      "sourceOrder": 73
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-long_term_care-gap-first-source",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "规划长期照护开支，确定优先资金渠道",
+      "content": "若长期照护资金存在缺口，不能想当然依靠亲属无偿承担全部照护工作，同时不可预估未来不存在照护费用，避免资金规划出现重大偏差。",
+      "action": "梳理进食、如厕、行动、用药、夜间看护等必需照护事项；再梳理稳定收入、每月结余、可获取照护服务以及可动用资产，从中选定可优先动用的资金来源，确保动用这笔资金不会挤压基础生活与医疗开支。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_funding_gap",
+        "care_mode_family",
+        "care_mode_home",
+        "care_mode_institution",
+        "care_mode_community"
+      ],
+      "priority": 927,
+      "dedupeKey": "REC6-long_term_care-gap-first-source",
+      "conflictsWith": [],
+      "sourceOrder": 74
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC61-long_term_care-insurance-or-self-funding",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "比较长期护理保险与专项自筹方案",
+      "content": "长期照护资金存在缺口且当前没有商业长期护理保险时，仅假定未来由家人照护或临时筹款并不能形成稳定资金来源；但长期护理保险的给付触发、等待期、给付期限、除外责任和保费差异较大，也不能默认投保一定优于自筹资金。",
+      "action": "在不挤占基本生活和必要医疗的前提下，从持牌机构正式条款中核对长期护理保险的失能判定、等待期、给付金额与期限、除外责任和持续保费，并与现有月度结余及本人愿意用于退休的金融资产可承担的照护年限比较；最终明确采用保险、专项自筹资金或二者组合，并记录无法满足条件时的替代资金来源。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "finance_profile_known",
+          "commercial_ltc_no"
+        ],
+        "any": [
+          "cashflow_surplus",
+          "accessible_financial_assets_positive"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "finance_profile_known",
+          "commercial_ltc_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "finance_profile_missing",
+          "commercial_ltc_yes",
+          "commercial_health_unknown",
+          "cashflow_gap"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_funding_gap",
+        "finance_profile_known",
+        "commercial_ltc_no",
+        "cashflow_surplus",
+        "accessible_financial_assets_positive"
+      ],
+      "priority": 926,
+      "dedupeKey": "REC61-long_term_care-insurance-or-self-funding",
+      "conflictsWith": [],
+      "sourceOrder": 75
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-long_term_care-compare-care-modes",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "比较家庭照护、上门照护、机构照护和社区照护四种方式并做出选择",
+      "content": "尚未考虑失能后的照护方式时，照护资金、服务资源和家人责任都缺少准备方向。",
+      "action": "分别比较家庭照护、上门照护、机构照护和社区照护的服务内容、家人时间投入、主要费用、申请或使用条件以及本人可接受边界；结合家庭情况和预算形成一项首选方式和一项备选方式。费用或服务信息仍不明确时，只记录待核实项，不先承诺购买服务。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_community",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_mode_not_considered",
+        "care_consensus_not_discussed",
+        "care_consensus_disputed"
+      ],
+      "priority": 925,
+      "dedupeKey": "REC6-long_term_care-compare-care-modes",
+      "conflictsWith": [],
+      "sourceOrder": 76
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-one_priority_plan",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "退休目标需要有优先级，按优先级从高到低解决退休目标",
+      "content": "计划不完整的人同时安排生活、医疗、投资和照护，容易把同一笔钱重复使用。",
+      "action": "按必要生活、基本参保、日常医疗、大额医疗、长期照护的顺序，选择第一个仍有缺口的事项，把可分配结余只用于这一项。",
+      "appliesWhen": {
+        "all": [
+          "retirement_plan_absent_or_incomplete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_plan_absent_or_incomplete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [],
+        "none": []
+      },
+      "keyData": [
+        "basic_gap",
+        "routine_gap",
+        "major_gap",
+        "care_funding_gap"
+      ],
+      "priority": 924,
+      "dedupeKey": "REC4-financial_cognition-one_priority_plan",
+      "conflictsWith": [],
+      "sourceOrder": 77
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-pension_record_action",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "确认社保缴费记录，了解社保状态和未来待遇",
+      "content": "只知道自己参加过养老保险，不知道实际缴费年限，容易错过连续缴费安排。",
+      "action": "从国家社会保险公共服务平台、电子社保卡或参保地人社渠道取得本人缴费记录；发现漏缴、转移未接续或年限不足后，按当前就业状态办理补接续或持续缴费。",
+      "appliesWhen": {
+        "all": [
+          "pension_record_gap"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "pension_record_gap"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "pension_record_known",
+          "pension_participation_no",
+          "pension_participation_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "pension_participation_yes",
+        "employment_fulltime",
+        "employment_flexible"
+      ],
+      "priority": 923,
+      "dedupeKey": "REC4-financial_cognition-pension_record_action",
+      "conflictsWith": [],
+      "sourceOrder": 78
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-diversify_single_stock",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "注重分散化投资",
+      "content": "问卷显示，您对单只股票与分散投资的关系存在误解，把退休资金集中在单只股票会加大投资风险，直接影响长期资金安排。",
+      "action": "在基本生活、医疗和照护资金均已安排且没有负债的前提下，避免把新增退休资金集中投入单只股票，将长期资金分散投资。",
+      "appliesWhen": {
+        "all": [
+          "single_stock_misconception",
+          "stock_assets_positive",
+          "asset_use_allowed",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate",
+          "care_funding_adequate",
+          "debt_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "single_stock_misconception",
+          "stock_assets_positive",
+          "asset_use_allowed",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate",
+          "care_funding_adequate",
+          "debt_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "care_funding_gap",
+          "debt_yes",
+          "stock_assets_none",
+          "stock_assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "stock_assets_positive",
+        "market_assets_positive",
+        "accessible_financial_assets_positive"
+      ],
+      "priority": 922,
+      "dedupeKey": "REC4-financial_cognition-diversify_single_stock",
+      "conflictsWith": [],
+      "sourceOrder": 79
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-inflation_adjust_income",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "建立对通货膨胀的预期并做好准备",
+      "content": "物价持续上涨会持续稀释固定退休金的实际购买力，当下看似充足的养老资金，多年后可能无法覆盖日常开销。",
+      "action": "房租、饮食、出行、医疗等刚需项目出现长期涨价时，应同步修改退休花销预算和取钱方案，不要一直按照固定数值做养老规划。",
+      "appliesWhen": {
+        "all": [
+          "inflation_misconception"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "inflation_misconception"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [],
+        "none": []
+      },
+      "keyData": [
+        "retirement_expense_known",
+        "pension_amount_known"
+      ],
+      "priority": 921,
+      "dedupeKey": "REC4-financial_cognition-inflation_adjust_income",
+      "conflictsWith": [],
+      "sourceOrder": 80
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-mortgage_total_cost",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "选择贷款时，同时考虑月供和总利息",
+      "content": "只看月供较低会把贷款拉长，显著增加退休前后的总利息负担。",
+      "action": "比较可选期限时同时查看合同月供、总利息和预计结清年龄，在本人现金流可承受范围内选择不会无意延长到退休后的方案。",
+      "appliesWhen": {
+        "all": [
+          "mortgage_term_misconception",
+          "mortgage_debt_positive"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "mortgage_term_misconception",
+          "mortgage_debt_positive"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "mortgage_debt_none",
+          "mortgage_debt_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "debt_after_retirement",
+        "debt_payment_positive"
+      ],
+      "priority": 920,
+      "dedupeKey": "REC4-financial_cognition-mortgage_total_cost",
+      "conflictsWith": [],
+      "sourceOrder": 81
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-product_guarantee_only",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "选择保险、基金等金融产品时，只把合同保证部分列入退休收入",
+      "content": "储蓄型商业养老产品的演示收益、分红或结算收益可能不是合同保证。",
+      "action": "把合同中明确保证的领取金额单独列入稳定退休收入；非保证部分只作为额外可能性，不用于安排必要生活、医疗或照护支出。",
+      "appliesWhen": {
+        "all": [
+          "commercial_savings_only",
+          "pension_amount_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "commercial_savings_only",
+          "pension_amount_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "commercial_pension_no",
+          "commercial_pension_unknown",
+          "pension_amount_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "commercial_pension_yes",
+        "pension_amount_known",
+        "retirement_expense_known"
+      ],
+      "priority": 919,
+      "dedupeKey": "REC4-financial_cognition-product_guarantee_only",
+      "conflictsWith": [],
+      "sourceOrder": 82
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-refuse_unexplained_product",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "不选购信息模糊的金融产品，防范养老金融诈骗",
+      "content": "不讲明本金波动、资金支取时限、各项收费规则的金融产品，极易踩坑受骗。",
+      "action": "购买前须务必理清四点核心信息：收益是否保本、资金最快支取时间、全部手续费构成、最大亏损上限；任意一项无法明确，一律不予认购。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "finance_comprehension_low",
+          "finance_comprehension_unclear"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "finance_comprehension_low",
+          "finance_comprehension_unclear"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [],
+        "none": []
+      },
+      "keyData": [
+        "finance_comprehension_low",
+        "finance_comprehension_unclear",
+        "personal_pension_yes",
+        "commercial_pension_yes",
+        "market_assets_positive"
+      ],
+      "priority": 918,
+      "dedupeKey": "REC4-financial_cognition-refuse_unexplained_product",
+      "conflictsWith": [],
+      "sourceOrder": 83
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC64-financial_cognition-four-point-decision-check",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "用费用、期限、风险和退出条件清单核对一项退休财务决策",
+      "content": "对退休财务问题理解困难或仍不清晰时，直接比较产品名称或宣传收益容易遗漏决定实际结果的条件。",
+      "action": "一次只选一项正在考虑的退休储蓄、保险、投资或借款决策，逐项写明全部费用、资金占用期限、主要损失风险和提前退出条件；从官方说明或正式合同中找到对应依据，任何一项无法说明时暂缓决定，并向持牌机构或专业人员询问具体条款。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "finance_comprehension_low",
+          "finance_comprehension_unclear"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "finance_comprehension_low",
+          "finance_comprehension_unclear"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "finance_comprehension_unknown"
+        ],
+        "none": [
+          "finance_comprehension_low",
+          "finance_comprehension_unclear"
+        ]
+      },
+      "keyData": [
+        "finance_comprehension_low",
+        "finance_comprehension_unclear"
+      ],
+      "priority": 917,
+      "dedupeKey": "REC64-financial_cognition-four-point-decision-check",
+      "conflictsWith": [],
+      "sourceOrder": 84
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-product_net_return",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "选择投资产品时，也需要考虑管理费、手续费等潜在成本",
+      "content": "只看宣传收益而忽略管理费、手续费和退出成本，容易选到表面收益高但实际到手少的产品。",
+      "action": "比较养老金融产品时，把合同列出的各项费用和提前退出损失从同一持有期结果中扣除，再比较本金风险和实际可取金额。",
+      "appliesWhen": {
+        "all": [
+          "finance_comprehension_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "finance_comprehension_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [],
+        "none": []
+      },
+      "keyData": [
+        "commercial_pension_yes",
+        "personal_pension_yes",
+        "market_assets_positive"
+      ],
+      "priority": 916,
+      "dedupeKey": "REC4-financial_cognition-product_net_return",
+      "conflictsWith": [],
+      "sourceOrder": 85
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-automatic_fixed_tasks",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "缴纳社保、年金等月度费用时，可以采取自动支付等方式",
+      "content": "已经明确由本人承担的固定基本养老保险缴费如果缺少稳定执行安排，可能继续形成缴费记录缺口。",
+      "action": "仅对已核实由本人承担、金额和日期明确的基本养老保险缴费设置自动支付或固定提醒，并保留扣款失败提醒；不自动新增固定储蓄、年金或其他长期支付承诺。",
+      "appliesWhen": {
+        "all": [
+          "pension_record_gap",
+          "pension_contribution_self_paid_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "pension_record_gap",
+          "pension_contribution_self_paid_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "pension_record_known",
+          "pension_contribution_self_paid_no",
+          "pension_contribution_self_paid_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "pension_record_gap",
+        "pension_contribution_self_paid_yes"
+      ],
+      "priority": 915,
+      "dedupeKey": "REC4-financial_cognition-automatic_fixed_tasks",
+      "conflictsWith": [],
+      "sourceOrder": 86
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-debt_before_investment_return",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "先处理已有债务，再把闲置资金用于追求投资收益",
+      "content": "债务成本确定而投资收益不确定，同时扩大债务和市场投资会放大退休风险。",
+      "action": "在必要生活、医疗和照护资金均无缺口时，比较各笔债务的合同实际成本；把额外结余先用于成本更高的债务，不借款或滚动信用资金投资。",
+      "appliesWhen": {
+        "all": [
+          "debt_yes",
+          "market_assets_positive",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "debt_yes",
+          "market_assets_positive",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "debt_no",
+          "debt_unknown",
+          "market_assets_none",
+          "market_assets_unknown",
+          "cashflow_gap",
+          "cashflow_balanced",
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "care_funding_gap"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "debt_yes",
+        "multiple_debt_categories_positive",
+        "cashflow_surplus"
+      ],
+      "priority": 914,
+      "dedupeKey": "REC4-financial_cognition-debt_before_investment_return",
+      "conflictsWith": [],
+      "sourceOrder": 87
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-complete_plan_with_stop_rules",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "考虑未来潜在风险，明确投资、旅游和长期消费的暂停条件",
+      "content": "退休计划无论处于起步阶段还是已经较完整，都可能因收入下降、重大疾病或照护需求出现而失效。",
+      "action": "为新增投资、旅游和长期消费分别写明暂停条件：现金流转负、必要医疗增加或照护缺口出现后，立即停止低优先级投入。",
+      "appliesWhen": {
+        "all": [
+          "retirement_plan_complete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_plan_complete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [],
+        "none": []
+      },
+      "keyData": [
+        "cashflow_gap",
+        "routine_gap",
+        "major_gap",
+        "care_funding_gap"
+      ],
+      "priority": 913,
+      "dedupeKey": "REC4-financial_cognition-complete_plan_with_stop_rules",
+      "conflictsWith": [],
+      "sourceOrder": 88
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-ready_persona_withdrawal_order",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "不能随意大额消费，明确退休资产的使用顺序和场景",
+      "content": "资产较多的人若没有取用顺序，市场波动或临时支出出现时仍容易做出随意决定。",
+      "action": "在基本生活、医疗和照护资金已充足、没有未结清债务且本人愿意动用相应资产时，先使用稳定退休收入，再使用低波动可用资产，最后才按既定规则动用长期市场资产；不同时动用多类资产。",
+      "appliesWhen": {
+        "all": [
+          "cognition_ready",
+          "assets_known",
+          "asset_use_allowed",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate",
+          "care_funding_adequate",
+          "debt_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "cognition_ready",
+          "assets_known",
+          "asset_use_allowed",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate",
+          "care_funding_adequate",
+          "debt_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "care_funding_gap",
+          "debt_yes",
+          "assets_unknown",
+          "accessible_financial_assets_none",
+          "accessible_financial_assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "assets_known",
+        "pension_amount_known",
+        "accessible_financial_assets_positive",
+        "market_assets_positive"
+      ],
+      "priority": 912,
+      "dedupeKey": "REC4-financial_cognition-ready_persona_withdrawal_order",
+      "conflictsWith": [],
+      "sourceOrder": 89
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-financial_cognition-unknown_pension_no_lock",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "不要新增不可承受的长期消费或服务，保障资金灵活性",
+      "content": "养老金金额尚不明确时签订长期消费或服务合同，可能让未来固定支出超过稳定收入。",
+      "action": "暂不新增长期会员、长期分期和持续性非必要支持；现有结余优先提高可用资金，待官方或确定性收入明确后再承诺。",
+      "appliesWhen": {
+        "all": [
+          "pension_amount_unknown"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "pension_amount_unknown"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "pension_amount_known"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "retirement_expense_known",
+        "cashflow_surplus"
+      ],
+      "priority": 911,
+      "dedupeKey": "REC4-financial_cognition-unknown_pension_no_lock",
+      "conflictsWith": [],
+      "sourceOrder": 90
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC5-financial_cognition-long_horizon_diversified_assets",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "把长期不用的资金分散配置",
+      "content": "退休生活所需资金已经有保障的人，仍需防止长期资金过度集中在单一资产或因为短期涨跌频繁更换安排。",
+      "action": "先把基本生活、医疗和照护资金与长期投资资金分开；仅把确定长期不用、本人愿意用于退休的市场资产，分散到多类资产或多个发行主体、费用透明且自己能够承受波动的组合中。",
+      "appliesWhen": {
+        "all": [
+          "assets_known",
+          "accessible_financial_assets_positive",
+          "asset_use_allowed",
+          "market_assets_positive",
+          "financial_literacy_no_misconception",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate",
+          "care_funding_adequate",
+          "debt_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "assets_known",
+          "accessible_financial_assets_positive",
+          "asset_use_allowed",
+          "market_assets_positive",
+          "financial_literacy_no_misconception",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate",
+          "care_funding_adequate",
+          "debt_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "care_funding_gap",
+          "debt_yes",
+          "assets_unknown",
+          "market_assets_none",
+          "market_assets_unknown",
+          "asset_use_refused",
+          "asset_use_unknown",
+          "single_stock_misconception"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "assets_known",
+        "accessible_financial_assets_positive",
+        "market_assets_positive",
+        "retirement_expense_known"
+      ],
+      "priority": 910,
+      "dedupeKey": "REC5-financial_cognition-long_horizon_diversified_assets",
+      "conflictsWith": [],
+      "sourceOrder": 91
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC51-financial_cognition-maturity_money_two_buckets",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "把到期存款分成生活资金和长期投资",
+      "content": "资金充足的人把到期存款全部按原期限续存，可能错过长期增值机会；全部转入高波动资产，又会削弱退休资金的稳定性。",
+      "action": "定期存款到期后，先保留基本生活、日常医疗、大额医疗和长期照护已经安排的可直接使用资金；仅把其余确定长期不用、本人愿意用于退休的部分，按可承受波动分散配置到长期投资。",
+      "appliesWhen": {
+        "all": [
+          "time_deposit_positive",
+          "assets_known",
+          "asset_use_allowed",
+          "financial_literacy_no_misconception",
+          "cashflow_surplus",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate",
+          "care_funding_adequate",
+          "debt_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "time_deposit_positive",
+          "assets_known",
+          "asset_use_allowed",
+          "financial_literacy_no_misconception",
+          "cashflow_surplus",
+          "basic_adequate",
+          "routine_adequate",
+          "major_adequate",
+          "care_funding_adequate",
+          "debt_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "care_funding_gap",
+          "debt_yes",
+          "time_deposit_none",
+          "time_deposit_unknown",
+          "assets_unknown",
+          "cashflow_gap",
+          "cashflow_balanced",
+          "asset_use_refused",
+          "asset_use_unknown",
+          "finance_comprehension_low"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "time_deposit_positive",
+        "assets_known",
+        "cashflow_surplus",
+        "retirement_expense_known"
+      ],
+      "priority": 909,
+      "dedupeKey": "REC51-financial_cognition-maturity_money_two_buckets",
+      "conflictsWith": [],
+      "sourceOrder": 92
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-financial_cognition-pension-policy-checklist",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "系统了解与本人有关的养老保险规则",
+      "content": "碎片化了解社保养老政策，会导致在办理缴费补缴、社保异地转移、核对退休金待遇时很容易漏掉关键流程，从而影响最终养老金正常领取。",
+      "action": "使用国家社保服务平台、电子社保卡或当地人社官方渠道，逐一查清：最低缴费年限、个人账户余额、断缴带来的影响、养老金核算方式、个人账户处置规则。",
+      "appliesWhen": {
+        "all": [
+          "pension_policy_knowledge_gap"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "pension_policy_knowledge_gap"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "pension_policy_knowledge_sufficient",
+          "pension_policy_knowledge_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "pension_policy_knowledge_gap",
+        "pension_participation_yes",
+        "pension_participation_no"
+      ],
+      "priority": 908,
+      "dedupeKey": "REC6-financial_cognition-pension-policy-checklist",
+      "conflictsWith": [],
+      "sourceOrder": 93
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-financial_cognition-pension-income-estimate",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "进行一次养老金待遇估算",
+      "content": "估算养老金待遇有助于做好退休财务规划。",
+      "action": "先对照本平台已有养老金估算及其假设核对本人最新缴费记录，缺失资料先补充核验；需要时使用官方待遇测算渠道或请参保地经办机构核定。平台结果仅供情景讨论，不代表已取得领取资格或确定待遇。",
+      "appliesWhen": {
+        "all": [
+          "pension_income_estimation_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "pension_income_estimation_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "pension_amount_known",
+          "pension_income_estimation_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "pension_income_estimation_low",
+        "pension_participation_yes",
+        "pension_participation_no"
+      ],
+      "priority": 907,
+      "dedupeKey": "REC6-financial_cognition-pension-income-estimate",
+      "conflictsWith": [],
+      "sourceOrder": 94
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-financial_cognition-retirement-expense-budget",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "确定退休后基本生活支出预算",
+      "content": "确定退休后基本生活支出预算，才能更好地判断养老金和资产储备能够覆盖多少生活需要。",
+      "action": "利用本平台已有退休支出估算，对照当前家庭开支逐项核对退休后保留、下降、结束和新增的部分；基本生活与医疗分开，结合距退休时间和仍承担的家庭责任检查假设。资料变化后重新评估，不在报告正文自行编算新金额。",
+      "appliesWhen": {
+        "all": [
+          "retirement_expense_estimation_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_expense_estimation_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_expense_known",
+          "retirement_expense_estimation_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "retirement_expense_estimation_low",
+        "expenses_known"
+      ],
+      "priority": 906,
+      "dedupeKey": "REC6-financial_cognition-retirement-expense-budget",
+      "conflictsWith": [],
+      "sourceOrder": 95
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-financial_cognition-reserve-sustainability-check",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "核对现有储备可支撑几年的退休基本生活",
+      "content": "仅凭感觉判断养老钱够不够、单纯担忧存款不足没有实际意义，需要把主观焦虑转化成客观的实际数据。",
+      "action": "对照本平台已有资金支撑和家庭现金流情景，核对养老金、愿意且能够用于退休的金融资产及退休支出；只引用已有可追溯的支撑结果和缺口时点，未估出的部分保留未知。结合距退休时间安排核验，不能将情景缺口当作已发生的资金困难。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "retirement_reserve_not_assessed",
+          "retirement_reserve_self_reported_insufficient"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "retirement_reserve_not_assessed",
+          "retirement_reserve_self_reported_insufficient"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_reserve_not_insufficient",
+          "retirement_reserve_assessment_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "retirement_reserve_not_assessed",
+        "retirement_reserve_self_reported_insufficient",
+        "finance_profile_known",
+        "finance_profile_missing"
+      ],
+      "priority": 905,
+      "dedupeKey": "REC6-financial_cognition-reserve-sustainability-check",
+      "conflictsWith": [],
+      "sourceOrder": 96
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-financial_cognition-one-page-first-action",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "尽快开始养老储备",
+      "content": "退休规划优先级低、计划不完整、对未来获得满意退休收入的信心不足，或尚未形成预留养老资金的明确行动时，准备容易被持续推迟。",
+      "action": "先核对当前收支，在不挤占基本生活、基本参保和必要医疗的前提下，从当前可承受的金额开始固定预留养老资金；设定首次转入日期和复核时间，收入或必要支出变化时再调整金额。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "retirement_plan_priority_low",
+          "retirement_plan_incomplete",
+          "retirement_plan_confidence_low",
+          "retirement_saving_unwilling",
+          "retirement_saving_uncertain"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "retirement_plan_priority_low",
+          "retirement_plan_incomplete",
+          "retirement_plan_confidence_low",
+          "retirement_saving_unwilling",
+          "retirement_saving_uncertain"
+        ]
+      },
+      "disabledWhen": {
+        "all": [
+          "retirement_plan_priority_high",
+          "retirement_plan_complete",
+          "retirement_plan_confidence_high",
+          "retirement_saving_willing"
+        ],
+        "any": [],
+        "none": []
+      },
+      "keyData": [
+        "retirement_plan_priority_low",
+        "retirement_plan_incomplete",
+        "retirement_plan_confidence_low",
+        "retirement_saving_unwilling",
+        "retirement_saving_uncertain"
+      ],
+      "priority": 904,
+      "dedupeKey": "REC6-financial_cognition-one-page-first-action",
+      "conflictsWith": [],
+      "sourceOrder": 97
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-financial_cognition-verify-one-concept",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "学习投资理财知识后再尝试投资",
+      "content": "基础金融概念如果尚未弄清就直接用于养老投资或借款决策，容易低估风险或成本。",
+      "action": "先针对本次答错或明确不知道的一项，使用金融监管部门、正规金融机构公开材料或基础教材核对含义与风险；在能够用自己的话说明后，再决定是否进行相关投资或借款。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "compound_interest_misconception",
+          "single_stock_misconception",
+          "mortgage_term_misconception",
+          "bond_price_misconception",
+          "financial_literacy_uncertain"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "compound_interest_misconception",
+          "single_stock_misconception",
+          "mortgage_term_misconception",
+          "bond_price_misconception",
+          "financial_literacy_uncertain"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "financial_literacy_all_correct",
+          "financial_literacy_unanswered_or_conflict"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "compound_interest_misconception",
+        "single_stock_misconception",
+        "mortgage_term_misconception",
+        "bond_price_misconception",
+        "financial_literacy_uncertain"
+      ],
+      "priority": 903,
+      "dedupeKey": "REC6-financial_cognition-verify-one-concept",
+      "conflictsWith": [],
+      "sourceOrder": 98
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-financial_cognition-personal-responsibility-budget",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "明确个人养老责任并进行储蓄安排",
+      "content": "若默认养老开销主要由单位、政府承担，极易忽略需要自行支付的日常花销、医疗自付费用与长期照护成本。",
+      "action": "先划定养老金、医保可报销的支出范围，将住房开销、医保自费部分、长期照护花费、个人非刚性开支等自费项目纳入退休资金规划。",
+      "appliesWhen": {
+        "all": [
+          "personal_cost_underestimate"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "personal_cost_underestimate"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "personal_cost_not_underestimate",
+          "personal_cost_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "personal_cost_underestimate",
+        "pension_amount_known",
+        "retirement_expense_known"
+      ],
+      "priority": 902,
+      "dedupeKey": "REC6-financial_cognition-personal-responsibility-budget",
+      "conflictsWith": [],
+      "sourceOrder": 99
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-smoking_quit_date",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "尝试戒烟",
+      "content": "继续吸烟会提高心脑血管、肺部疾病和癌症风险，并增加退休后的医疗支出。",
+      "action": "尝试减少吸烟量，并逐步加大力度；出现强烈戒断反应可求助正规戒烟门诊。",
+      "appliesWhen": {
+        "all": [
+          "smoking_current"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "smoking_current"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "smoking_not_current",
+          "smoking_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "smoking_daily_lt_10",
+        "smoking_daily_gte_10"
+      ],
+      "priority": 901,
+      "dedupeKey": "REC4-health_capital-smoking_quit_date",
+      "conflictsWith": [],
+      "sourceOrder": 100
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-heavy_smoking_clinic",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "吸烟量较高的人戒烟时，需寻求专业支持",
+      "content": "每日吸烟量较高的人仅靠意志更容易复吸，专业支持可以处理戒断症状和用药安全。",
+      "action": "到正规戒烟门诊接受行为干预，并由医生判断是否使用戒烟药物；不要自行购买来源不明的替代产品。",
+      "appliesWhen": {
+        "all": [
+          "smoking_daily_gte_10"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "smoking_daily_gte_10"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "smoking_not_current",
+          "smoking_monthly_lt_10",
+          "smoking_daily_lt_10",
+          "smoking_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "chronic_coronary_or_cancer",
+        "hospital_yes"
+      ],
+      "priority": 900,
+      "dedupeKey": "REC4-health_capital-heavy_smoking_clinic",
+      "conflictsWith": [],
+      "sourceOrder": 101
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-alcohol_remove_routine",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "尝试戒酒",
+      "content": "高频饮酒会影响血压、睡眠、肝脏和用药安全。",
+      "action": "先停止独自饮酒、睡前饮酒和工作日固定饮酒，用无酒精饮品、散步或其他固定放松方式替代；减少饮酒后若出现手抖、出汗、明显焦虑或失眠等不适，不自行强行戒断，及时到医疗机构评估。",
+      "appliesWhen": {
+        "all": [
+          "alcohol_weekly_gte_4"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "alcohol_weekly_gte_4"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "alcohol_not_frequent",
+          "alcohol_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "alcohol_weekly_gte_4",
+        "chronic_yes",
+        "hospital_yes"
+      ],
+      "priority": 899,
+      "dedupeKey": "REC4-health_capital-alcohol_remove_routine",
+      "conflictsWith": [],
+      "sourceOrder": 102
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-exercise_walk_start",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "尝试运动",
+      "content": "完全不运动会加速心肺能力和肌肉下降，突然高强度运动又容易受伤。",
+      "action": "从能够完整说话、不过度气喘的步行开始，逐步增加单次时间；出现胸痛、明显气促或眩晕立即停止并就医。",
+      "appliesWhen": {
+        "all": [
+          "exercise_none",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "exercise_none",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "exercise_adequate",
+          "exercise_at_least_150",
+          "exercise_unknown",
+          "exercise_medical_guidance_needed",
+          "exercise_medical_guidance_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low"
+      ],
+      "priority": 898,
+      "dedupeKey": "REC4-health_capital-exercise_walk_start",
+      "conflictsWith": [],
+      "sourceOrder": 103
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-exercise_to_150",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "逐步达到每周150分钟中等强度活动的目标",
+      "content": "运动量不足150分钟的人仍有较大提升心肺和代谢健康的空间。",
+      "action": "把步行、骑车或游泳分散到一周中，先增加现有活动的持续时间，再增加天数，逐步达到国家健康建议水平。",
+      "appliesWhen": {
+        "all": [
+          "exercise_below_150",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "exercise_below_150",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "exercise_at_least_150",
+          "exercise_unknown",
+          "exercise_medical_guidance_needed",
+          "exercise_medical_guidance_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "exercise_low"
+      ],
+      "priority": 897,
+      "dedupeKey": "REC4-health_capital-exercise_to_150",
+      "conflictsWith": [],
+      "sourceOrder": 104
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-medical_safe_exercise",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "按疾病限制选择安全运动",
+      "content": "慢性病或身体功能受限者的运动动作和强度需要考虑疾病与身体限制；未经评估直接套用通用方案，可能引发不适或受伤。",
+      "action": "先咨询医生或康复师，确认不能做的动作和可承受的运动强度，再从散步、坐姿力量练习、平衡训练或专业康复项目中选择合适的运动。",
+      "appliesWhen": {
+        "all": [
+          "exercise_medical_guidance_needed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "exercise_medical_guidance_needed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "exercise_medical_guidance_not_needed",
+          "exercise_medical_guidance_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "chronic_yes",
+        "hospital_yes"
+      ],
+      "priority": 896,
+      "dedupeKey": "REC4-health_capital-medical_safe_exercise",
+      "conflictsWith": [],
+      "sourceOrder": 105
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-strength_balance_add",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "在有氧运动中加入力量和平衡训练",
+      "content": "规律有氧运动并不一定覆盖肌力和平衡能力。",
+      "action": "在身体没有明确医疗限制且健康基础尚未达到全面较好时，保留现有有氧活动，加入下肢、髋部和核心力量练习以及安全平衡练习；出现疼痛、明显气促或其他不适时停止加量并进入医疗路径。",
+      "appliesWhen": {
+        "all": [
+          "exercise_at_least_150",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "exercise_at_least_150",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "exercise_medical_guidance_needed",
+          "exercise_medical_guidance_unknown",
+          "health_ready"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "exercise_at_least_150",
+        "exercise_medical_guidance_not_needed"
+      ],
+      "priority": 895,
+      "dedupeKey": "REC4-health_capital-strength_balance_add",
+      "conflictsWith": [],
+      "sourceOrder": 106
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-diet_one_replacement",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "尽量避免吃高盐高油高热量食物",
+      "content": "饮食管理不足时一次改变全部餐食难以长期执行。",
+      "action": "从本人最常吃的腌制品、油炸食品、肥肉或含糖饮料中选择一种，用清淡烹饪、瘦肉豆制品、白水或无糖饮品替代。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "diet_none",
+          "diet_low",
+          "diet_partial"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "diet_none",
+          "diet_low",
+          "diet_partial"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "diet_regular",
+          "diet_adequate",
+          "diet_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "chronic_hypertension",
+        "chronic_diabetes",
+        "chronic_hyperlipidemia"
+      ],
+      "priority": 894,
+      "dedupeKey": "REC4-health_capital-diet_one_replacement",
+      "conflictsWith": [],
+      "sourceOrder": 107
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-checkup_baseline",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "筛查基础慢病",
+      "content": "部分常见慢病早期可能缺少明显症状，长期不体检会减少较早发现健康异常的机会。",
+      "action": "前往正规医疗机构检测血压、血糖、血脂，并依据自身年龄与既往病史完成医生建议的基础体检项目；指标异常时按医生意见复查诊疗。",
+      "appliesWhen": {
+        "all": [
+          "checkup_never"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "checkup_never"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "checkup_regular",
+          "checkup_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "chronic_no",
+        "chronic_unknown"
+      ],
+      "priority": 893,
+      "dedupeKey": "REC4-health_capital-checkup_baseline",
+      "conflictsWith": [],
+      "sourceOrder": 108
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-rare_checkup_targeted",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "定期进行体检",
+      "content": "体检间隔过长容易错过常见慢病早期变化。",
+      "action": "先补做血压、血糖、血脂等基础项目，再按上次异常和医生建议安排复查，不用一次购买大量重复套餐。",
+      "appliesWhen": {
+        "all": [
+          "checkup_rare"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "checkup_rare"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "checkup_never",
+          "checkup_regular",
+          "checkup_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "monitoring_low",
+        "chronic_yes"
+      ],
+      "priority": 892,
+      "dedupeKey": "REC4-health_capital-rare_checkup_targeted",
+      "conflictsWith": [],
+      "sourceOrder": 109
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-monitoring_from_low",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "持续监测健康指标",
+      "content": "体检或日常监测记录不足时，难以连续观察指标变化，也不利于向医生提供稳定的复诊依据。",
+      "action": "结合体检结果、既往健康情况和医生建议，在血压、血糖、体重或其他明确需要监测的指标中选择一项，确定监测频率并持续记录；出现医生设定的异常值或不适症状时及时就医。",
+      "appliesWhen": {
+        "all": [
+          "monitoring_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "monitoring_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "monitoring_regular",
+          "monitoring_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "monitoring_low",
+        "checkup_rare",
+        "chronic_yes"
+      ],
+      "priority": 891,
+      "dedupeKey": "REC4-health_capital-monitoring_from_low",
+      "conflictsWith": [],
+      "sourceOrder": 110
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-post_hospital_rehab",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "住院后康复时，按康复方案恢复运动",
+      "content": "过去一年住院只提示核对当前是否仍有运动限制，不代表现在处于康复期或必须进行康复训练。",
+      "action": "先核对出院医嘱或既有评估中是否仍有当前适用的运动限制；有明确康复要求时按相应方案活动，不清楚时向原诊疗团队核实。已经恢复且无现行限制时，不默认安排康复训练。",
+      "appliesWhen": {
+        "all": [
+          "hospital_yes",
+          "exercise_medical_guidance_needed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "hospital_yes",
+          "exercise_medical_guidance_needed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "hospital_no",
+          "hospital_unknown",
+          "exercise_medical_guidance_not_needed",
+          "exercise_medical_guidance_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "exercise_low"
+      ],
+      "priority": 890,
+      "dedupeKey": "REC4-health_capital-post_hospital_rehab",
+      "conflictsWith": [],
+      "sourceOrder": 111
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-health_ready_preserve_muscle",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "把肌肉力量和行动能力作为健康重点",
+      "content": "健康习惯较好且运动规律的人仍可能随年龄增长出现肌肉和力量下降。",
+      "action": "在没有明确医疗限制的前提下，稳定保留下肢力量、平衡和负重活动，并用走路速度、坐站能力或专业评估观察行动能力变化；出现持续不适时停止自行加量。",
+      "appliesWhen": {
+        "all": [
+          "health_ready",
+          "chronic_no",
+          "exercise_at_least_150",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "health_ready",
+          "chronic_no",
+          "exercise_at_least_150",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_yes",
+          "chronic_unknown",
+          "exercise_none",
+          "exercise_below_150",
+          "exercise_unknown",
+          "exercise_medical_guidance_needed",
+          "exercise_medical_guidance_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_ready",
+        "chronic_no",
+        "exercise_at_least_150"
+      ],
+      "priority": 889,
+      "dedupeKey": "REC4-health_capital-health_ready_preserve_muscle",
+      "conflictsWith": [],
+      "sourceOrder": 112
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-health_capital-health_data_guides_training",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "根据体检和复诊意见不断调整运动计划",
+      "content": "体检和运动习惯较好时，也应根据后续体检和复诊形成的新信息调整运动计划。",
+      "action": "体检或复诊时说明长期参加的运动项目和每周时长；把医生明确提出的运动限制、需要停止运动的症状、复查时间和允许维持的项目写入运动计划。没有新增限制时维持原计划；出现新限制或不适时停止自行加量，并按医生或康复专业人员意见调整。",
+      "appliesWhen": {
+        "all": [
+          "health_ready",
+          "checkup_yearly",
+          "exercise_at_least_150",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "health_ready",
+          "checkup_yearly",
+          "exercise_at_least_150",
+          "exercise_medical_guidance_not_needed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "checkup_never",
+          "checkup_rare",
+          "checkup_every_2_3y",
+          "checkup_unknown",
+          "exercise_none",
+          "exercise_below_150",
+          "exercise_unknown",
+          "exercise_medical_guidance_needed",
+          "exercise_medical_guidance_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_ready",
+        "checkup_yearly",
+        "exercise_at_least_150",
+        "monitoring_regular"
+      ],
+      "priority": 888,
+      "dedupeKey": "REC4-health_capital-health_data_guides_training",
+      "conflictsWith": [],
+      "sourceOrder": 113
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC5-health_capital-chronic_long_term_plan",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "让慢病管理融入日常生活",
+      "content": "慢病管理要持续，需要把医生确定的用药、监测、饮食运动和复诊要求落实为日常安排。",
+      "action": "复诊时携带日常连续监测数据以及所有长期服用的药品，请医生统一确定当期用药方案、饮食要求、运动事项与复诊时间，不自行增加或减少药量。",
+      "appliesWhen": {
+        "all": [
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "chronic_yes",
+        "monitoring_regular",
+        "medical_path_normal",
+        "basic_medical_yes"
+      ],
+      "priority": 887,
+      "dedupeKey": "REC5-health_capital-chronic_long_term_plan",
+      "conflictsWith": [],
+      "sourceOrder": 114
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC51-health_capital-smoking_quit_relapse_prevention",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "用固定替代动作防止复吸",
+      "content": "已经戒烟的人在饭后、社交或压力场景仍可能复吸，一次“偶尔抽一支”容易重新回到日常吸烟。",
+      "action": "从过去最常吸烟的一个场景开始，预先安排短步行、喝水、嚼无糖口香糖或离开吸烟环境中的一种固定替代动作；出现连续强烈烟瘾或恢复吸烟时，使用正规戒烟门诊支持。",
+      "appliesWhen": {
+        "all": [
+          "smoking_quit"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "smoking_quit"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "smoking_current",
+          "smoking_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "smoking_quit",
+        "smoking_not_current",
+        "chronic_yes"
+      ],
+      "priority": 886,
+      "dedupeKey": "REC51-health_capital-smoking_quit_relapse_prevention",
+      "conflictsWith": [],
+      "sourceOrder": 115
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-choose_recurring_activity",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "定期参加一项固定活动",
+      "content": "退休生活没有固定的活动规划，作息容易散漫无序，同时缺少稳定的社交渠道，易产生孤单、生活空虚等问题。",
+      "action": "从徒步社群、社区课堂、图书馆活动、兴趣学习班、公益志愿工作里，挑选自己发自内心愿意参与、可定期开展的一项活动，完成报名或是初次到场参与。",
+      "appliesWhen": {
+        "all": [
+          "activity_unplanned"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "activity_unplanned"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_vague",
+          "activity_planned",
+          "activity_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_channel_known",
+        "activity_cost_known"
+      ],
+      "priority": 885,
+      "dedupeKey": "REC4-activity_social-choose_recurring_activity",
+      "conflictsWith": [],
+      "sourceOrder": 116
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-vague_to_next_session",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "把对某件事情的兴趣落实到行动上",
+      "content": "仅规划出游、健身、学习等事项，没有落地细节，很难真正行动起来，也没法摸清自身体力、花销是否匹配该项活动。",
+      "action": "选定一项个人兴趣，敲定下次活动的具体内容、地点、时间以及参与形式，亲身实地体验一次。",
+      "appliesWhen": {
+        "all": [
+          "activity_vague"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "activity_vague"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_unplanned",
+          "activity_planned",
+          "activity_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_time_missing",
+        "activity_channel_missing"
+      ],
+      "priority": 884,
+      "dedupeKey": "REC4-activity_social-vague_to_next_session",
+      "conflictsWith": [],
+      "sourceOrder": 117
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-activity_time_anchor",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "把活动安排进固定日程",
+      "content": "活动时间未确定时，既定活动容易被其他日常事务挤占。",
+      "action": "挑选自身空闲充裕、体力较好的时间段，将一项长期参与的活动固定标注在日历中。",
+      "appliesWhen": {
+        "all": [
+          "activity_time_missing",
+          "activity_planned"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "activity_time_missing",
+          "activity_planned"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_time_known",
+          "activity_unplanned",
+          "activity_vague",
+          "activity_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_details_partial"
+      ],
+      "priority": 883,
+      "dedupeKey": "REC4-activity_social-activity_time_anchor",
+      "conflictsWith": [],
+      "sourceOrder": 118
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-activity_channel_action",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "对感兴趣的活动完成活动报名，并定期参加",
+      "content": "仅有参与活动的想法，找不到参与渠道与场地，想法只会一直搁置，没法落地执行。",
+      "action": "选定一处真实可参与的社区团体、线下场馆、实体课程或者正规线上平台，完成报名入群或是线下初次参与，不用一次性搜集堆砌过多备选项目。",
+      "appliesWhen": {
+        "all": [
+          "activity_channel_missing",
+          "activity_planned"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "activity_channel_missing",
+          "activity_planned"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_channel_known",
+          "activity_unplanned",
+          "activity_vague",
+          "activity_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_cost_known"
+      ],
+      "priority": 882,
+      "dedupeKey": "REC4-activity_social-activity_channel_action",
+      "conflictsWith": [],
+      "sourceOrder": 119
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-activity_cost_cap",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "选择不挤占必要支出的活动，避免业余活动过度影响日常开支",
+      "content": "不清楚参与活动的实际花费，很容易在兴趣消费上超支，挪用本该用于日常吃喝、看病、照护的钱。",
+      "action": "优先更换成社区免费场地、单次收费、短期体验这类低成本活动；体验确认合适之后，再办理长期会员、缴纳年费。",
+      "appliesWhen": {
+        "all": [
+          "activity_cost_missing"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "activity_cost_missing"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_unplanned",
+          "activity_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cashflow_gap",
+        "basic_gap",
+        "routine_gap",
+        "care_funding_gap"
+      ],
+      "priority": 881,
+      "dedupeKey": "REC4-activity_social-activity_cost_cap",
+      "conflictsWith": [],
+      "sourceOrder": 120
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-one_activity_add_social",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "选择有社交成分的活动",
+      "content": "只有一类活动且整体社会支持较弱时，单独参加的兴趣难以增加稳定联系。",
+      "action": "保留原有兴趣，在同一主题中加入固定课程、小组或公开活动，让同一批人能够重复见面；朋友或邻里支持本身较弱时，优先使用“通过固定活动小组建立非亲属支持”这一更具体的行动。",
+      "appliesWhen": {
+        "all": [
+          "activity_one"
+        ],
+        "any": [
+          "social_support_weak"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "activity_one"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_two_or_more",
+          "activity_answer_unknown",
+          "social_support_strong",
+          "nonkin_support_weak"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_one",
+        "activity_planned",
+        "social_support_weak"
+      ],
+      "priority": 880,
+      "dedupeKey": "REC4-activity_social-one_activity_add_social",
+      "conflictsWith": [],
+      "sourceOrder": 121
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-public_low_cost_channel",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "选择公共、公益活动，慎重考虑高成本长期会员（例如健身卡）",
+      "content": "现金流紧张时高价课程和会员难以持续，但完全取消活动会降低生活质量。",
+      "action": "优先使用社区、公园、图书馆、公共体育场馆或公益课程，先按次参加，不签长期预付合同。",
+      "appliesWhen": {
+        "all": [
+          "cashflow_gap",
+          "activity_planned"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "cashflow_gap",
+          "activity_planned"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "cashflow_balanced",
+          "cashflow_surplus",
+          "activity_unplanned",
+          "activity_vague",
+          "activity_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_cost_known"
+      ],
+      "priority": 879,
+      "dedupeKey": "REC4-activity_social-public_low_cost_channel",
+      "conflictsWith": [],
+      "sourceOrder": 122
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-health_matched_activity",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "根据身体状况量力而行，选择身体能够长期承受的活动",
+      "content": "有疾病或行动限制的人参加强度过高的活动，容易因受伤而彻底中断。",
+      "action": "按医生或康复建议排除禁忌动作，从低冲击、有休息点、可随时停止的项目开始。",
+      "appliesWhen": {
+        "all": [
+          "exercise_medical_guidance_needed",
+          "activity_planned"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "exercise_medical_guidance_needed",
+          "activity_planned"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "exercise_medical_guidance_not_needed",
+          "exercise_medical_guidance_unknown",
+          "activity_unplanned",
+          "activity_vague",
+          "activity_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low"
+      ],
+      "priority": 878,
+      "dedupeKey": "REC4-activity_social-health_matched_activity",
+      "conflictsWith": [],
+      "sourceOrder": 123
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-weak_support_repeat_group",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "加入固定活动社群，搭建亲友以外的互助人脉",
+      "content": "朋友或邻里支持较弱时，偶尔联系不容易形成可持续的互助关系。",
+      "action": "从同学、同事、邻里或共同兴趣关系中选择一个人员相对固定的活动社群，保持规律参加；在自然交往基础上与一至两位成员互换联系方式，并从一次共同活动或小事互助开始建立稳定联系。",
+      "appliesWhen": {
+        "all": [
+          "nonkin_support_weak"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "nonkin_support_weak"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "nonkin_support_none",
+          "nonkin_support_strong",
+          "nonkin_support_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_planned",
+        "social_support_weak"
+      ],
+      "priority": 877,
+      "dedupeKey": "REC4-activity_social-weak_support_repeat_group",
+      "conflictsWith": [],
+      "sourceOrder": 124
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-no_nonkin_start_local",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "从居住地附近建立一个或多个熟人联系",
+      "content": "完全没有非亲属支持，会让突发健康变化和独居风险更难被及时发现。",
+      "action": "在常去的社区活动、运动场地或公共服务点固定参加同一项目，先建立一个能够互相联系的熟人关系。",
+      "appliesWhen": {
+        "all": [
+          "nonkin_support_none"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "nonkin_support_none"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "nonkin_support_one_two",
+          "nonkin_support_strong",
+          "nonkin_support_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_channel_known"
+      ],
+      "priority": 876,
+      "dedupeKey": "REC4-activity_social-no_nonkin_start_local",
+      "conflictsWith": [],
+      "sourceOrder": 125
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-family_contact_specific",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "约定固定共处事项，维系稳定的家人关系",
+      "content": "泛泛要求“多联系家人”不容易落实，把联系形式和下一次时间约定清楚更容易持续。",
+      "action": "选择双方都愿意参与的定期通话、聚餐、结伴散步或线上互动，敲定下一次具体安排；日常联系不默认附带家人提供照护的责任。",
+      "appliesWhen": {
+        "all": [
+          "family_contact_weak"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "family_contact_weak"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "family_contact_regular",
+          "family_contact_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "children_positive",
+        "married"
+      ],
+      "priority": 875,
+      "dedupeKey": "REC4-activity_social-family_contact_specific",
+      "conflictsWith": [],
+      "sourceOrder": 126
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-strong_support_shared_activity",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "邀请亲属、朋友共同进行活动",
+      "content": "社会支持较强但活动仍可能依赖临时邀约，固定共同活动更容易长期持续。",
+      "action": "从已经落实的活动同伴中选择一项双方都能持续参加的活动，确定下一次安排；不把活动同伴默认写成照护者。",
+      "appliesWhen": {
+        "all": [
+          "social_support_strong",
+          "activity_planned",
+          "activity_partner_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "social_support_strong",
+          "activity_planned",
+          "activity_partner_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "social_support_weak",
+          "activity_unplanned",
+          "activity_vague",
+          "activity_answer_unknown",
+          "activity_partner_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_details_complete"
+      ],
+      "priority": 874,
+      "dedupeKey": "REC4-activity_social-strong_support_shared_activity",
+      "conflictsWith": [],
+      "sourceOrder": 127
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-activity_social-trial_before_prepaid",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "对某件活动感兴趣时避免冲动，先体验再支付长期活动费用",
+      "content": "课程、会员和旅行项目与身体、时间或兴趣不匹配时，长期预付很难退出。",
+      "action": "先使用单次体验、按次付费或短期项目，确认能够持续参加后再决定长期付款。",
+      "appliesWhen": {
+        "all": [
+          "activity_planned",
+          "activity_cost_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "activity_planned",
+          "activity_cost_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_unplanned",
+          "activity_vague",
+          "activity_answer_unknown",
+          "activity_cost_missing",
+          "basic_gap",
+          "routine_gap",
+          "major_gap",
+          "care_funding_gap"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_details_complete"
+      ],
+      "priority": 873,
+      "dedupeKey": "REC4-activity_social-trial_before_prepaid",
+      "conflictsWith": [],
+      "sourceOrder": 128
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC52-activity_social-independent_activity_backup",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "保留一项不依赖同伴也能参加的退休活动",
+      "content": "活动和社会支持都安排得较好的人，如果所有活动都依赖固定同伴，同伴临时不能参加时仍可能连续中断。",
+      "action": "在已安排的多类活动中，保留一项本人可以独立到达、独立完成且不需要长期预付的活动，同时继续参加原有结伴活动。",
+      "appliesWhen": {
+        "all": [
+          "activity_two_or_more",
+          "activity_details_complete",
+          "activity_partner_known"
+        ],
+        "any": [
+          "social_support_strong"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "activity_two_or_more",
+          "activity_details_complete",
+          "activity_partner_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_unplanned",
+          "activity_vague",
+          "activity_answer_unknown",
+          "activity_one",
+          "activity_details_missing",
+          "activity_details_unknown",
+          "social_support_weak"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_two_or_more",
+        "activity_details_complete",
+        "activity_partner_known",
+        "social_support_strong"
+      ],
+      "priority": 872,
+      "dedupeKey": "REC52-activity_social-independent_activity_backup",
+      "conflictsWith": [],
+      "sourceOrder": 129
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC6-activity_social-emergency-contact",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "随身携带家人或亲朋好友的联系方式，并可使用能预警通知的健康管理设备",
+      "content": "突发疾病或行动受限时，没有可立即找到的联系人会增加就医和照护对接困难。",
+      "action": "优先确定一名家人、亲朋好友或邻里作为紧急联系人，把有效联系方式随身携带并定期复核；本人愿意且能够使用设备时，可启用具有一键呼叫或异常预警通知功能的健康管理设备，并完成一次通知测试。没有合适求助人员时，联系居委会或当地养老服务机构，登记可用的紧急呼救、上门探访或陪诊服务。不得因标题提及设备而推断本人已经持有或必须购买设备。",
+      "appliesWhen": {
+        "all": [
+          "support_agent_none"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "support_agent_none"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "support_agent_known",
+          "support_agent_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "support_agent_none",
+        "family_contact_weak",
+        "nonkin_support_weak"
+      ],
+      "priority": 871,
+      "dedupeKey": "REC6-activity_social-emergency-contact",
+      "conflictsWith": [],
+      "sourceOrder": 130
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-care_plan_medical_route",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "照护方案接入常用医疗机构，实现医养结合",
+      "content": "失能照护期间常见用药、复诊和急性变化，如果照护服务与医疗机构没有衔接，容易延误处理。",
+      "action": "在已确定的退休居住地选择一家常用医疗机构，让主要照护服务知道送医、复诊和处方续开的实际路径。",
+      "appliesWhen": {
+        "all": [
+          "care_plan_ready",
+          "retirement_city_known",
+          "care_resource_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_plan_ready",
+          "retirement_city_known",
+          "care_resource_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_plan_low",
+          "retirement_city_unknown",
+          "retirement_city_unplanned",
+          "retirement_city_answer_unknown",
+          "care_resource_unknown",
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "medical_path_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_yes",
+        "medical_path_normal"
+      ],
+      "priority": 870,
+      "dedupeKey": "REC4-care_planning-care_plan_medical_route",
+      "conflictsWith": [],
+      "sourceOrder": 131
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-unknown_mode_trial",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "大致了解照护方式与价格水平，并与家人商讨此话题",
+      "content": "尚未考虑失能后的照护方式时，缺少对服务内容、价格和家人可投入程度的基本认识，难以形成可执行安排。",
+      "action": "通过官方或正规服务机构大致了解家庭照护、上门照护、机构照护和社区照护的服务内容与价格区间，记录不能接受或明显无法持续承担的安排；随后与可能参与的家人商讨本人偏好、家人可承担部分和需要外部服务的边界。信息不足时先保留待核实项，不先签约或付款。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_community",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_mode_not_considered",
+        "care_consensus_not_discussed",
+        "care_consensus_disputed"
+      ],
+      "priority": 869,
+      "dedupeKey": "REC4-care_planning-unknown_mode_trial",
+      "conflictsWith": [],
+      "sourceOrder": 132
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-family_capacity_professional",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "先核实家庭照护可承担范围",
+      "content": "问卷显示家庭照护技能或时间条件尚未完整确认；这不等于家人实际无力照护，也不能直接认定存在需要付费填补的任务空档。",
+      "action": "先与家人核实愿意承担的任务、时间、精力及需学习的护理事项，不扩大未承诺的责任。若核实存在实际缺口，且有现实照护需求和可用资源，再比较培训、家庭协作或具备相应资质的专业服务；暂未出现需求时，可把核实安排在适当的家庭沟通和退休准备时点。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_family",
+          "care_family_capacity_gap"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_family",
+          "care_family_capacity_gap"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_family_capacity_complete",
+          "care_family_resource_unknown",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_mode_family",
+        "care_mode_home"
+      ],
+      "priority": 868,
+      "dedupeKey": "REC4-care_planning-family_capacity_professional",
+      "conflictsWith": [],
+      "sourceOrder": 133
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-home_provider_first_use",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "提前核验上门照护服务，不要盲目选择",
+      "content": "居家照护资源如果只知道名称，仍无法判断服务人员、服务内容、收费和临时替换规则是否适合未来使用。",
+      "action": "现在先通过公开登记信息和正式咨询核对至少一家上门服务的资质、项目、人员要求、收费方式、替换和退订规则；等实际有照护需要时，再根据当时情况决定是否试用或长期使用。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_home",
+          "care_home_resource_incomplete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_home",
+          "care_home_resource_incomplete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_institution",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_home_resource_complete",
+          "care_home_resource_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_home_price_or_affordability_gap"
+      ],
+      "priority": 867,
+      "dedupeKey": "REC4-care_planning-home_provider_first_use",
+      "conflictsWith": [],
+      "sourceOrder": 134
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-institution_shortlist_visit",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "实地考察可负担的候选机构",
+      "content": "床位、价格或服务内容尚未核实时，不能只凭宣传确定机构。",
+      "action": "先从公开信息核对床位、护理等级、收费项目和退费规则，再选择至少一家候选机构实地参观，观察用药、进食、夜间响应和送医流程。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_institution",
+          "care_institution_resource_incomplete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_institution",
+          "care_institution_resource_incomplete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_institution_resource_complete",
+          "care_institution_resource_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_institution_price_known"
+      ],
+      "priority": 866,
+      "dedupeKey": "REC4-care_planning-institution_shortlist_visit",
+      "conflictsWith": [],
+      "sourceOrder": 135
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-institution_contract_exit",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "签订养老机构服务合同前，明确护理升级、费用变更和退费规则",
+      "content": "选择养老机构后，护理等级变化、费用调整和退出退费规则不清，可能在长期服务中产生争议。",
+      "action": "在签订养老机构服务合同前，把护理等级调整条件、费用变更方式、押金退还、请假住院、解除合同和退费规则写入合同，并确认双方对这些条款的理解一致。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_institution",
+          "care_institution_resource_complete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_institution",
+          "care_institution_resource_complete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_institution_resource_none",
+          "care_institution_resource_incomplete",
+          "care_institution_resource_unknown",
+          "care_institution_price_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_institution_price_known"
+      ],
+      "priority": 865,
+      "dedupeKey": "REC4-care_planning-institution_contract_exit",
+      "conflictsWith": [],
+      "sourceOrder": 136
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-community_service_first_use",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "提前核验社区照护服务和申请条件",
+      "content": "倾向社区照护，但服务项目、申请条件和收费尚未核实，退休前的偏好还不能直接转化为可执行安排。",
+      "action": "先向居住地社区或官方服务渠道核对是否提供相关服务、服务清单、申请条件和公开收费，并记录咨询渠道与日期；等有实际需要时，再按当时的身体状况和服务可用性决定申请。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_community",
+          "care_community_resource_incomplete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_community",
+          "care_community_resource_incomplete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_community_resource_complete",
+          "care_community_resource_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_community_availability_missing"
+      ],
+      "priority": 864,
+      "dedupeKey": "REC4-care_planning-community_service_first_use",
+      "conflictsWith": [],
+      "sourceOrder": 137
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-community_gap_paid_backup",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "先核实社区服务范围与可用资源",
+      "content": "目前对社区照护的了解尚不完整，不能据此判断社区服务存在实际空白，也不能推断本人已经需要付费照护。",
+      "action": "先核实社区提供哪些服务、开放时段和申请条件，保留已经确认的信息。若核实存在实际缺口，且有现实照护需求和可用资源，再结合家庭可承担范围与预算比较社区外的备选服务；不默认购买服务或扩大未承诺的家庭责任。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_community",
+          "care_community_resource_incomplete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_community",
+          "care_community_resource_incomplete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_community_resource_complete",
+          "care_community_resource_unknown",
+          "care_budget_unknown",
+          "care_resource_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_budget_known",
+        "care_resource_known"
+      ],
+      "priority": 863,
+      "dedupeKey": "REC4-care_planning-community_gap_paid_backup",
+      "conflictsWith": [],
+      "sourceOrder": 138
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-not_discussed_user_preference",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "讨论照护方式时，先明确本人不能接受的照护安排",
+      "content": "尚未讨论照护的人如果直接询问家人意见，容易忽略本人意愿。",
+      "action": "先写明本人不能接受的地点、护理方式和资金使用边界，再与可能参与的人讨论可承担部分。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "care_consensus_not_discussed",
+          "care_consensus_disputed"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "care_consensus_not_discussed",
+          "care_consensus_disputed"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_consensus_strong",
+          "care_consensus_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_mode_answer_unknown",
+        "children_positive"
+      ],
+      "priority": 862,
+      "dedupeKey": "REC4-care_planning-not_discussed_user_preference",
+      "conflictsWith": [],
+      "sourceOrder": 139
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-unknown_budget_minimum_package",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "预算不足时，先落实最小安全照护组合，然后增加附加服务",
+      "content": "照护资金不足时，直接承诺完整服务套餐可能挤占必要生活和医疗资金。",
+      "action": "在已经明确的照护资源中，先按进食、如厕、移动、用药和夜间安全等必要任务核实真实服务价格，形成最小安全照护组合和预算基线；资金仍不足时先缩减附加服务并重新安排资金来源，不先签订超出可持续负担的合同。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_resource_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_resource_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "finance_profile_missing",
+          "care_resource_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_funding_gap",
+        "care_resource_known",
+        "finance_profile_known"
+      ],
+      "priority": 861,
+      "dedupeKey": "REC4-care_planning-unknown_budget_minimum_package",
+      "conflictsWith": [],
+      "sourceOrder": 140
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC4-care_planning-interruption_backup_test",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "实际试用一次备用照护服务",
+      "content": "照护方案已经较完整，也可能因服务人员变化、机构停业或临时停供而无法继续。",
+      "action": "从本人能够接受且预算可承担的同类服务中选一个替代渠道，完成一次短时试用，验证联系、人员、费用和交接流程；不要求亲友承担未承诺的备用责任。",
+      "appliesWhen": {
+        "all": [
+          "care_plan_ready",
+          "care_resource_known",
+          "care_budget_known"
+        ],
+        "any": [
+          "care_arrangement_no_issue"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_plan_ready",
+          "care_resource_known",
+          "care_budget_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_plan_low",
+          "care_resource_unknown",
+          "care_budget_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_resource_followup_known"
+      ],
+      "priority": 860,
+      "dedupeKey": "REC4-care_planning-interruption_backup_test",
+      "conflictsWith": [],
+      "sourceOrder": 141
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC65-major_medical-debt-pressure-no-surplus",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "无结余时先核对债务负担并保留必要医疗资金",
+      "content": "家庭仍有债务和月度还款，医疗压力资金存在缺口，同时当前收支为赤字或持平；此时不能将并不存在的结余用于提前还款。",
+      "action": "先列明必要生活、基本参保、必要医疗支出及合同还款义务，核对每笔债务余额、实际成本和剩余期限，并查明已有医保及可用保障。停止新增非必要借贷和非必要长期支出；确有还款困难时，主动向贷款机构了解合同允许的调整或协商安排，不能承诺减免、擅自停供或要求提前还款。资金改善后再讨论可承受的医疗备用金积累。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "debt_yes",
+          "debt_payment_positive",
+          "finance_profile_known"
+        ],
+        "any": [
+          "cashflow_gap",
+          "cashflow_balanced"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "debt_yes",
+          "debt_payment_positive",
+          "finance_profile_known"
+        ],
+        "any": [
+          "cashflow_gap",
+          "cashflow_balanced"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "debt_no",
+          "debt_unknown",
+          "debt_payment_none",
+          "debt_payment_unknown",
+          "finance_profile_missing",
+          "cashflow_surplus"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "debt_yes",
+        "debt_payment_positive",
+        "finance_profile_known",
+        "cashflow_gap",
+        "cashflow_balanced"
+      ],
+      "priority": 953,
+      "dedupeKey": "REC65-major_medical-debt-pressure-no-surplus",
+      "conflictsWith": [],
+      "sourceOrder": 142
+    },
+    {
+      "kind": "recommendation",
+      "ruleId": "REC65-activity_social-verify-practical-support",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "核实并维护可求助的实际支持网络",
+      "content": "亲属实际支持人数较少时，应结合已经存在的亲友和社区联系核实可提供的帮助，不能假定家人已经承诺长期照护。",
+      "action": "在合适的沟通时点询问愿意协助的人可以提供哪些帮助及联系方式，保留已有活动和联系。没有可用亲属时，结合现有非亲属或可获得的社区资源讨论备选；只有现实需求明确时才安排具体协助，不要求为提高分数增加联系人或立即购买服务。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "kin_support_none",
+          "kin_support_one_two"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "kin_support_none",
+          "kin_support_one_two"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "kin_support_strong",
+          "kin_support_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "kin_support_none",
+        "kin_support_one_two",
+        "nonkin_support_none",
+        "nonkin_support_one_two",
+        "nonkin_support_strong"
+      ],
+      "priority": 935,
+      "dedupeKey": "REC65-activity_social-verify-practical-support",
+      "conflictsWith": [],
+      "sourceOrder": 143
+    }
+  ]
+}

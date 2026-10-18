@@ -1,0 +1,59 @@
+{
+  "beijing": {
+    "mode": "offline_rules",
+    "monthly_total_income": 49252,
+    "monthly_total_expense": 9387,
+    "monthly_gap": 39865,
+    "coverage_indices": {
+      "basic_living": 3.082795705078,
+      "routine_medical": 2.920543299548,
+      "major_medical": 4.636132493188,
+      "long_term_care": 2.237597480939
+    },
+    "scores": {
+      "financial_cognition": 85,
+      "financial_behavior": 100,
+      "health_capital": 87,
+      "activity_social": 85,
+      "care_planning": 46
+    }
+  },
+  "kunming": {
+    "mode": "offline_rules",
+    "monthly_total_income": 4123,
+    "monthly_total_expense": 3741,
+    "monthly_gap": 382,
+    "coverage_indices": {
+      "basic_living": 0.9877400912016,
+      "routine_medical": 0.9339855284151,
+      "major_medical": 1.351425567345,
+      "long_term_care": 0.5380402028816
+    },
+    "scores": {
+      "financial_cognition": 48,
+      "financial_behavior": 86,
+      "health_capital": 71,
+      "activity_social": 35,
+      "care_planning": 36
+    }
+  },
+  "tangshan": {
+    "mode": "offline_rules",
+    "monthly_total_income": 7788,
+    "monthly_total_expense": 4659,
+    "monthly_gap": 3129,
+    "coverage_indices": {
+      "basic_living": 1.633194019583,
+      "routine_medical": 1.407406827936,
+      "major_medical": 1.77671631828,
+      "long_term_care": 0.8984003716565
+    },
+    "scores": {
+      "financial_cognition": 77,
+      "financial_behavior": 97,
+      "health_capital": 80,
+      "activity_social": 100,
+      "care_planning": 61
+    }
+  }
+}

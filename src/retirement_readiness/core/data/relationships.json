@@ -1,0 +1,811 @@
+{
+  "schemaVersion": "problem-recommendation-relationships/1.1.0",
+  "version": "1.4.0",
+  "relations": [
+    {
+      "relationId": "REL-001",
+      "problemId": "basic_living.problem.cashflow-gap",
+      "recommendationId": "REC6-basic_living-gap-priority-path",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-002",
+      "problemId": "basic_living.problem.current-cashflow-gap",
+      "recommendationId": "REC6-basic_living-current-gap-reset",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-003",
+      "problemId": "basic_living.problem.debt-payment-pressure",
+      "recommendationId": "REC4-basic_living-end_new_installments",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-004",
+      "problemId": "basic_living.problem.debt-payment-pressure",
+      "recommendationId": "REC4-basic_living-retirement_debt_exit",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-005",
+      "problemId": "basic_living.problem.household-no-basic-pension",
+      "recommendationId": "REC6-basic_living-household-pension-path",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-006",
+      "problemId": "basic_living.problem.household-one-basic-pension",
+      "recommendationId": "REC6-basic_living-household-pension-path",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-007",
+      "problemId": "basic_living.problem.multi-region-path-gap",
+      "recommendationId": "REC6-basic_living-multi-region-benefit-city",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-008",
+      "problemId": "basic_living.problem.zero-income-gap",
+      "recommendationId": "REC6-basic_living-current-gap-reset",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-009",
+      "problemId": "basic_living.problem.retirement-city-unknown",
+      "recommendationId": "REC6-basic_living-retirement-city-scenarios",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-010",
+      "problemId": "routine_medical.problem.funding-gap",
+      "recommendationId": "REC6-routine_medical-gap-priority-list",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-011",
+      "problemId": "routine_medical.problem.basic-medical-absent",
+      "recommendationId": "REC4-routine_medical-restore_basic_medical",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-012",
+      "problemId": "routine_medical.problem.procedure-unclear",
+      "recommendationId": "REC6-routine_medical-resolve-actual-barrier",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-013",
+      "problemId": "routine_medical.problem.multi-region-path-gap",
+      "recommendationId": "REC4-routine_medical-cross_region_filing",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-014",
+      "problemId": "routine_medical.problem.public-medical-process-problem",
+      "recommendationId": "REC6-routine_medical-resolve-actual-barrier",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-015",
+      "problemId": "routine_medical.problem.basic-medical-unknown",
+      "recommendationId": "REC6-routine_medical-verify-basic-medical",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-016",
+      "problemId": "routine_medical.problem.spouse-basic-medical-absent",
+      "recommendationId": "REC4-routine_medical-spouse_medical_enrollment",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-017",
+      "problemId": "major_medical.problem.funding-gap",
+      "recommendationId": "REC6-major_medical-first-payment-source",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-018",
+      "problemId": "major_medical.problem.commercial-coverage-absent",
+      "recommendationId": "REC6-major_medical-first-payment-source",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-019",
+      "problemId": "major_medical.problem.limited-commercial-coverage",
+      "recommendationId": "REC6-major_medical-first-payment-source",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-021",
+      "problemId": "major_medical.problem.debt-payment-pressure",
+      "recommendationId": "REC6-major_medical-first-payment-source",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-022",
+      "problemId": "long_term_care.problem.funding-gap",
+      "recommendationId": "REC6-long_term_care-gap-first-source",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-023",
+      "problemId": "long_term_care.problem.home-resource-unknown",
+      "recommendationId": "REC4-long_term_care-home_service_package",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-024",
+      "problemId": "long_term_care.problem.institution-resource-unknown",
+      "recommendationId": "REC4-long_term_care-institution_trial",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-025",
+      "problemId": "long_term_care.problem.community-resource-unknown",
+      "recommendationId": "REC4-long_term_care-community_service_use",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-026",
+      "problemId": "long_term_care.problem.commercial-coverage-absent",
+      "recommendationId": "REC6-long_term_care-gap-first-source",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-027",
+      "problemId": "long_term_care.problem.mode-unknown",
+      "recommendationId": "REC6-long_term_care-compare-care-modes",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-028",
+      "problemId": "financial_cognition.problem.single-stock-misconception",
+      "recommendationId": "REC6-financial_cognition-verify-one-concept",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-029",
+      "problemId": "financial_cognition.problem.single-stock-misconception",
+      "recommendationId": "REC4-financial_cognition-diversify_single_stock",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-030",
+      "problemId": "financial_cognition.problem.personal-cost-underestimate",
+      "recommendationId": "REC6-financial_cognition-personal-responsibility-budget",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-032",
+      "problemId": "financial_cognition.problem.saving-refused",
+      "recommendationId": "REC6-financial_cognition-one-page-first-action",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-033",
+      "problemId": "financial_cognition.problem.inflation-unrecognized",
+      "recommendationId": "REC4-financial_cognition-inflation_adjust_income",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-034",
+      "problemId": "financial_cognition.problem.pension-policy-knowledge-gap",
+      "recommendationId": "REC6-financial_cognition-pension-policy-checklist",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-035",
+      "problemId": "financial_cognition.problem.pension-income-unestimated",
+      "recommendationId": "REC6-financial_cognition-pension-income-estimate",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-036",
+      "problemId": "financial_cognition.problem.retirement-expense-unestimated",
+      "recommendationId": "REC6-financial_cognition-retirement-expense-budget",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-037",
+      "problemId": "financial_cognition.problem.reserve-not-assessed",
+      "recommendationId": "REC6-financial_cognition-reserve-sustainability-check",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-038",
+      "problemId": "financial_cognition.problem.reserve-self-reported-insufficient",
+      "recommendationId": "REC6-financial_cognition-reserve-sustainability-check",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-039",
+      "problemId": "financial_cognition.problem.plan-not-prioritized",
+      "recommendationId": "REC6-financial_cognition-one-page-first-action",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-040",
+      "problemId": "financial_cognition.problem.plan-incomplete",
+      "recommendationId": "REC6-financial_cognition-one-page-first-action",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-041",
+      "problemId": "financial_cognition.problem.plan-incomplete",
+      "recommendationId": "REC4-financial_cognition-one_priority_plan",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-042",
+      "problemId": "financial_cognition.problem.plan-confidence-low",
+      "recommendationId": "REC6-financial_cognition-one-page-first-action",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-043",
+      "problemId": "financial_cognition.problem.saving-undecided",
+      "recommendationId": "REC6-financial_cognition-one-page-first-action",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-045",
+      "problemId": "financial_cognition.problem.financial-literacy-uncertain",
+      "recommendationId": "REC6-financial_cognition-verify-one-concept",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-046",
+      "problemId": "health_capital.problem.current-smoking",
+      "recommendationId": "REC4-health_capital-smoking_quit_date",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-048",
+      "problemId": "health_capital.problem.frequent-drinking",
+      "recommendationId": "REC4-health_capital-alcohol_remove_routine",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-049",
+      "problemId": "health_capital.problem.exercise-low",
+      "recommendationId": "REC4-health_capital-exercise_walk_start",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-050",
+      "problemId": "health_capital.problem.exercise-low",
+      "recommendationId": "REC4-health_capital-medical_safe_exercise",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-051",
+      "problemId": "health_capital.problem.exercise-low",
+      "recommendationId": "REC4-health_capital-exercise_to_150",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-052",
+      "problemId": "health_capital.problem.checkup-low",
+      "recommendationId": "REC4-health_capital-checkup_baseline",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-053",
+      "problemId": "health_capital.problem.checkup-low",
+      "recommendationId": "REC4-health_capital-rare_checkup_targeted",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-054",
+      "problemId": "health_capital.problem.monitoring-low",
+      "recommendationId": "REC4-health_capital-monitoring_from_low",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-055",
+      "problemId": "health_capital.problem.diet-none",
+      "recommendationId": "REC4-health_capital-diet_one_replacement",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-056",
+      "problemId": "health_capital.problem.diet-low",
+      "recommendationId": "REC4-health_capital-diet_one_replacement",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-057",
+      "problemId": "health_capital.problem.chronic-management-pressure",
+      "recommendationId": "REC5-health_capital-chronic_long_term_plan",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-058",
+      "problemId": "health_capital.problem.general-monitoring-low",
+      "recommendationId": "REC4-health_capital-monitoring_from_low",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-059",
+      "problemId": "activity_social.problem.activity-unplanned",
+      "recommendationId": "REC4-activity_social-choose_recurring_activity",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-060",
+      "problemId": "activity_social.problem.activity-unplanned",
+      "recommendationId": "REC4-activity_social-vague_to_next_session",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-061",
+      "problemId": "activity_social.problem.activity-details-missing",
+      "recommendationId": "REC4-activity_social-activity_time_anchor",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-062",
+      "problemId": "activity_social.problem.activity-details-missing",
+      "recommendationId": "REC4-activity_social-activity_channel_action",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-063",
+      "problemId": "activity_social.problem.activity-details-missing",
+      "recommendationId": "REC4-activity_social-activity_cost_cap",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-064",
+      "problemId": "activity_social.problem.emergency-contact-missing",
+      "recommendationId": "REC6-activity_social-emergency-contact",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-065",
+      "problemId": "activity_social.problem.family-contact-weak",
+      "recommendationId": "REC4-activity_social-family_contact_specific",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-066",
+      "problemId": "activity_social.problem.nonkin-support-weak",
+      "recommendationId": "REC4-activity_social-weak_support_repeat_group",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-067",
+      "problemId": "activity_social.problem.nonkin-support-weak",
+      "recommendationId": "REC4-activity_social-no_nonkin_start_local",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-068",
+      "problemId": "care_planning.problem.mode-and-consensus-unknown",
+      "recommendationId": "REC4-care_planning-unknown_mode_trial",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-069",
+      "problemId": "care_planning.problem.mode-and-consensus-unknown",
+      "recommendationId": "REC4-care_planning-not_discussed_user_preference",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-070",
+      "problemId": "care_planning.problem.mode-undecided",
+      "recommendationId": "REC4-care_planning-unknown_mode_trial",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-071",
+      "problemId": "care_planning.problem.family-resource-unknown",
+      "recommendationId": "REC4-care_planning-family_capacity_professional",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-072",
+      "problemId": "care_planning.problem.home-resource-unknown",
+      "recommendationId": "REC4-care_planning-home_provider_first_use",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-073",
+      "problemId": "care_planning.problem.institution-resource-unknown",
+      "recommendationId": "REC4-care_planning-institution_shortlist_visit",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-074",
+      "problemId": "care_planning.problem.community-resource-incomplete",
+      "recommendationId": "REC4-care_planning-community_service_first_use",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-075",
+      "problemId": "care_planning.problem.family-consensus-gap",
+      "recommendationId": "REC4-care_planning-not_discussed_user_preference",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-076",
+      "problemId": "basic_living.problem.property-without-accessible-financial-assets",
+      "recommendationId": "REC4-basic_living-property_heavy_new_savings",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-077",
+      "problemId": "basic_living.problem.cashflow-gap",
+      "recommendationId": "REC62-basic_living-income-reserve-action",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-078",
+      "problemId": "routine_medical.problem.funding-gap",
+      "recommendationId": "REC63-routine_medical-insurance-and-reserve-gap-plan",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-079",
+      "problemId": "major_medical.problem.funding-gap",
+      "recommendationId": "REC63-major_medical-insurance-and-liquid-reserve-plan",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-080",
+      "problemId": "major_medical.problem.commercial-coverage-absent",
+      "recommendationId": "REC61-major_medical-evaluate-commercial-health-cover",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-081",
+      "problemId": "major_medical.problem.limited-commercial-coverage",
+      "recommendationId": "REC61-major_medical-evaluate-commercial-health-cover",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-082",
+      "problemId": "long_term_care.problem.commercial-coverage-absent",
+      "recommendationId": "REC61-long_term_care-insurance-or-self-funding",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-083",
+      "problemId": "long_term_care.problem.funding-gap",
+      "recommendationId": "REC61-long_term_care-insurance-or-self-funding",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-084",
+      "problemId": "basic_living.problem.current-cashflow-gap",
+      "recommendationId": "REC4-basic_living-variable_income_floor",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-085",
+      "problemId": "basic_living.problem.debt-payment-pressure",
+      "recommendationId": "REC4-basic_living-highest_cost_debt",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-086",
+      "problemId": "basic_living.problem.cashflow-gap",
+      "recommendationId": "REC4-basic_living-market_money_for_gap",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-087",
+      "problemId": "basic_living.problem.cashflow-gap",
+      "recommendationId": "REC4-basic_living-systematic_drawdown",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-088",
+      "problemId": "basic_living.problem.current-cashflow-gap",
+      "recommendationId": "REC4-basic_living-unlock_before_locking",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-089",
+      "problemId": "basic_living.problem.current-cashflow-gap",
+      "recommendationId": "REC4-basic_living-unemployment_spending_reset",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-090",
+      "problemId": "basic_living.problem.zero-income-gap",
+      "recommendationId": "REC4-basic_living-unemployment_spending_reset",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-091",
+      "problemId": "basic_living.problem.current-cashflow-gap",
+      "recommendationId": "REC4-basic_living-deposit_maturity_ladder",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-092",
+      "problemId": "routine_medical.problem.procedure-unclear",
+      "recommendationId": "REC4-routine_medical-direct_settlement_provider",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-094",
+      "problemId": "routine_medical.problem.procedure-unclear",
+      "recommendationId": "REC4-routine_medical-catalog_equivalent",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-095",
+      "problemId": "routine_medical.problem.funding-gap",
+      "recommendationId": "REC4-routine_medical-supplements_after_treatment",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-096",
+      "problemId": "routine_medical.problem.funding-gap",
+      "recommendationId": "REC4-routine_medical-claim_after_basic_settlement",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-097",
+      "problemId": "major_medical.problem.funding-gap",
+      "recommendationId": "REC4-major_medical-major_reserve_from_assets",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-098",
+      "problemId": "major_medical.problem.funding-gap",
+      "recommendationId": "REC4-major_medical-major_gap_stop_risky_saving",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-099",
+      "problemId": "major_medical.problem.funding-gap",
+      "recommendationId": "REC4-major_medical-catalog_choice_with_clinician",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-100",
+      "problemId": "major_medical.problem.funding-gap",
+      "recommendationId": "REC4-major_medical-payment_order",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-101",
+      "problemId": "major_medical.problem.funding-gap",
+      "recommendationId": "REC4-major_medical-major_gap_after_living",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-102",
+      "problemId": "long_term_care.problem.funding-gap",
+      "recommendationId": "REC4-long_term_care-care_fund_one_source",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-103",
+      "problemId": "long_term_care.problem.institution-resource-unknown",
+      "recommendationId": "REC4-long_term_care-institution_level_cost",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-104",
+      "problemId": "long_term_care.problem.funding-gap",
+      "recommendationId": "REC4-long_term_care-care_budget_service_mix",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-105",
+      "problemId": "long_term_care.problem.mode-unknown",
+      "recommendationId": "REC4-long_term_care-no_children_service_route",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-106",
+      "problemId": "long_term_care.problem.funding-gap",
+      "recommendationId": "REC4-long_term_care-trained_nursing_service",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-107",
+      "problemId": "financial_cognition.problem.pension-policy-knowledge-gap",
+      "recommendationId": "REC4-financial_cognition-pension_record_action",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-108",
+      "problemId": "financial_cognition.problem.single-stock-misconception",
+      "recommendationId": "REC4-financial_cognition-mortgage_total_cost",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-109",
+      "problemId": "financial_cognition.problem.plan-hard-to-understand",
+      "recommendationId": "REC4-financial_cognition-product_net_return",
+      "relationType": "supporting_fix",
+      "priority": 80
+    },
+    {
+      "relationId": "REL-110",
+      "problemId": "financial_cognition.problem.pension-income-unestimated",
+      "recommendationId": "REC4-financial_cognition-unknown_pension_no_lock",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-111",
+      "problemId": "health_capital.problem.current-smoking",
+      "recommendationId": "REC4-health_capital-heavy_smoking_clinic",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-112",
+      "problemId": "health_capital.problem.exercise-low",
+      "recommendationId": "REC4-health_capital-post_hospital_rehab",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-113",
+      "problemId": "major_medical.problem.debt-payment-pressure",
+      "recommendationId": "REC64-major_medical-debt-reduction-protect-reserve",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-114",
+      "problemId": "major_medical.problem.debt-payment-pressure",
+      "recommendationId": "REC4-major_medical-no_revolving_credit_for_treatment",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-115",
+      "problemId": "financial_cognition.problem.plan-hard-to-understand",
+      "recommendationId": "REC64-financial_cognition-four-point-decision-check",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-116",
+      "problemId": "financial_cognition.problem.plan-hard-to-understand",
+      "recommendationId": "REC4-financial_cognition-refuse_unexplained_product",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-117",
+      "problemId": "financial_cognition.problem.plan-understanding-unclear",
+      "recommendationId": "REC64-financial_cognition-four-point-decision-check",
+      "relationType": "primary_fix",
+      "priority": 100
+    },
+    {
+      "relationId": "REL-118",
+      "problemId": "financial_cognition.problem.plan-understanding-unclear",
+      "recommendationId": "REC4-financial_cognition-refuse_unexplained_product",
+      "relationType": "risk_mitigation",
+      "priority": 70
+    },
+    {
+      "relationId": "REL-119",
+      "problemId": "major_medical.problem.debt-payment-pressure",
+      "recommendationId": "REC65-major_medical-debt-pressure-no-surplus",
+      "relationType": "primary_fix",
+      "priority": 90
+    },
+    {
+      "relationId": "REL-120",
+      "problemId": "activity_social.problem.kin-support-weak",
+      "recommendationId": "REC65-activity_social-verify-practical-support",
+      "relationType": "primary_fix",
+      "priority": 100
+    }
+  ]
+}

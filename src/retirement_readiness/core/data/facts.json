@@ -1,0 +1,1008 @@
+{
+  "schemaVersion": "report-fact-contract/1.0.0",
+  "version": "1.1.1",
+  "facts": [
+    {
+      "factId": "accessible_financial_assets_none"
+    },
+    {
+      "factId": "accessible_financial_assets_positive"
+    },
+    {
+      "factId": "accessible_financial_assets_unknown"
+    },
+    {
+      "factId": "accident_yes"
+    },
+    {
+      "factId": "activity_answer_unknown"
+    },
+    {
+      "factId": "activity_channel_known"
+    },
+    {
+      "factId": "activity_channel_missing"
+    },
+    {
+      "factId": "activity_cost_known"
+    },
+    {
+      "factId": "activity_cost_missing"
+    },
+    {
+      "factId": "activity_details_complete"
+    },
+    {
+      "factId": "activity_details_missing"
+    },
+    {
+      "factId": "activity_details_partial"
+    },
+    {
+      "factId": "activity_details_unknown"
+    },
+    {
+      "factId": "activity_low"
+    },
+    {
+      "factId": "activity_one"
+    },
+    {
+      "factId": "activity_partner_known"
+    },
+    {
+      "factId": "activity_partner_missing"
+    },
+    {
+      "factId": "activity_planned"
+    },
+    {
+      "factId": "activity_time_known"
+    },
+    {
+      "factId": "activity_time_missing"
+    },
+    {
+      "factId": "activity_two_or_more"
+    },
+    {
+      "factId": "activity_unplanned"
+    },
+    {
+      "factId": "activity_vague"
+    },
+    {
+      "factId": "alcohol_not_frequent"
+    },
+    {
+      "factId": "alcohol_unknown"
+    },
+    {
+      "factId": "alcohol_weekly_gte_4"
+    },
+    {
+      "factId": "asset_use_allowed"
+    },
+    {
+      "factId": "asset_use_refused"
+    },
+    {
+      "factId": "asset_use_unknown"
+    },
+    {
+      "factId": "assets_known"
+    },
+    {
+      "factId": "assets_unknown"
+    },
+    {
+      "factId": "basic_adequate"
+    },
+    {
+      "factId": "basic_and_cashflow_adequate"
+    },
+    {
+      "factId": "basic_gap"
+    },
+    {
+      "factId": "basic_medical_answer_missing_or_conflict"
+    },
+    {
+      "factId": "basic_medical_employee_or_resident"
+    },
+    {
+      "factId": "basic_medical_explicit_unknown"
+    },
+    {
+      "factId": "basic_medical_no"
+    },
+    {
+      "factId": "basic_medical_public"
+    },
+    {
+      "factId": "basic_medical_unknown"
+    },
+    {
+      "factId": "basic_medical_yes"
+    },
+    {
+      "factId": "basic_pension_coverage_known"
+    },
+    {
+      "factId": "benefit_city_answer_missing_or_conflict"
+    },
+    {
+      "factId": "benefit_city_explicit_unknown"
+    },
+    {
+      "factId": "benefit_city_known"
+    },
+    {
+      "factId": "bond_price_misconception"
+    },
+    {
+      "factId": "care_arrangement_issue"
+    },
+    {
+      "factId": "care_arrangement_no_issue"
+    },
+    {
+      "factId": "care_assumed_family_without_discussion"
+    },
+    {
+      "factId": "care_budget_known"
+    },
+    {
+      "factId": "care_budget_unknown"
+    },
+    {
+      "factId": "care_community_availability_known"
+    },
+    {
+      "factId": "care_community_availability_missing"
+    },
+    {
+      "factId": "care_community_resource_complete"
+    },
+    {
+      "factId": "care_community_resource_incomplete"
+    },
+    {
+      "factId": "care_community_resource_none"
+    },
+    {
+      "factId": "care_community_resource_unknown"
+    },
+    {
+      "factId": "care_consensus_disputed"
+    },
+    {
+      "factId": "care_consensus_not_discussed"
+    },
+    {
+      "factId": "care_consensus_strong"
+    },
+    {
+      "factId": "care_consensus_unknown"
+    },
+    {
+      "factId": "care_family_capacity_complete"
+    },
+    {
+      "factId": "care_family_capacity_gap"
+    },
+    {
+      "factId": "care_family_medication_and_nursing_complete"
+    },
+    {
+      "factId": "care_family_medication_or_nursing_gap"
+    },
+    {
+      "factId": "care_family_resource_unknown"
+    },
+    {
+      "factId": "care_family_time_complete"
+    },
+    {
+      "factId": "care_family_time_gap"
+    },
+    {
+      "factId": "care_funding_adequate"
+    },
+    {
+      "factId": "care_funding_gap"
+    },
+    {
+      "factId": "care_home_price_and_affordability_known"
+    },
+    {
+      "factId": "care_home_price_or_affordability_gap"
+    },
+    {
+      "factId": "care_home_resource_complete"
+    },
+    {
+      "factId": "care_home_resource_incomplete"
+    },
+    {
+      "factId": "care_home_resource_none"
+    },
+    {
+      "factId": "care_home_resource_unknown"
+    },
+    {
+      "factId": "care_institution_price_known"
+    },
+    {
+      "factId": "care_institution_price_missing"
+    },
+    {
+      "factId": "care_institution_resource_complete"
+    },
+    {
+      "factId": "care_institution_resource_has_details"
+    },
+    {
+      "factId": "care_institution_resource_incomplete"
+    },
+    {
+      "factId": "care_institution_resource_none"
+    },
+    {
+      "factId": "care_institution_resource_unknown"
+    },
+    {
+      "factId": "care_mode_answer_unknown"
+    },
+    {
+      "factId": "care_mode_community"
+    },
+    {
+      "factId": "care_mode_family"
+    },
+    {
+      "factId": "care_mode_home"
+    },
+    {
+      "factId": "care_mode_institution"
+    },
+    {
+      "factId": "care_mode_not_considered"
+    },
+    {
+      "factId": "care_not_considered_due_age"
+    },
+    {
+      "factId": "care_plan_low"
+    },
+    {
+      "factId": "care_plan_ready"
+    },
+    {
+      "factId": "care_resource_followup_known"
+    },
+    {
+      "factId": "care_resource_known"
+    },
+    {
+      "factId": "care_resource_unknown"
+    },
+    {
+      "factId": "cashflow_balanced"
+    },
+    {
+      "factId": "cashflow_gap"
+    },
+    {
+      "factId": "cashflow_surplus"
+    },
+    {
+      "factId": "checkup_every_2_3y"
+    },
+    {
+      "factId": "checkup_never"
+    },
+    {
+      "factId": "checkup_rare"
+    },
+    {
+      "factId": "checkup_regular"
+    },
+    {
+      "factId": "checkup_unknown"
+    },
+    {
+      "factId": "checkup_yearly"
+    },
+    {
+      "factId": "child_education_none"
+    },
+    {
+      "factId": "child_education_positive"
+    },
+    {
+      "factId": "child_education_unknown"
+    },
+    {
+      "factId": "children_none"
+    },
+    {
+      "factId": "children_positive"
+    },
+    {
+      "factId": "children_unknown"
+    },
+    {
+      "factId": "chronic_coronary_or_cancer"
+    },
+    {
+      "factId": "chronic_diabetes"
+    },
+    {
+      "factId": "chronic_hyperlipidemia"
+    },
+    {
+      "factId": "chronic_hypertension"
+    },
+    {
+      "factId": "chronic_hypertension_or_diabetes"
+    },
+    {
+      "factId": "chronic_no"
+    },
+    {
+      "factId": "chronic_not_coronary_or_cancer"
+    },
+    {
+      "factId": "chronic_not_hypertension_or_diabetes"
+    },
+    {
+      "factId": "chronic_unknown"
+    },
+    {
+      "factId": "chronic_yes"
+    },
+    {
+      "factId": "cognition_low"
+    },
+    {
+      "factId": "cognition_ready"
+    },
+    {
+      "factId": "commercial_health_no"
+    },
+    {
+      "factId": "commercial_health_unknown"
+    },
+    {
+      "factId": "commercial_health_yes"
+    },
+    {
+      "factId": "commercial_ltc_no"
+    },
+    {
+      "factId": "commercial_ltc_yes"
+    },
+    {
+      "factId": "commercial_medical_no"
+    },
+    {
+      "factId": "commercial_medical_yes"
+    },
+    {
+      "factId": "commercial_pension_no"
+    },
+    {
+      "factId": "commercial_pension_unknown"
+    },
+    {
+      "factId": "commercial_pension_yes"
+    },
+    {
+      "factId": "commercial_savings_only"
+    },
+    {
+      "factId": "compound_interest_misconception"
+    },
+    {
+      "factId": "critical_illness_no"
+    },
+    {
+      "factId": "critical_illness_yes"
+    },
+    {
+      "factId": "debt_after_retirement"
+    },
+    {
+      "factId": "debt_before_retirement"
+    },
+    {
+      "factId": "debt_categories_none"
+    },
+    {
+      "factId": "debt_categories_unknown"
+    },
+    {
+      "factId": "debt_no"
+    },
+    {
+      "factId": "debt_payment_none"
+    },
+    {
+      "factId": "debt_payment_positive"
+    },
+    {
+      "factId": "debt_payment_unknown"
+    },
+    {
+      "factId": "debt_schedule_unknown"
+    },
+    {
+      "factId": "debt_unknown"
+    },
+    {
+      "factId": "debt_yes"
+    },
+    {
+      "factId": "diet_adequate"
+    },
+    {
+      "factId": "diet_low"
+    },
+    {
+      "factId": "diet_none"
+    },
+    {
+      "factId": "diet_partial"
+    },
+    {
+      "factId": "diet_regular"
+    },
+    {
+      "factId": "diet_unknown"
+    },
+    {
+      "factId": "employee_pension_no"
+    },
+    {
+      "factId": "employee_pension_unknown"
+    },
+    {
+      "factId": "employee_pension_yes"
+    },
+    {
+      "factId": "employment_flexible"
+    },
+    {
+      "factId": "employment_fulltime"
+    },
+    {
+      "factId": "employment_unemployed"
+    },
+    {
+      "factId": "employment_unknown"
+    },
+    {
+      "factId": "enterprise_annuity_only"
+    },
+    {
+      "factId": "exercise_adequate"
+    },
+    {
+      "factId": "exercise_at_least_150"
+    },
+    {
+      "factId": "exercise_below_150"
+    },
+    {
+      "factId": "exercise_low"
+    },
+    {
+      "factId": "exercise_medical_guidance_needed"
+    },
+    {
+      "factId": "exercise_medical_guidance_not_needed"
+    },
+    {
+      "factId": "exercise_medical_guidance_unknown"
+    },
+    {
+      "factId": "exercise_none"
+    },
+    {
+      "factId": "exercise_unknown"
+    },
+    {
+      "factId": "expenses_known"
+    },
+    {
+      "factId": "family_contact_regular"
+    },
+    {
+      "factId": "family_contact_unknown"
+    },
+    {
+      "factId": "family_contact_weak"
+    },
+    {
+      "factId": "finance_comprehension_low"
+    },
+    {
+      "factId": "finance_comprehension_not_low"
+    },
+    {
+      "factId": "finance_comprehension_unclear"
+    },
+    {
+      "factId": "finance_comprehension_unknown"
+    },
+    {
+      "factId": "finance_profile_known"
+    },
+    {
+      "factId": "finance_profile_missing"
+    },
+    {
+      "factId": "financial_literacy_all_correct"
+    },
+    {
+      "factId": "financial_literacy_no_misconception"
+    },
+    {
+      "factId": "financial_literacy_unanswered_or_conflict"
+    },
+    {
+      "factId": "financial_literacy_uncertain"
+    },
+    {
+      "factId": "financial_literacy_unknown"
+    },
+    {
+      "factId": "health_low"
+    },
+    {
+      "factId": "health_ready"
+    },
+    {
+      "factId": "hospital_no"
+    },
+    {
+      "factId": "hospital_repeat"
+    },
+    {
+      "factId": "hospital_unknown"
+    },
+    {
+      "factId": "hospital_yes"
+    },
+    {
+      "factId": "income_positive"
+    },
+    {
+      "factId": "income_unknown"
+    },
+    {
+      "factId": "income_volatility_high_or_medium"
+    },
+    {
+      "factId": "income_zero"
+    },
+    {
+      "factId": "inflation_correct"
+    },
+    {
+      "factId": "inflation_misconception"
+    },
+    {
+      "factId": "inflation_unknown"
+    },
+    {
+      "factId": "kin_support_none"
+    },
+    {
+      "factId": "kin_support_one_two"
+    },
+    {
+      "factId": "kin_support_strong"
+    },
+    {
+      "factId": "kin_support_unknown"
+    },
+    {
+      "factId": "liquid_assets_none"
+    },
+    {
+      "factId": "liquid_assets_positive"
+    },
+    {
+      "factId": "major_adequate"
+    },
+    {
+      "factId": "major_claim_cover_yes"
+    },
+    {
+      "factId": "major_gap"
+    },
+    {
+      "factId": "major_payment_source_none"
+    },
+    {
+      "factId": "major_payment_source_present"
+    },
+    {
+      "factId": "major_payment_source_unknown"
+    },
+    {
+      "factId": "marital_unknown"
+    },
+    {
+      "factId": "market_assets_none"
+    },
+    {
+      "factId": "market_assets_positive"
+    },
+    {
+      "factId": "market_assets_unknown"
+    },
+    {
+      "factId": "married"
+    },
+    {
+      "factId": "medical_catalog_problem"
+    },
+    {
+      "factId": "medical_catalog_problem_absent"
+    },
+    {
+      "factId": "medical_cross_region_problem"
+    },
+    {
+      "factId": "medical_cross_region_problem_absent"
+    },
+    {
+      "factId": "medical_eligibility_problem"
+    },
+    {
+      "factId": "medical_hassle_problem"
+    },
+    {
+      "factId": "medical_path_normal"
+    },
+    {
+      "factId": "medical_path_problem"
+    },
+    {
+      "factId": "medical_path_unknown"
+    },
+    {
+      "factId": "medical_procedure_problem"
+    },
+    {
+      "factId": "medical_process_problem"
+    },
+    {
+      "factId": "medical_support_need"
+    },
+    {
+      "factId": "medical_support_need_absent"
+    },
+    {
+      "factId": "medical_support_need_unknown"
+    },
+    {
+      "factId": "monitoring_low"
+    },
+    {
+      "factId": "monitoring_regular"
+    },
+    {
+      "factId": "monitoring_unknown"
+    },
+    {
+      "factId": "mortgage_debt_none"
+    },
+    {
+      "factId": "mortgage_debt_positive"
+    },
+    {
+      "factId": "mortgage_debt_unknown"
+    },
+    {
+      "factId": "mortgage_term_misconception"
+    },
+    {
+      "factId": "multi_region_no"
+    },
+    {
+      "factId": "multi_region_unknown"
+    },
+    {
+      "factId": "multi_region_yes"
+    },
+    {
+      "factId": "multiple_debt_categories_positive"
+    },
+    {
+      "factId": "nonkin_support_none"
+    },
+    {
+      "factId": "nonkin_support_one_two"
+    },
+    {
+      "factId": "nonkin_support_strong"
+    },
+    {
+      "factId": "nonkin_support_unknown"
+    },
+    {
+      "factId": "nonkin_support_weak"
+    },
+    {
+      "factId": "pension_amount_known"
+    },
+    {
+      "factId": "pension_amount_unknown"
+    },
+    {
+      "factId": "pension_contribution_self_paid_no"
+    },
+    {
+      "factId": "pension_contribution_self_paid_unknown"
+    },
+    {
+      "factId": "pension_contribution_self_paid_yes"
+    },
+    {
+      "factId": "pension_income_estimation_low"
+    },
+    {
+      "factId": "pension_income_estimation_unknown"
+    },
+    {
+      "factId": "pension_not_insured"
+    },
+    {
+      "factId": "pension_participation_no"
+    },
+    {
+      "factId": "pension_participation_unknown"
+    },
+    {
+      "factId": "pension_participation_yes"
+    },
+    {
+      "factId": "pension_policy_knowledge_gap"
+    },
+    {
+      "factId": "pension_policy_knowledge_sufficient"
+    },
+    {
+      "factId": "pension_policy_knowledge_unknown"
+    },
+    {
+      "factId": "pension_record_gap"
+    },
+    {
+      "factId": "pension_record_known"
+    },
+    {
+      "factId": "pension_type_unknown"
+    },
+    {
+      "factId": "personal_cost_not_underestimate"
+    },
+    {
+      "factId": "personal_cost_underestimate"
+    },
+    {
+      "factId": "personal_cost_unknown"
+    },
+    {
+      "factId": "personal_pension_contribution_none"
+    },
+    {
+      "factId": "personal_pension_contribution_positive"
+    },
+    {
+      "factId": "personal_pension_contribution_unknown"
+    },
+    {
+      "factId": "personal_pension_yes"
+    },
+    {
+      "factId": "property_none"
+    },
+    {
+      "factId": "property_positive"
+    },
+    {
+      "factId": "public_ltc_knowledge_response"
+    },
+    {
+      "factId": "public_ltc_status_response"
+    },
+    {
+      "factId": "retirement_city_answer_unknown"
+    },
+    {
+      "factId": "retirement_city_direction_undecided"
+    },
+    {
+      "factId": "retirement_city_known"
+    },
+    {
+      "factId": "retirement_city_not_considered"
+    },
+    {
+      "factId": "retirement_city_unknown"
+    },
+    {
+      "factId": "retirement_city_unplanned"
+    },
+    {
+      "factId": "retirement_expense_estimation_low"
+    },
+    {
+      "factId": "retirement_expense_estimation_unknown"
+    },
+    {
+      "factId": "retirement_expense_known"
+    },
+    {
+      "factId": "retirement_expense_unknown"
+    },
+    {
+      "factId": "retirement_plan_absent_or_incomplete"
+    },
+    {
+      "factId": "retirement_plan_complete"
+    },
+    {
+      "factId": "retirement_plan_completeness_unknown"
+    },
+    {
+      "factId": "retirement_plan_confidence_high"
+    },
+    {
+      "factId": "retirement_plan_confidence_low"
+    },
+    {
+      "factId": "retirement_plan_confidence_unknown"
+    },
+    {
+      "factId": "retirement_plan_incomplete"
+    },
+    {
+      "factId": "retirement_plan_priority_high"
+    },
+    {
+      "factId": "retirement_plan_priority_low"
+    },
+    {
+      "factId": "retirement_plan_priority_unknown"
+    },
+    {
+      "factId": "retirement_reserve_assessed"
+    },
+    {
+      "factId": "retirement_reserve_assessment_unknown"
+    },
+    {
+      "factId": "retirement_reserve_not_assessed"
+    },
+    {
+      "factId": "retirement_reserve_not_insufficient"
+    },
+    {
+      "factId": "retirement_reserve_self_reported_insufficient"
+    },
+    {
+      "factId": "retirement_saving_not_unwilling"
+    },
+    {
+      "factId": "retirement_saving_uncertain"
+    },
+    {
+      "factId": "retirement_saving_unknown"
+    },
+    {
+      "factId": "retirement_saving_unwilling"
+    },
+    {
+      "factId": "retirement_saving_willing"
+    },
+    {
+      "factId": "routine_adequate"
+    },
+    {
+      "factId": "routine_gap"
+    },
+    {
+      "factId": "routine_pension_coverage_known"
+    },
+    {
+      "factId": "single_debt_category_positive"
+    },
+    {
+      "factId": "single_stock_misconception"
+    },
+    {
+      "factId": "smoking_current"
+    },
+    {
+      "factId": "smoking_daily_gte_10"
+    },
+    {
+      "factId": "smoking_daily_lt_10"
+    },
+    {
+      "factId": "smoking_monthly_lt_10"
+    },
+    {
+      "factId": "smoking_never"
+    },
+    {
+      "factId": "smoking_not_current"
+    },
+    {
+      "factId": "smoking_quit"
+    },
+    {
+      "factId": "smoking_unknown"
+    },
+    {
+      "factId": "social_support_strong"
+    },
+    {
+      "factId": "social_support_weak"
+    },
+    {
+      "factId": "spouse_basic_medical_no"
+    },
+    {
+      "factId": "spouse_basic_medical_unknown"
+    },
+    {
+      "factId": "spouse_basic_medical_yes"
+    },
+    {
+      "factId": "spouse_basic_pension_no"
+    },
+    {
+      "factId": "spouse_basic_pension_unknown"
+    },
+    {
+      "factId": "spouse_basic_pension_yes"
+    },
+    {
+      "factId": "stock_assets_none"
+    },
+    {
+      "factId": "stock_assets_positive"
+    },
+    {
+      "factId": "stock_assets_unknown"
+    },
+    {
+      "factId": "support_agent_known"
+    },
+    {
+      "factId": "support_agent_none"
+    },
+    {
+      "factId": "support_agent_unknown"
+    },
+    {
+      "factId": "time_deposit_none"
+    },
+    {
+      "factId": "time_deposit_positive"
+    },
+    {
+      "factId": "time_deposit_unknown"
+    },
+    {
+      "factId": "unmarried"
+    }
+  ]
+}
