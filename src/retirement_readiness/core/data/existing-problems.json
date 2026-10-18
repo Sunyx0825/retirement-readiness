@@ -1,0 +1,2721 @@
+{
+  "schemaVersion": "report-rule-catalog/2.0.0",
+  "rules": [
+    {
+      "kind": "problem",
+      "ruleId": "basic_living.problem.cashflow-gap",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "退休后基本生活资金存在缺口",
+      "content": "本次测算显示纯养老金不能完全覆盖基本生活支出；这是养老金口径的缺口，不等于计入其他收入和资产后家庭整体储备不足。其他资金来源应按已知情况和可动用条件另行核对。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "basic_pension_coverage_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "basic_pension_coverage_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_adequate"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_gap",
+        "basic_pension_coverage_known"
+      ],
+      "priority": 80,
+      "dedupeKey": "basic_living.problem.cashflow-gap",
+      "conflictsWith": [
+        "basic_living.problem.current-cashflow-gap",
+        "basic_living.problem.debt-payment-pressure",
+        "basic_living.problem.zero-income-gap"
+      ],
+      "sourceOrder": 1
+    },
+    {
+      "kind": "problem",
+      "ruleId": "basic_living.problem.current-cashflow-gap",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "当前家庭入不敷出，退休生活缺乏资金保障",
+      "content": "问卷显示，您家庭当前每月总支出高于总收入，同时基本生活充足指数低于100%；当前现金流缺口会减少可持续积累的退休准备资金。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "cashflow_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "cashflow_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_adequate",
+          "cashflow_surplus",
+          "cashflow_balanced",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_gap",
+        "cashflow_gap",
+        "finance_profile_known"
+      ],
+      "priority": 99,
+      "dedupeKey": "basic_living.problem.current-cashflow-gap",
+      "conflictsWith": [],
+      "sourceOrder": 2
+    },
+    {
+      "kind": "problem",
+      "ruleId": "basic_living.problem.debt-payment-pressure",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "退休后仍需偿还债务，将挤压必要生活开支",
+      "content": "问卷显示家庭债务可能延续到退休后，退休后的收入需要同时承担生活费和还款，基本生活资金会被持续挤压。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "debt_yes",
+          "debt_after_retirement",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "debt_yes",
+          "debt_after_retirement",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_adequate",
+          "debt_no",
+          "debt_unknown",
+          "debt_before_retirement",
+          "debt_schedule_unknown",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_gap",
+        "debt_yes",
+        "debt_after_retirement",
+        "finance_profile_known"
+      ],
+      "priority": 98,
+      "dedupeKey": "basic_living.problem.debt-payment-pressure",
+      "conflictsWith": [],
+      "sourceOrder": 3
+    },
+    {
+      "kind": "problem",
+      "ruleId": "basic_living.problem.household-no-basic-pension",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "夫妻双方均未参加基本养老保险，家庭无基础养老兜底",
+      "content": "您和配偶都明确表示没有参加职工基本养老保险或城乡居民基本养老保险，退休后家庭缺少基本养老金这一基础养老收入来源。",
+      "appliesWhen": {
+        "all": [
+          "married",
+          "pension_not_insured",
+          "spouse_basic_pension_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "married",
+          "pension_not_insured",
+          "spouse_basic_pension_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "unmarried",
+          "marital_unknown",
+          "pension_participation_yes",
+          "pension_participation_unknown",
+          "enterprise_annuity_only",
+          "pension_type_unknown",
+          "spouse_basic_pension_yes",
+          "spouse_basic_pension_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "married",
+        "pension_not_insured",
+        "spouse_basic_pension_no"
+      ],
+      "priority": 96,
+      "dedupeKey": "basic_living.problem.household-no-basic-pension",
+      "conflictsWith": [],
+      "sourceOrder": 4
+    },
+    {
+      "kind": "problem",
+      "ruleId": "basic_living.problem.household-one-basic-pension",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "夫妻仅一方参加基本养老保险，家庭抗风险能力偏弱",
+      "content": "您和配偶中仅一人参加了基本养老保险，同时基本生活充足指数低于100%；家庭基本养老金来源集中在一人，可用于缓冲养老金低于预期或收入中断的空间较小。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "finance_profile_known",
+          "married"
+        ],
+        "any": [
+          "pension_participation_yes",
+          "spouse_basic_pension_yes"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "finance_profile_known",
+          "married"
+        ],
+        "any": [
+          "pension_participation_yes",
+          "spouse_basic_pension_yes"
+        ]
+      },
+      "disabledWhen": {
+        "all": [
+          "pension_participation_yes",
+          "spouse_basic_pension_yes"
+        ],
+        "any": [
+          "basic_adequate",
+          "finance_profile_missing",
+          "unmarried",
+          "marital_unknown",
+          "pension_participation_unknown",
+          "enterprise_annuity_only",
+          "pension_type_unknown",
+          "spouse_basic_pension_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_gap",
+        "finance_profile_known",
+        "married",
+        "pension_participation_yes",
+        "pension_participation_no",
+        "spouse_basic_pension_yes",
+        "spouse_basic_pension_no"
+      ],
+      "priority": 95,
+      "dedupeKey": "basic_living.problem.household-one-basic-pension",
+      "conflictsWith": [],
+      "sourceOrder": 5
+    },
+    {
+      "kind": "problem",
+      "ruleId": "basic_living.problem.multi-region-path-gap",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "多地参保，但尚未确定基本养老保险的领取地",
+      "content": "您在多个地区参加过职工基本养老保险，但还没确定最终待遇领取地，这可能会影响您的养老金申领、社保转移和后续待遇发放。",
+      "appliesWhen": {
+        "all": [
+          "employee_pension_yes",
+          "multi_region_yes",
+          "benefit_city_explicit_unknown"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "employee_pension_yes",
+          "multi_region_yes",
+          "benefit_city_explicit_unknown"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "employee_pension_no",
+          "employee_pension_unknown",
+          "pension_participation_no",
+          "pension_participation_unknown",
+          "multi_region_no",
+          "multi_region_unknown",
+          "benefit_city_known",
+          "benefit_city_answer_missing_or_conflict"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "employee_pension_yes",
+        "multi_region_yes",
+        "benefit_city_explicit_unknown"
+      ],
+      "priority": 95,
+      "dedupeKey": "basic_living.problem.multi-region-path-gap",
+      "conflictsWith": [],
+      "sourceOrder": 6
+    },
+    {
+      "kind": "problem",
+      "ruleId": "basic_living.problem.zero-income-gap",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "当前无家庭收入，基本生活缺少持续资金来源",
+      "content": "问卷显示，您家庭当前各项收入合计为0，同时基本生活存在资金缺口；现有持续收入不足以承担日常生活支出。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "cashflow_gap",
+          "income_zero",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "cashflow_gap",
+          "income_zero",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_adequate",
+          "cashflow_surplus",
+          "cashflow_balanced",
+          "income_positive",
+          "income_unknown",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_gap",
+        "cashflow_gap",
+        "income_zero",
+        "finance_profile_known"
+      ],
+      "priority": 94,
+      "dedupeKey": "basic_living.problem.zero-income-gap",
+      "conflictsWith": [],
+      "sourceOrder": 7
+    },
+    {
+      "kind": "problem",
+      "ruleId": "basic_living.problem.retirement-city-unknown",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "养老地点未确定，退休生活支出存在不确定性",
+      "content": "您还没确定退休后的定居城市，住房、交通、就医等长期生活成本没有稳定参照，因此基本生活预算存在不确定性，不利于您做出合理的财务规划。",
+      "appliesWhen": {
+        "all": [
+          "basic_gap",
+          "retirement_city_unplanned",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_gap",
+          "retirement_city_unplanned",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_adequate",
+          "retirement_city_known",
+          "retirement_city_answer_unknown",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_gap",
+        "retirement_city_unplanned",
+        "finance_profile_known",
+        "retirement_city_not_considered",
+        "retirement_city_direction_undecided"
+      ],
+      "priority": 91,
+      "dedupeKey": "basic_living.problem.retirement-city-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 8
+    },
+    {
+      "kind": "problem",
+      "ruleId": "basic_living.problem.property-without-accessible-financial-assets",
+      "objectCode": "basic_living",
+      "objectTitle": "基本生活充足指数",
+      "title": "持有房产但缺少可直接使用的金融资产",
+      "content": "您已填写持有房产，但现金、定期存款、股票、基金、债券和保险等可直接用于退休安排的金融资产均明确为0。房产难以按日常需要分次使用，退休生活或医疗支出出现时可能缺少可及时调用的资金。",
+      "appliesWhen": {
+        "all": [
+          "property_positive",
+          "accessible_financial_assets_none",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "property_positive",
+          "accessible_financial_assets_none",
+          "cashflow_surplus"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "property_none",
+          "accessible_financial_assets_positive",
+          "accessible_financial_assets_unknown",
+          "cashflow_gap",
+          "cashflow_balanced"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "property_positive",
+        "accessible_financial_assets_none",
+        "cashflow_surplus"
+      ],
+      "priority": 90,
+      "dedupeKey": "basic_living.problem.property-without-accessible-financial-assets",
+      "conflictsWith": [],
+      "sourceOrder": 9
+    },
+    {
+      "kind": "problem",
+      "ruleId": "routine_medical.problem.funding-gap",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "退休后稳定收入不足以覆盖基本生活和日常医疗费用",
+      "content": "测算显示，您退休后的稳定收入在负担基本生活开支以后，不足以覆盖门诊、购药、常规检查的个人自付费用，未来慢性病开支可能存在资金缺口。",
+      "appliesWhen": {
+        "all": [
+          "routine_gap",
+          "routine_pension_coverage_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "routine_gap",
+          "routine_pension_coverage_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "routine_adequate"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "routine_gap",
+        "routine_pension_coverage_known"
+      ],
+      "priority": 90,
+      "dedupeKey": "routine_medical.problem.funding-gap",
+      "conflictsWith": [],
+      "sourceOrder": 10
+    },
+    {
+      "kind": "problem",
+      "ruleId": "routine_medical.problem.basic-medical-absent",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "当前未参加任何基本医疗保险",
+      "content": "问卷显示，您目前没有参加任何形式的基本医疗保险，日常门诊、购药和检查费用缺少最基础的医保报销支撑。",
+      "appliesWhen": {
+        "all": [
+          "basic_medical_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_medical_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_yes",
+          "basic_medical_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_no"
+      ],
+      "priority": 98,
+      "dedupeKey": "routine_medical.problem.basic-medical-absent",
+      "conflictsWith": [],
+      "sourceOrder": 11
+    },
+    {
+      "kind": "problem",
+      "ruleId": "routine_medical.problem.procedure-unclear",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "不清楚医保规则，未正常使用医保",
+      "content": "问卷显示您已参加基本医保，但曾因不清楚报销流程、医保待遇或药品和检查项目的医保范围而没有使用医保结算，可能增加本可避免的个人支付。",
+      "appliesWhen": {
+        "all": [
+          "basic_medical_employee_or_resident"
+        ],
+        "any": [
+          "medical_procedure_problem",
+          "medical_eligibility_problem",
+          "medical_catalog_problem"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_medical_employee_or_resident"
+        ],
+        "any": [
+          "medical_procedure_problem",
+          "medical_eligibility_problem",
+          "medical_catalog_problem"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_public",
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "medical_path_normal",
+          "medical_path_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_employee_or_resident",
+        "medical_procedure_problem",
+        "medical_eligibility_problem",
+        "medical_catalog_problem"
+      ],
+      "priority": 97,
+      "dedupeKey": "routine_medical.problem.procedure-unclear",
+      "conflictsWith": [],
+      "sourceOrder": 12
+    },
+    {
+      "kind": "problem",
+      "ruleId": "routine_medical.problem.multi-region-path-gap",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "不了解异地就医备案，外地就医未用医保",
+      "content": "问卷显示，您在外地就医时没有使用异地就医备案或直接结算，可能导致本可结算的费用需要您个人垫付，或增加后续报销困难。",
+      "appliesWhen": {
+        "all": [
+          "basic_medical_employee_or_resident",
+          "medical_cross_region_problem"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_medical_employee_or_resident",
+          "medical_cross_region_problem"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_public",
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "medical_cross_region_problem_absent",
+          "medical_path_normal",
+          "medical_path_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_employee_or_resident",
+        "medical_cross_region_problem"
+      ],
+      "priority": 95,
+      "dedupeKey": "routine_medical.problem.multi-region-path-gap",
+      "conflictsWith": [],
+      "sourceOrder": 13
+    },
+    {
+      "kind": "problem",
+      "ruleId": "routine_medical.problem.public-medical-process-problem",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "公费医疗办理或报销遇到障碍",
+      "content": "问卷显示您享受公费医疗，但在办理或报销环节遇到问题，可能导致本可报销的费用需要您个人垫付，或增加后续报销困难。",
+      "appliesWhen": {
+        "all": [
+          "basic_medical_public",
+          "medical_path_problem"
+        ],
+        "any": [
+          "medical_procedure_problem",
+          "medical_eligibility_problem",
+          "medical_cross_region_problem",
+          "medical_catalog_problem",
+          "medical_hassle_problem"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_medical_public",
+          "medical_path_problem"
+        ],
+        "any": [
+          "medical_procedure_problem",
+          "medical_eligibility_problem",
+          "medical_cross_region_problem",
+          "medical_catalog_problem",
+          "medical_hassle_problem"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_employee_or_resident",
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "medical_path_normal",
+          "medical_path_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_public",
+        "medical_path_problem",
+        "medical_procedure_problem",
+        "medical_eligibility_problem",
+        "medical_cross_region_problem",
+        "medical_catalog_problem",
+        "medical_hassle_problem"
+      ],
+      "priority": 94,
+      "dedupeKey": "routine_medical.problem.public-medical-process-problem",
+      "conflictsWith": [],
+      "sourceOrder": 14
+    },
+    {
+      "kind": "problem",
+      "ruleId": "routine_medical.problem.basic-medical-unknown",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "不清楚自己参加的基本医疗保险类型",
+      "content": "您不清楚自己参加了哪种基本医疗保障，无法准确判断可享受的医保待遇、参保地和结算方式。",
+      "appliesWhen": {
+        "all": [
+          "basic_medical_explicit_unknown"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "basic_medical_explicit_unknown"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "basic_medical_yes",
+          "basic_medical_no",
+          "basic_medical_answer_missing_or_conflict"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "basic_medical_explicit_unknown"
+      ],
+      "priority": 92,
+      "dedupeKey": "routine_medical.problem.basic-medical-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 15
+    },
+    {
+      "kind": "problem",
+      "ruleId": "routine_medical.problem.spouse-basic-medical-absent",
+      "objectCode": "routine_medical",
+      "objectTitle": "慢病风险充足指数",
+      "title": "配偶未参加基本医疗保险，家庭日常医疗缺少基础保障",
+      "content": "问卷显示，您的配偶未参加基本医疗保险，日常门诊、购药和检查费用缺少最基础的医保报销支撑，家庭可能需要承担更多医疗支出。",
+      "appliesWhen": {
+        "all": [
+          "married",
+          "spouse_basic_medical_no"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "married",
+          "spouse_basic_medical_no"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "unmarried",
+          "marital_unknown",
+          "spouse_basic_medical_yes",
+          "spouse_basic_medical_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "married",
+        "spouse_basic_medical_no"
+      ],
+      "priority": 93,
+      "dedupeKey": "routine_medical.problem.spouse-basic-medical-absent",
+      "conflictsWith": [],
+      "sourceOrder": 16
+    },
+    {
+      "kind": "problem",
+      "ruleId": "major_medical.problem.funding-gap",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "退休后可动用资金不足以覆盖基本生活和重疾医疗费用",
+      "content": "按本次压力测算，退休期间纯养老金、符合口径的资产收益及风险折扣后的金融资产本金合计，尚不足以覆盖基本生活和大额医疗压力支出。本金在本情景只计入一次；该结果不代表您已患重病或已经发生这些费用，也不能由纯养老金不足直接推断整体储备不足。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "finance_profile_known"
+      ],
+      "priority": 80,
+      "dedupeKey": "major_medical.problem.funding-gap",
+      "conflictsWith": [
+        "major_medical.problem.commercial-coverage-absent",
+        "major_medical.problem.limited-commercial-coverage",
+        "major_medical.problem.debt-payment-pressure"
+      ],
+      "sourceOrder": 17
+    },
+    {
+      "kind": "problem",
+      "ruleId": "major_medical.problem.commercial-coverage-absent",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "未购买商业健康险，大额医疗费缺少补充保障",
+      "content": "问卷显示，您已参加基本医疗保险，但没有购买商业医疗险、重疾险、意外险或商业长期护理保险。重疾风险充足指数低于100%，且本次测算没有商业健康保险给付可以分担潜在大额疾病费用；这不表示您必须购买商业健康险。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "basic_medical_yes",
+          "commercial_health_no",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "basic_medical_yes",
+          "commercial_health_no",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "basic_medical_no",
+          "basic_medical_unknown",
+          "commercial_health_yes",
+          "commercial_health_unknown",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "basic_medical_yes",
+        "commercial_health_no",
+        "finance_profile_known"
+      ],
+      "priority": 96,
+      "dedupeKey": "major_medical.problem.commercial-coverage-absent",
+      "conflictsWith": [],
+      "sourceOrder": 18
+    },
+    {
+      "kind": "problem",
+      "ruleId": "major_medical.problem.limited-commercial-coverage",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "仅有意外险/长期护理险，无医疗险和重疾险",
+      "content": "问卷显示您仅购买了意外险或商业长期护理保险，没有购买商业医疗险和重疾险，需提示您，前两类保险通常无法报销疾病住院产生的医疗费用。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "commercial_medical_no",
+          "critical_illness_no",
+          "finance_profile_known"
+        ],
+        "any": [
+          "accident_yes",
+          "commercial_ltc_yes"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "commercial_medical_no",
+          "critical_illness_no",
+          "finance_profile_known"
+        ],
+        "any": [
+          "accident_yes",
+          "commercial_ltc_yes"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "commercial_medical_yes",
+          "critical_illness_yes",
+          "commercial_health_no",
+          "commercial_health_unknown",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "commercial_medical_no",
+        "critical_illness_no",
+        "finance_profile_known",
+        "accident_yes",
+        "commercial_ltc_yes"
+      ],
+      "priority": 95,
+      "dedupeKey": "major_medical.problem.limited-commercial-coverage",
+      "conflictsWith": [],
+      "sourceOrder": 19
+    },
+    {
+      "kind": "problem",
+      "ruleId": "major_medical.problem.debt-payment-pressure",
+      "objectCode": "major_medical",
+      "objectTitle": "重疾风险充足指数",
+      "title": "家庭债务将挤压住院备用资金",
+      "content": "问卷显示，您家庭目前仍有未结清债务和月度还款，同时重疾风险充足指数低于100%；当前还款会减少可用于积累住院备用资金的现金流空间，但不能据此认定债务全部由您本人承担。",
+      "appliesWhen": {
+        "all": [
+          "major_gap",
+          "debt_yes",
+          "debt_payment_positive",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "major_gap",
+          "debt_yes",
+          "debt_payment_positive",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "major_adequate",
+          "debt_no",
+          "debt_unknown",
+          "debt_payment_none",
+          "debt_payment_unknown",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "major_gap",
+        "debt_yes",
+        "debt_payment_positive",
+        "finance_profile_known"
+      ],
+      "priority": 92,
+      "dedupeKey": "major_medical.problem.debt-payment-pressure",
+      "conflictsWith": [],
+      "sourceOrder": 20
+    },
+    {
+      "kind": "problem",
+      "ruleId": "long_term_care.problem.funding-gap",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "退休后可动用资金不足以覆盖基本生活和长期全天照护费用",
+      "content": "按本次压力测算，退休期间纯养老金、符合口径的资产收益及风险折扣后的金融资产本金合计，尚不足以覆盖基本生活和长期全天照护压力支出。本金在本情景只计入一次；该结果不表示您目前已经失能，也不要求立即购买照护服务。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "finance_profile_known"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "finance_profile_missing"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_funding_gap",
+        "finance_profile_known"
+      ],
+      "priority": 80,
+      "dedupeKey": "long_term_care.problem.funding-gap",
+      "conflictsWith": [
+        "long_term_care.problem.home-resource-unknown",
+        "long_term_care.problem.institution-resource-unknown",
+        "long_term_care.problem.community-resource-unknown",
+        "long_term_care.problem.commercial-coverage-absent",
+        "long_term_care.problem.mode-unknown"
+      ],
+      "sourceOrder": 21
+    },
+    {
+      "kind": "problem",
+      "ruleId": "long_term_care.problem.home-resource-unknown",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "不了解居家护工照护的价格或自身负担能力",
+      "content": "您计划失能后请护工居家照护，但对服务价格和长期负担能力至少有一项尚不清楚，现有信息不足以形成可靠的照护预算。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_mode_home",
+          "care_home_price_or_affordability_gap"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_mode_home",
+          "care_home_price_or_affordability_gap"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "care_home_resource_unknown",
+          "care_home_price_and_affordability_known",
+          "care_mode_family",
+          "care_mode_institution",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_funding_gap",
+        "care_mode_home",
+        "care_home_price_or_affordability_gap"
+      ],
+      "priority": 97,
+      "dedupeKey": "long_term_care.problem.home-resource-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 22
+    },
+    {
+      "kind": "problem",
+      "ruleId": "long_term_care.problem.institution-resource-unknown",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "对养老机构照护了解较少",
+      "content": "您打算失能后住养老机构照护，但明确表示完全不了解机构情况，或尚未了解收费标准，现有信息不足以形成可靠的机构照护预算。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_mode_institution"
+        ],
+        "any": [
+          "care_institution_resource_none",
+          "care_institution_price_missing"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_mode_institution"
+        ],
+        "any": [
+          "care_institution_resource_none",
+          "care_institution_price_missing"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "care_institution_resource_unknown",
+          "care_institution_price_known",
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_community",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_funding_gap",
+        "care_mode_institution",
+        "care_institution_resource_none",
+        "care_institution_price_missing"
+      ],
+      "priority": 96,
+      "dedupeKey": "long_term_care.problem.institution-resource-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 23
+    },
+    {
+      "kind": "problem",
+      "ruleId": "long_term_care.problem.community-resource-unknown",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "社区照护服务情况尚未核实",
+      "content": "您倾向未来使用社区照护，但尚未确认所在社区是否提供相关服务，或明确表示还不了解社区服务。本次信息不足以支持具体服务或收费判断；应先核实可用服务范围，不推断社区没有服务或本人负担不起。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_mode_community"
+        ],
+        "any": [
+          "care_community_resource_none",
+          "care_community_availability_missing"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "care_mode_community"
+        ],
+        "any": [
+          "care_community_resource_none",
+          "care_community_availability_missing"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "care_community_resource_unknown",
+          "care_community_resource_complete",
+          "care_community_availability_known",
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_funding_gap",
+        "care_mode_community",
+        "care_community_resource_none",
+        "care_community_availability_missing"
+      ],
+      "priority": 95,
+      "dedupeKey": "long_term_care.problem.community-resource-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 24
+    },
+    {
+      "kind": "problem",
+      "ruleId": "long_term_care.problem.commercial-coverage-absent",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "当前没有商业长期护理保险分担照护费用",
+      "content": "问卷显示，您目前没有购买商业长期护理保险。按现行充足指数口径，退休后经常性收入不足以覆盖基本生活和长期全天照护费用，且本次测算没有商业长期护理保险给付可以分担照护费用；这不表示您必须购买商业长期护理保险。",
+      "appliesWhen": {
+        "all": [
+          "care_funding_gap",
+          "commercial_ltc_no",
+          "finance_profile_known"
+        ],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_community"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_funding_gap",
+          "commercial_ltc_no",
+          "finance_profile_known"
+        ],
+        "any": [
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_community"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_funding_adequate",
+          "commercial_ltc_yes",
+          "commercial_health_unknown",
+          "finance_profile_missing",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_funding_gap",
+        "commercial_ltc_no",
+        "finance_profile_known",
+        "care_mode_family",
+        "care_mode_home",
+        "care_mode_institution",
+        "care_mode_community"
+      ],
+      "priority": 92,
+      "dedupeKey": "long_term_care.problem.commercial-coverage-absent",
+      "conflictsWith": [],
+      "sourceOrder": 25
+    },
+    {
+      "kind": "problem",
+      "ruleId": "long_term_care.problem.mode-unknown",
+      "objectCode": "long_term_care",
+      "objectTitle": "失能风险充足指数",
+      "title": "对失能照护问题的考虑较少",
+      "content": "问卷显示，您还没有考虑过失能后应选择何种照护方式，因此目前还不能据此确认具体照护安排。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_answer_unknown",
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_community"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_mode_not_considered"
+      ],
+      "priority": 90,
+      "dedupeKey": "long_term_care.problem.mode-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 26
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.single-stock-misconception",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "对投资理财风险存在认知偏差",
+      "content": "您对复利、单只股票集中风险、贷款期限与总利息或利率变化对债券价格的关系中至少一项存在明确误判。该误判可能影响养老储备测算、资产配置或借款决策；本条只说明问卷中已确认的认知偏差，不推断实际损失。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "compound_interest_misconception",
+          "single_stock_misconception",
+          "mortgage_term_misconception",
+          "bond_price_misconception"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "compound_interest_misconception",
+          "single_stock_misconception",
+          "mortgage_term_misconception",
+          "bond_price_misconception"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "financial_literacy_all_correct",
+          "financial_literacy_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "compound_interest_misconception",
+        "single_stock_misconception",
+        "mortgage_term_misconception",
+        "bond_price_misconception"
+      ],
+      "priority": 97,
+      "dedupeKey": "financial_cognition.problem.single-stock-misconception",
+      "conflictsWith": [],
+      "sourceOrder": 27
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.personal-cost-underestimate",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "低估了个人需要承担的养老费用",
+      "content": "您认为养老费用应主要由政府或单位承担、个人无需承担或只承担很少部分。按照本规则的判别口径，这表示个人承担预期偏低，可能使本人需要准备的养老费用被低估；这不是对未来具体费用差额的测算。",
+      "appliesWhen": {
+        "all": [
+          "personal_cost_underestimate"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "personal_cost_underestimate"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "personal_cost_not_underestimate",
+          "personal_cost_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "personal_cost_underestimate"
+      ],
+      "priority": 96,
+      "dedupeKey": "financial_cognition.problem.personal-cost-underestimate",
+      "conflictsWith": [],
+      "sourceOrder": 28
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.plan-hard-to-understand",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "理解退休财务问题存在困难",
+      "content": "您表示理解退休财务问题存在困难，在判断总费用、期限、风险和退出条件等财务问题时更容易出现误判。",
+      "appliesWhen": {
+        "all": [
+          "finance_comprehension_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "finance_comprehension_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "finance_comprehension_not_low",
+          "finance_comprehension_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "finance_comprehension_low"
+      ],
+      "priority": 95,
+      "dedupeKey": "financial_cognition.problem.plan-hard-to-understand",
+      "conflictsWith": [],
+      "sourceOrder": 29
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.saving-refused",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "养老储备意愿较低",
+      "content": "您目前不愿意固定拿出一部分收入作为养老储备。这反映新增储蓄意愿，尚不能据此判断已有资产或预期养老金是否充足；是否需要增加储蓄还要结合现有储备、退休支出、距退休时间和家庭责任核对。",
+      "appliesWhen": {
+        "all": [
+          "retirement_saving_unwilling"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_saving_unwilling"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_saving_not_unwilling",
+          "retirement_saving_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "retirement_saving_unwilling"
+      ],
+      "priority": 93,
+      "dedupeKey": "financial_cognition.problem.saving-refused",
+      "conflictsWith": [],
+      "sourceOrder": 30
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.inflation-unrecognized",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "未认识到通胀会削弱长期购买力",
+      "content": "您没有正确理解通胀会降低长期购买力，可能误将未来的名义金额误认为能维持当前的实际生活水平，这一认知偏差可能会导致您养老储备不足。",
+      "appliesWhen": {
+        "all": [
+          "inflation_misconception"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "inflation_misconception"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "inflation_correct",
+          "inflation_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "inflation_misconception"
+      ],
+      "priority": 92,
+      "dedupeKey": "financial_cognition.problem.inflation-unrecognized",
+      "conflictsWith": [],
+      "sourceOrder": 31
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.pension-policy-knowledge-gap",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "不了解养老保险相关政策",
+      "content": "问卷显示，您在养老保险最低缴费年限、个人账户查询、断缴影响、待遇计算和个人账户余额处理这五项知识中，了解的项目少于三项。养老保险政策了解较少，这可能会影响您持续参保、查询养老金权益和核对退休收入。",
+      "appliesWhen": {
+        "all": [
+          "pension_policy_knowledge_gap"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "pension_policy_knowledge_gap"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "pension_policy_knowledge_sufficient",
+          "pension_policy_knowledge_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "pension_policy_knowledge_gap"
+      ],
+      "priority": 99,
+      "dedupeKey": "financial_cognition.problem.pension-policy-knowledge-gap",
+      "conflictsWith": [],
+      "sourceOrder": 32
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.pension-income-unestimated",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "尚未形成确定的养老金收入预期",
+      "content": "您不太清楚自己退休后每月能够领取多少养老金，养老财务预期相对不足。",
+      "appliesWhen": {
+        "all": [
+          "pension_income_estimation_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "pension_income_estimation_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "pension_amount_known",
+          "pension_income_estimation_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "pension_income_estimation_low"
+      ],
+      "priority": 98,
+      "dedupeKey": "financial_cognition.problem.pension-income-unestimated",
+      "conflictsWith": [],
+      "sourceOrder": 33
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.retirement-expense-unestimated",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "尚未估算退休后的基本生活支出",
+      "content": "您没有详细估算过退休基本生活开支，不清楚养老金收入与资产能否覆盖养老开销，这不利于您做好养老资金规划。",
+      "appliesWhen": {
+        "all": [
+          "retirement_expense_estimation_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_expense_estimation_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_expense_known",
+          "retirement_expense_estimation_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "retirement_expense_estimation_low"
+      ],
+      "priority": 97,
+      "dedupeKey": "financial_cognition.problem.retirement-expense-unestimated",
+      "conflictsWith": [],
+      "sourceOrder": 34
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.reserve-not-assessed",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "尚未考虑过现有储备能否支撑退休生活",
+      "content": "您明确表示，自己还没有考虑过现有资产和养老金收入能否维持退休生活，这不利于您做好养老资金规划。",
+      "appliesWhen": {
+        "all": [
+          "retirement_reserve_not_assessed"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_reserve_not_assessed"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_reserve_assessed",
+          "retirement_reserve_assessment_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "retirement_reserve_not_assessed"
+      ],
+      "priority": 96,
+      "dedupeKey": "financial_cognition.problem.reserve-not-assessed",
+      "conflictsWith": [],
+      "sourceOrder": 35
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.reserve-self-reported-insufficient",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "自认为现有养老储备难以支撑退休生活",
+      "content": "您明确认为现有养老储备完全不够或有些不够，说明您已经担心退休资金的持续性。只有在财务资料完整时，报告才能进一步引用确定性测算结果说明具体缺口。",
+      "appliesWhen": {
+        "all": [
+          "retirement_reserve_self_reported_insufficient"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_reserve_self_reported_insufficient"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_reserve_not_insufficient",
+          "retirement_reserve_assessment_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "retirement_reserve_self_reported_insufficient"
+      ],
+      "priority": 95,
+      "dedupeKey": "financial_cognition.problem.reserve-self-reported-insufficient",
+      "conflictsWith": [],
+      "sourceOrder": 36
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.plan-not-prioritized",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "对退休财务规划不够重视",
+      "content": "您认为退休财务规划不是当前需要考虑的重要问题，这可能不利于您进行长期的养老储蓄安排。",
+      "appliesWhen": {
+        "all": [
+          "retirement_plan_priority_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_plan_priority_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_plan_priority_high",
+          "retirement_plan_priority_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "retirement_plan_priority_low"
+      ],
+      "priority": 91,
+      "dedupeKey": "financial_cognition.problem.plan-not-prioritized",
+      "conflictsWith": [],
+      "sourceOrder": 37
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.plan-incomplete",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "退休财务规划尚未形成完整安排",
+      "content": "您目前没有退休财务规划，或者现有规划仍不完整。养老金、退休支出、储备安排、风险边界和执行步骤中至少有一项尚未落实。",
+      "appliesWhen": {
+        "all": [
+          "retirement_plan_incomplete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_plan_incomplete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_plan_complete",
+          "retirement_plan_completeness_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "retirement_plan_incomplete"
+      ],
+      "priority": 94,
+      "dedupeKey": "financial_cognition.problem.plan-incomplete",
+      "conflictsWith": [],
+      "sourceOrder": 38
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.plan-confidence-low",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "对未来获得满意退休收入的信心不足",
+      "content": "您对未来能否获得满意的退休收入表示没有信心、信心较低或一般。这反映的是对退休收入结果的信心，不等同于对执行退休规划能力的评价。",
+      "appliesWhen": {
+        "all": [
+          "retirement_plan_confidence_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_plan_confidence_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_plan_confidence_high",
+          "retirement_plan_confidence_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "cognition_low",
+        "retirement_plan_confidence_low"
+      ],
+      "priority": 90,
+      "dedupeKey": "financial_cognition.problem.plan-confidence-low",
+      "conflictsWith": [],
+      "sourceOrder": 39
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.saving-undecided",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "对养老储蓄意愿不明确",
+      "content": "您不确定是否要从当前收入中预留养老资金，这会使您在遇到其他开销时，养老储备计划被一再搁置。",
+      "appliesWhen": {
+        "all": [
+          "retirement_saving_uncertain"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "retirement_saving_uncertain"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "retirement_saving_unwilling",
+          "retirement_saving_willing",
+          "retirement_saving_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "retirement_saving_uncertain",
+        "cognition_low"
+      ],
+      "priority": 92,
+      "dedupeKey": "financial_cognition.problem.saving-undecided",
+      "conflictsWith": [
+        "financial_cognition.problem.saving-refused"
+      ],
+      "sourceOrder": 40
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.plan-understanding-unclear",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "对退休财务问题尚未形成清晰理解",
+      "content": "您认为自己对养老金和退休财务问题的理解程度一般。您对费用、期限、风险或退出条件可能仍有不清楚的地方，因此在具体决策中难以独立核对关键信息。",
+      "appliesWhen": {
+        "all": [
+          "finance_comprehension_unclear"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "finance_comprehension_unclear"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "finance_comprehension_low",
+          "finance_comprehension_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "finance_comprehension_unclear",
+        "cognition_low"
+      ],
+      "priority": 89,
+      "dedupeKey": "financial_cognition.problem.plan-understanding-unclear",
+      "conflictsWith": [
+        "financial_cognition.problem.plan-hard-to-understand"
+      ],
+      "sourceOrder": 41
+    },
+    {
+      "kind": "problem",
+      "ruleId": "financial_cognition.problem.financial-literacy-uncertain",
+      "objectCode": "financial_cognition",
+      "objectTitle": "财务准备认知",
+      "title": "对金融相关概念了解不足",
+      "content": "您金融知识问答中，在复利、通胀、分散投资、贷款期限成本和债券价格关系这五类知识中，至少有一项选择了“不知道”或拒绝判断，对相关金融概念尚未形成明确认识。",
+      "appliesWhen": {
+        "all": [
+          "financial_literacy_uncertain"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "financial_literacy_uncertain"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "financial_literacy_all_correct",
+          "financial_literacy_unanswered_or_conflict"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "financial_literacy_uncertain",
+        "cognition_low"
+      ],
+      "priority": 94,
+      "dedupeKey": "financial_cognition.problem.financial-literacy-uncertain",
+      "conflictsWith": [],
+      "sourceOrder": 42
+    },
+    {
+      "kind": "problem",
+      "ruleId": "health_capital.problem.current-smoking",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "当前仍有吸烟习惯",
+      "content": "问卷显示，您当前仍在吸烟，长期吸烟会提高心脑血管疾病、肿瘤和慢病恶化的风险，进而加重退休后的医疗负担。",
+      "appliesWhen": {
+        "all": [
+          "smoking_current"
+        ],
+        "any": [
+          "smoking_monthly_lt_10",
+          "smoking_daily_lt_10",
+          "smoking_daily_gte_10"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "smoking_current"
+        ],
+        "any": [
+          "smoking_monthly_lt_10",
+          "smoking_daily_lt_10",
+          "smoking_daily_gte_10"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "smoking_not_current",
+          "smoking_never",
+          "smoking_quit",
+          "smoking_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low",
+        "smoking_current",
+        "smoking_monthly_lt_10",
+        "smoking_daily_lt_10",
+        "smoking_daily_gte_10"
+      ],
+      "priority": 99,
+      "dedupeKey": "health_capital.problem.current-smoking",
+      "conflictsWith": [],
+      "sourceOrder": 43
+    },
+    {
+      "kind": "problem",
+      "ruleId": "health_capital.problem.frequent-drinking",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "频繁饮酒，不利于健康",
+      "content": "您每周饮酒达到4次及以上，高频饮酒可能增加血压异常、肝脏损伤、跌倒风险与用药安全隐患。",
+      "appliesWhen": {
+        "all": [
+          "alcohol_weekly_gte_4"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "alcohol_weekly_gte_4"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "alcohol_not_frequent",
+          "alcohol_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low",
+        "alcohol_weekly_gte_4"
+      ],
+      "priority": 98,
+      "dedupeKey": "health_capital.problem.frequent-drinking",
+      "conflictsWith": [],
+      "sourceOrder": 44
+    },
+    {
+      "kind": "problem",
+      "ruleId": "health_capital.problem.exercise-low",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "日常运动量不足",
+      "content": "问卷显示，您中等强度身体活动不足，长期缺乏活动会削弱体能储备，也会增加慢病和失能的发生风险。",
+      "appliesWhen": {
+        "all": [
+          "exercise_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "exercise_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "exercise_adequate",
+          "exercise_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low",
+        "exercise_low"
+      ],
+      "priority": 96,
+      "dedupeKey": "health_capital.problem.exercise-low",
+      "conflictsWith": [],
+      "sourceOrder": 45
+    },
+    {
+      "kind": "problem",
+      "ruleId": "health_capital.problem.checkup-low",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "健康体检频率偏低且无规律",
+      "content": "您从未进行全面健康体检，或很少体检且没有固定规律，可能错过通过常规检查较早发现健康异常的机会。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "checkup_never",
+          "checkup_rare"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "checkup_never",
+          "checkup_rare"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "checkup_every_2_3y",
+          "checkup_regular",
+          "checkup_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low",
+        "checkup_never",
+        "checkup_rare"
+      ],
+      "priority": 94,
+      "dedupeKey": "health_capital.problem.checkup-low",
+      "conflictsWith": [],
+      "sourceOrder": 46
+    },
+    {
+      "kind": "problem",
+      "ruleId": "health_capital.problem.monitoring-low",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "对高血压或糖尿病的居家监测较少",
+      "content": "问卷显示您已由医生明确诊断高血压或糖尿病，但居家监测频率较低，现有记录较难持续反映血压或血糖变化；本条不替代医生对监测频率和治疗方案的判断。",
+      "appliesWhen": {
+        "all": [
+          "chronic_hypertension_or_diabetes",
+          "monitoring_low"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_hypertension_or_diabetes",
+          "monitoring_low"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_not_hypertension_or_diabetes",
+          "chronic_unknown",
+          "monitoring_regular",
+          "monitoring_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low",
+        "chronic_hypertension_or_diabetes",
+        "monitoring_low"
+      ],
+      "priority": 93,
+      "dedupeKey": "health_capital.problem.monitoring-low",
+      "conflictsWith": [],
+      "sourceOrder": 47
+    },
+    {
+      "kind": "problem",
+      "ruleId": "health_capital.problem.diet-none",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "不注意饮食健康",
+      "content": "问卷显示，您过去一周完全没有注意饮食搭配，说明目前尚未形成稳定的饮食管理习惯；本条只反映本次问卷记录，不据此推断已经发生营养不良或体重问题。",
+      "appliesWhen": {
+        "all": [
+          "diet_none"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "diet_none"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "diet_partial",
+          "diet_regular",
+          "diet_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low",
+        "diet_none"
+      ],
+      "priority": 92,
+      "dedupeKey": "health_capital.problem.diet-none",
+      "conflictsWith": [],
+      "sourceOrder": 48
+    },
+    {
+      "kind": "problem",
+      "ruleId": "health_capital.problem.diet-low",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "饮食管理尚未形成习惯",
+      "content": "问卷显示，您过去一周只有1至4天有意识搭配肉蛋奶豆和粗粮蔬菜。按照本规则以一周5至7天作为较稳定状态的判别口径，目前饮食管理尚未形成稳定习惯。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "diet_low",
+          "diet_partial"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "diet_low",
+          "diet_partial"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "diet_none",
+          "diet_regular",
+          "diet_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low",
+        "diet_low",
+        "diet_partial"
+      ],
+      "priority": 91,
+      "dedupeKey": "health_capital.problem.diet-low",
+      "conflictsWith": [],
+      "sourceOrder": 49
+    },
+    {
+      "kind": "problem",
+      "ruleId": "health_capital.problem.chronic-management-pressure",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "慢性病增加长期健康管理压力",
+      "content": "您填写了至少一种已经由医生诊断的慢性健康问题。持续复诊、用药、健康监测或康复安排会增加长期管理任务，也可能影响退休后的时间和费用安排。本条不评价疾病成因，也不替代医生的诊疗意见。",
+      "appliesWhen": {
+        "all": [
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "chronic_yes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "chronic_no",
+          "chronic_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low",
+        "chronic_yes"
+      ],
+      "priority": 97,
+      "dedupeKey": "health_capital.problem.chronic-management-pressure",
+      "conflictsWith": [],
+      "sourceOrder": 50
+    },
+    {
+      "kind": "problem",
+      "ruleId": "health_capital.problem.general-monitoring-low",
+      "objectCode": "health_capital",
+      "objectTitle": "健康资本积累",
+      "title": "居家健康指标监测缺乏规律",
+      "content": "问卷显示，您目前对健康指标的监测频次偏低，现有记录不足以连续反映指标变化，也难以为复诊提供稳定依据；具体监测项目和频率应以医生建议为准。",
+      "appliesWhen": {
+        "all": [
+          "monitoring_low",
+          "chronic_not_hypertension_or_diabetes"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "monitoring_low",
+          "chronic_not_hypertension_or_diabetes"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "monitoring_regular",
+          "monitoring_unknown",
+          "chronic_hypertension_or_diabetes",
+          "chronic_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "health_low",
+        "monitoring_low",
+        "chronic_not_hypertension_or_diabetes"
+      ],
+      "priority": 90,
+      "dedupeKey": "health_capital.problem.general-monitoring-low",
+      "conflictsWith": [],
+      "sourceOrder": 51
+    },
+    {
+      "kind": "problem",
+      "ruleId": "activity_social.problem.activity-unplanned",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "退休后的活动安排尚未确定",
+      "content": "您还没确定退休后的具体活动内容，对退休后的时间安排与生活节奏等问题考虑不足。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "activity_unplanned",
+          "activity_vague"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "activity_unplanned",
+          "activity_vague"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_planned",
+          "activity_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_low",
+        "activity_unplanned",
+        "activity_vague"
+      ],
+      "priority": 100,
+      "dedupeKey": "activity_social.problem.activity-unplanned",
+      "conflictsWith": [],
+      "sourceOrder": 52
+    },
+    {
+      "kind": "problem",
+      "ruleId": "activity_social.problem.activity-details-missing",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "已确定退休活动，但规划不足",
+      "content": "您已经确定了退休后的活动方向，但对所需时间、参与渠道、是否有同伴或费用情况的考虑不够全面，计划还没有落到可执行步骤。",
+      "appliesWhen": {
+        "all": [
+          "activity_planned"
+        ],
+        "any": [
+          "activity_time_missing",
+          "activity_channel_missing",
+          "activity_cost_missing"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "activity_planned"
+        ],
+        "any": [
+          "activity_time_missing",
+          "activity_channel_missing",
+          "activity_cost_missing"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "activity_unplanned",
+          "activity_vague",
+          "activity_answer_unknown",
+          "activity_details_complete",
+          "activity_details_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_low",
+        "activity_planned",
+        "activity_details_missing",
+        "activity_details_partial",
+        "activity_time_missing",
+        "activity_channel_missing",
+        "activity_partner_missing",
+        "activity_cost_missing"
+      ],
+      "priority": 98,
+      "dedupeKey": "activity_social.problem.activity-details-missing",
+      "conflictsWith": [],
+      "sourceOrder": 53
+    },
+    {
+      "kind": "problem",
+      "ruleId": "activity_social.problem.emergency-contact-missing",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "突发状况下无明确协助联系人",
+      "content": "如果您突发住院或失能，您目前没有明确的人可以协助联系医院、服务或家属。",
+      "appliesWhen": {
+        "all": [
+          "support_agent_none"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "support_agent_none"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "support_agent_known",
+          "support_agent_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_low",
+        "support_agent_none"
+      ],
+      "priority": 95,
+      "dedupeKey": "activity_social.problem.emergency-contact-missing",
+      "conflictsWith": [],
+      "sourceOrder": 54
+    },
+    {
+      "kind": "problem",
+      "ruleId": "activity_social.problem.family-contact-weak",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "与亲属联系频率偏低",
+      "content": "问卷显示您与亲属联系频率较低，这可能降低突发事件发生后及时取得联系和协调协助的便利程度；联系频率低不等于家人不愿意或不能提供支持。",
+      "appliesWhen": {
+        "all": [
+          "family_contact_weak"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "family_contact_weak"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "family_contact_regular",
+          "family_contact_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_low",
+        "family_contact_weak"
+      ],
+      "priority": 93,
+      "dedupeKey": "activity_social.problem.family-contact-weak",
+      "conflictsWith": [],
+      "sourceOrder": 55
+    },
+    {
+      "kind": "problem",
+      "ruleId": "activity_social.problem.nonkin-support-weak",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "可求助的非亲属数量较少",
+      "content": "问卷显示您目前可以信任并在遇到困难时求助的非亲属为0至2人，非亲属协助渠道的备用空间较小；这不表示您没有亲属支持。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "nonkin_support_none",
+          "nonkin_support_one_two"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "nonkin_support_none",
+          "nonkin_support_one_two"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "nonkin_support_strong",
+          "nonkin_support_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "activity_low",
+        "nonkin_support_none",
+        "nonkin_support_one_two"
+      ],
+      "priority": 91,
+      "dedupeKey": "activity_social.problem.nonkin-support-weak",
+      "conflictsWith": [],
+      "sourceOrder": 56
+    },
+    {
+      "kind": "problem",
+      "ruleId": "care_planning.problem.mode-and-consensus-unknown",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "照护方式未明确，家人未达成共识",
+      "content": "您还没想清楚失能后的照护方式，也没有与家人形成一致意见，对由谁负责、费用负担情况以及备选方案等问题都考虑不足。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": [
+          "care_consensus_not_discussed",
+          "care_consensus_disputed"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": [
+          "care_consensus_not_discussed",
+          "care_consensus_disputed"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_consensus_strong",
+          "care_consensus_unknown",
+          "care_mode_answer_unknown",
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_community"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_plan_low",
+        "care_mode_not_considered",
+        "care_consensus_not_discussed",
+        "care_consensus_disputed",
+        "care_not_considered_due_age",
+        "care_assumed_family_without_discussion"
+      ],
+      "priority": 100,
+      "dedupeKey": "care_planning.problem.mode-and-consensus-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 57
+    },
+    {
+      "kind": "problem",
+      "ruleId": "care_planning.problem.mode-undecided",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "尚未确定失能后的照护方式",
+      "content": "您在问卷中明确表示，自己尚未考虑过失能后的照护方式，在失能照护方面考虑不足。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_not_considered"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_mode_answer_unknown",
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_community"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_mode_not_considered",
+        "care_plan_low"
+      ],
+      "priority": 98,
+      "dedupeKey": "care_planning.problem.mode-undecided",
+      "conflictsWith": [
+        "care_planning.problem.mode-and-consensus-unknown",
+        "long_term_care.problem.mode-unknown"
+      ],
+      "sourceOrder": 58
+    },
+    {
+      "kind": "problem",
+      "ruleId": "care_planning.problem.family-resource-unknown",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "对家庭照护的具体规划不足",
+      "content": "您倾向由家人提供照护，但家庭照护的具体人选、可投入时间或护理能力还不明确，不能默认家人能完全承担照护责任。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_family",
+          "care_family_capacity_gap"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_family",
+          "care_family_capacity_gap"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_family_resource_unknown",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_mode_home",
+          "care_mode_institution",
+          "care_mode_community"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_plan_low",
+        "care_mode_family",
+        "care_consensus_not_discussed",
+        "care_consensus_disputed",
+        "care_family_capacity_gap"
+      ],
+      "priority": 94,
+      "dedupeKey": "care_planning.problem.family-resource-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 59
+    },
+    {
+      "kind": "problem",
+      "ruleId": "care_planning.problem.home-resource-unknown",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "对护工照护服务的了解不够",
+      "content": "您选择居家护工照护，但市场情况、价格、雇用渠道或长期负担能力至少有一项尚未确认。应针对未了解的部分核实，不能把已有正向回答写成全部不了解，也不据此认定当地没有护工服务。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_home",
+          "care_home_resource_incomplete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_home",
+          "care_home_resource_incomplete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_home_resource_complete",
+          "care_home_resource_unknown",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_mode_family",
+          "care_mode_institution",
+          "care_mode_community"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_plan_low",
+        "care_mode_home",
+        "care_home_resource_incomplete",
+        "care_home_resource_none",
+        "care_home_price_or_affordability_gap"
+      ],
+      "priority": 93,
+      "dedupeKey": "care_planning.problem.home-resource-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 60
+    },
+    {
+      "kind": "problem",
+      "ruleId": "care_planning.problem.institution-resource-unknown",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "对机构照护的服务了解较少",
+      "content": "您选择机构照护，但床位、收费或服务内容至少有一项尚未确认。现有信息尚不足以判断候选机构是否适合未来需要，不等于机构没有相应服务。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_institution",
+          "care_institution_resource_incomplete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_institution",
+          "care_institution_resource_incomplete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_institution_resource_complete",
+          "care_institution_resource_unknown",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_community"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_plan_low",
+        "care_mode_institution",
+        "care_institution_resource_incomplete",
+        "care_institution_resource_none",
+        "care_institution_price_missing"
+      ],
+      "priority": 92,
+      "dedupeKey": "care_planning.problem.institution-resource-unknown",
+      "conflictsWith": [],
+      "sourceOrder": 61
+    },
+    {
+      "kind": "problem",
+      "ruleId": "care_planning.problem.community-resource-incomplete",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "对社区照护的相关服务了解不足",
+      "content": "您倾向使用社区照护，但服务是否提供、服务内容或申请流程至少有一项尚未确认。这是了解程度的缺口，不能直接推断社区实际服务不足或已有付费照护需求。",
+      "appliesWhen": {
+        "all": [
+          "care_mode_community",
+          "care_community_resource_incomplete"
+        ],
+        "any": []
+      },
+      "evidenceWhen": {
+        "all": [
+          "care_mode_community",
+          "care_community_resource_incomplete"
+        ],
+        "any": []
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_community_resource_complete",
+          "care_community_resource_unknown",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown",
+          "care_mode_family",
+          "care_mode_home",
+          "care_mode_institution"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_plan_low",
+        "care_mode_community",
+        "care_community_resource_incomplete",
+        "care_community_resource_none",
+        "care_community_availability_missing"
+      ],
+      "priority": 92,
+      "dedupeKey": "care_planning.problem.community-resource-incomplete",
+      "conflictsWith": [],
+      "sourceOrder": 62
+    },
+    {
+      "kind": "problem",
+      "ruleId": "care_planning.problem.family-consensus-gap",
+      "objectCode": "care_planning",
+      "objectTitle": "失能照护规划",
+      "title": "在照护责任上尚未与家人达成共识",
+      "content": "您自己已明确未来的照护方式，但尚未与家人达成共识。未来由谁负责、家人能够投入多少时间、何时使用外部服务以及如何分担费用仍不明确。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "care_consensus_not_discussed",
+          "care_consensus_disputed"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "care_consensus_not_discussed",
+          "care_consensus_disputed"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "care_consensus_strong",
+          "care_consensus_unknown",
+          "care_mode_not_considered",
+          "care_mode_answer_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "care_plan_low",
+        "care_consensus_not_discussed",
+        "care_consensus_disputed",
+        "care_not_considered_due_age",
+        "care_assumed_family_without_discussion"
+      ],
+      "priority": 96,
+      "dedupeKey": "care_planning.problem.family-consensus-gap",
+      "conflictsWith": [
+        "care_planning.problem.mode-and-consensus-unknown"
+      ],
+      "sourceOrder": 63
+    },
+    {
+      "kind": "problem",
+      "ruleId": "activity_social.problem.kin-support-weak",
+      "objectCode": "activity_social",
+      "objectTitle": "活动社交规划",
+      "title": "可提供实际帮助的亲属较少",
+      "content": "您表示可依靠并提供实际帮助的亲属为零至两位。可进一步核实这些亲属及已有非亲属支持能承担哪些帮助；人数较少不等于联系频率低，也不等于本人目前无人照护或已有急迫风险。",
+      "appliesWhen": {
+        "all": [],
+        "any": [
+          "kin_support_none",
+          "kin_support_one_two"
+        ]
+      },
+      "evidenceWhen": {
+        "all": [],
+        "any": [
+          "kin_support_none",
+          "kin_support_one_two"
+        ]
+      },
+      "disabledWhen": {
+        "all": [],
+        "any": [
+          "kin_support_strong",
+          "kin_support_unknown"
+        ],
+        "none": []
+      },
+      "keyData": [
+        "kin_support_none",
+        "kin_support_one_two",
+        "kin_support_strong",
+        "nonkin_support_strong"
+      ],
+      "priority": 83,
+      "dedupeKey": "activity_social.problem.kin-support-weak",
+      "conflictsWith": [],
+      "sourceOrder": 64
+    }
+  ]
+}

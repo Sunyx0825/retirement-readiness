@@ -1,0 +1,2879 @@
+{
+  "sections": [
+    {
+      "id": "basic",
+      "title": "基本信息",
+      "range": "Q1-Q8"
+    },
+    {
+      "id": "family_pension",
+      "title": "家庭养老保障与财务认知",
+      "range": "本人养老保障与财务认知、配偶养老保障"
+    },
+    {
+      "id": "finance",
+      "title": "家庭资产、收支与医疗保障",
+      "range": "Q12-Q13、Q30-Q33"
+    },
+    {
+      "id": "health",
+      "title": "健康资本积累",
+      "range": "Q34-Q42"
+    },
+    {
+      "id": "activity",
+      "title": "休闲与社交规划",
+      "range": "Q43-Q45"
+    },
+    {
+      "id": "care",
+      "title": "照护规划",
+      "range": "Q46-Q47"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "source_no": "1",
+      "sectionId": "basic",
+      "text": "1.您的性别:",
+      "type": "single",
+      "options": [
+        {
+          "code": "male",
+          "label": "男"
+        },
+        {
+          "code": "female",
+          "label": "女"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q2",
+      "source_no": "2",
+      "sectionId": "basic",
+      "text": "2.您的年龄: 周岁（请填写0-100之间的整数数字）",
+      "type": "number",
+      "numericConstraint": {
+        "min": 0,
+        "max": 100,
+        "integer": true
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q3",
+      "source_no": "3",
+      "sectionId": "basic",
+      "text": "3.您已获得的最高学历:",
+      "type": "single",
+      "options": [
+        {
+          "code": "junior_or_below",
+          "label": "初中及以下"
+        },
+        {
+          "code": "senior_high_or_vocational",
+          "label": "高中/中专"
+        },
+        {
+          "code": "college",
+          "label": "大专"
+        },
+        {
+          "code": "bachelor",
+          "label": "本科"
+        },
+        {
+          "code": "master_or_above",
+          "label": "研究生及以上"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q4",
+      "source_no": "4",
+      "sectionId": "basic",
+      "text": "4.您的婚姻状态:",
+      "type": "single",
+      "options": [
+        {
+          "code": "married",
+          "label": "已婚"
+        },
+        {
+          "code": "never_married",
+          "label": "未婚"
+        },
+        {
+          "code": "divorced",
+          "label": "离异"
+        },
+        {
+          "code": "widowed",
+          "label": "丧偶"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "SP_AGE",
+      "source_no": "4-1",
+      "sectionId": "basic",
+      "text": "4-1.您配偶的年龄: 周岁（请填写0-100之间的整数数字）",
+      "type": "number",
+      "placeholder": "请填写0-100之间的整数",
+      "showIf": {
+        "questionId": "Q4",
+        "containsAny": [
+          "married"
+        ]
+      },
+      "numericConstraint": {
+        "min": 0,
+        "max": 100,
+        "integer": true
+      },
+      "subjectScope": "spouse"
+    },
+    {
+      "id": "Q5",
+      "source_no": "5",
+      "sectionId": "basic",
+      "text": "5.您当前生育子女的数量是（填空）个? 分别为（填空） 岁。 \n(若尚未生育，则填写0)",
+      "type": "textarea",
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q6",
+      "source_no": "6",
+      "sectionId": "basic",
+      "text": "6.您父母目前的生存状况?",
+      "type": "single",
+      "options": [
+        {
+          "code": "parents_alive",
+          "label": "父母均健在：父亲（填空）岁；母亲（填空）岁",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        },
+        {
+          "code": "father_alive",
+          "label": "只有父亲健在，母亲已去世：父亲（填空）岁",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        },
+        {
+          "code": "mother_alive",
+          "label": "只有母亲健在，父亲已去世：母亲（填空）岁",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        },
+        {
+          "code": "parents_deceased",
+          "label": "父母均已去世"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q7",
+      "source_no": "7",
+      "sectionId": "basic",
+      "text": "7.您当前工作/居住的城市是? 您的户籍地是? (请选择所在的省份、城市)",
+      "type": "composite",
+      "fields": [
+        {
+          "key": "current_province_code",
+          "source_no": "7",
+          "label": "当前工作/居住的省份",
+          "kind": "select",
+          "options": []
+        },
+        {
+          "key": "current_city_code",
+          "source_no": "7",
+          "label": "当前工作/居住的城市",
+          "kind": "select",
+          "options": []
+        },
+        {
+          "key": "hukou_province_code",
+          "source_no": "7",
+          "label": "户籍地省份",
+          "kind": "select",
+          "options": []
+        },
+        {
+          "key": "hukou_city_code",
+          "source_no": "7",
+          "label": "户籍地城市",
+          "kind": "select",
+          "options": []
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q8",
+      "source_no": "8",
+      "sectionId": "basic",
+      "text": "8. 您当前的工作状态是？",
+      "type": "single",
+      "options": [
+        {
+          "code": "fulltime",
+          "label": "全职工作"
+        },
+        {
+          "code": "flexible",
+          "label": "灵活就业"
+        },
+        {
+          "code": "unemployed",
+          "label": "失业/丧失工作能力"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "A8_1",
+      "source_no": "A8-1",
+      "sectionId": "basic",
+      "text": "A8-1. 您当前工作单位的类型是？",
+      "type": "single",
+      "options": [
+        {
+          "code": "government",
+          "label": "政府部门/党政机关/人民团体"
+        },
+        {
+          "code": "public_institution",
+          "label": "事业单位"
+        },
+        {
+          "code": "state_owned_enterprise",
+          "label": "国有企业"
+        },
+        {
+          "code": "private_enterprise",
+          "label": "私营企业"
+        },
+        {
+          "code": "foreign_hmt_enterprise",
+          "label": "外资/港澳台商企业"
+        },
+        {
+          "code": "nonprofit_social_org",
+          "label": "非营利组织/社会团体"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q8",
+        "containsAny": [
+          "fulltime"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "A8_2",
+      "source_no": "A8-2",
+      "sectionId": "basic",
+      "text": "A8-2. 您当前工作单位属于什么行业？",
+      "type": "single",
+      "options": [
+        {
+          "code": "agriculture",
+          "label": "农、林、牧、渔业"
+        },
+        {
+          "code": "mining_manufacturing",
+          "label": "采矿制造业"
+        },
+        {
+          "code": "construction",
+          "label": "建筑业"
+        },
+        {
+          "code": "utilities",
+          "label": "电力、热力、煤气及水生产和供应业"
+        },
+        {
+          "code": "wholesale_retail",
+          "label": "批发和零售业"
+        },
+        {
+          "code": "transport_storage_postal",
+          "label": "交通运输、仓储和邮政业"
+        },
+        {
+          "code": "hotel_catering",
+          "label": "住宿与餐饮业"
+        },
+        {
+          "code": "it_software",
+          "label": "信息传输、软件和信息技术服务业"
+        },
+        {
+          "code": "finance",
+          "label": "金融业"
+        },
+        {
+          "code": "real_estate",
+          "label": "房地产业"
+        },
+        {
+          "code": "science_education_culture_health",
+          "label": "科教文卫"
+        },
+        {
+          "code": "resident_services",
+          "label": "居民服务、修理和其他服务业"
+        },
+        {
+          "code": "public_admin_social_security",
+          "label": "公共管理、社会保障和社会组织"
+        },
+        {
+          "code": "other",
+          "label": "其他（请注明）（填空）",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q8",
+        "containsAny": [
+          "fulltime"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "B8_1",
+      "source_no": "B8-1",
+      "sectionId": "basic",
+      "text": "B8-1.您的主要灵活就业类型:",
+      "type": "single",
+      "options": [
+        {
+          "code": "platform_worker",
+          "label": "平台就业（如外卖骑手、网约车司机、直播带货等）"
+        },
+        {
+          "code": "self_employed_business",
+          "label": "个体经营（如开网店、实体店、流动摊贩等）"
+        },
+        {
+          "code": "freelancer",
+          "label": "自由职业（如设计、文案、咨询、家教等）"
+        },
+        {
+          "code": "part_time_temp",
+          "label": "兼职/临时就业/打零工"
+        },
+        {
+          "code": "other",
+          "label": "其他（请注明） （填空）",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q8",
+        "containsAny": [
+          "flexible"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q9",
+      "source_no": "9",
+      "sectionId": "family_pension",
+      "text": "9.您一共参加过以下哪几类养老保险?",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "employee_pension",
+          "label": "城镇职工养老保险（机关事业单位/企业职工保/自主加入的灵活就业人员）"
+        },
+        {
+          "code": "resident_pension",
+          "label": "城乡居民养老保险（新农保/老农保/城镇居民保/被征地农民养老保险）"
+        },
+        {
+          "code": "combined_annuity",
+          "label": "企业/职业年金（单位在国家基本养老保险之外，自愿给员工额外缴纳的一份补充养老存钱账户。）"
+        },
+        {
+          "code": "none",
+          "label": "都没参加过"
+        },
+        {
+          "code": "not_sure",
+          "label": "不清楚"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "PENSION_BENEFIT_CITY",
+      "source_no": "9-1",
+      "sectionId": "family_pension",
+      "text": "9-1.您未来计划在哪个城市退休领养老金?",
+      "type": "single",
+      "options": [
+        {
+          "code": "hukou_city",
+          "label": "户籍所在地城市"
+        },
+        {
+          "code": "current_city",
+          "label": "现在工作/居住城市"
+        },
+        {
+          "code": "other_city",
+          "label": "其他城市 （填空）",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        },
+        {
+          "code": "not_sure",
+          "label": "还没确定"
+        }
+      ],
+      "showIfAll": [
+        {
+          "questionId": "Q9",
+          "containsAny": [
+            "employee_pension",
+            "resident_pension",
+            "combined_annuity"
+          ]
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "sectionId": "family_pension",
+      "showIfAll": [
+        {
+          "questionId": "Q9",
+          "containsAny": [
+            "employee_pension",
+            "resident_pension",
+            "combined_annuity"
+          ]
+        }
+      ],
+      "id": "PENSION_SEGMENT_COUNT",
+      "source_no": "9-2",
+      "text": "9-2.您有过多少段工作经历？",
+      "type": "number",
+      "numericConstraint": {
+        "min": 0,
+        "max": 1200,
+        "integer": true
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "sectionId": "family_pension",
+      "showIfAll": [
+        {
+          "questionId": "Q9",
+          "containsAny": [
+            "employee_pension",
+            "resident_pension",
+            "combined_annuity"
+          ]
+        }
+      ],
+      "id": "PENSION_HISTORY",
+      "source_no": "B9",
+      "text": "工作经历及养老保险缴费情况",
+      "type": "dynamicTable",
+      "repeatCountFrom": "PENSION_SEGMENT_COUNT",
+      "fields": [
+        {
+          "key": "employment_type",
+          "source_no": "B9-1-1",
+          "label": "B9-1-1.您第{segment}段工作经历是？",
+          "kind": "select",
+          "options": [
+            {
+              "code": "fulltime",
+              "label": "全职工作(有固定单位交社保)"
+            },
+            {
+              "code": "flexible",
+              "label": "灵活就业(自己交社保)"
+            }
+          ]
+        },
+        {
+          "key": "paid_years",
+          "source_no": "B9-1-2",
+          "label": "B9-1-2.这段工作经历缴纳社保时长（年）",
+          "kind": "number",
+          "unit": "年",
+          "min": 0,
+          "max": 100,
+          "integer": true,
+          "allowUnknown": true,
+          "showIf": {
+            "questionId": "employment_type",
+            "containsAny": [
+              "fulltime",
+              "flexible"
+            ]
+          }
+        },
+        {
+          "key": "paid_months",
+          "source_no": "B9-1-2",
+          "label": "缴费时长（月）",
+          "kind": "number",
+          "unit": "个月",
+          "min": 0,
+          "max": 11,
+          "integer": true,
+          "allowUnknown": true,
+          "showIf": {
+            "questionId": "employment_type",
+            "containsAny": [
+              "fulltime",
+              "flexible"
+            ]
+          }
+        },
+        {
+          "key": "annual_income_wan",
+          "source_no": "B9-1-3",
+          "label": "B9-1-3.这段工作经历的平均收入水平",
+          "kind": "number",
+          "unit": "万元/年",
+          "min": 0,
+          "allowUnknown": true,
+          "showIf": {
+            "questionId": "employment_type",
+            "containsAny": [
+              "fulltime"
+            ]
+          }
+        },
+        {
+          "key": "pension_type",
+          "source_no": "B9-1-4",
+          "label": "B9-1-4.这段工作经历是否参加了基本养老保险？",
+          "kind": "select",
+          "options": [
+            {
+              "code": "employee_pension",
+              "label": "是，自主购买了城镇职工基本养老保险"
+            },
+            {
+              "code": "resident_pension",
+              "label": "是，参加了城乡居民养老保险（新农保/老农保/城镇居民保/被征地农民养老保险）"
+            },
+            {
+              "code": "none",
+              "label": "两种均未参加"
+            }
+          ],
+          "showIf": {
+            "questionId": "employment_type",
+            "containsAny": [
+              "flexible"
+            ]
+          }
+        },
+        {
+          "key": "payment_memory",
+          "source_no": "B9-1-5",
+          "label": "B9-1-5.是否记得这段经历每年缴纳多少元基本养老保险？",
+          "kind": "select",
+          "options": [
+            {
+              "code": "amount",
+              "label": "是，记得每年缴费金额"
+            },
+            {
+              "code": "grade",
+              "label": "具体金额不记得，按固定缴费档次缴纳"
+            }
+          ],
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "employee_annual_payment_yuan",
+          "source_no": "B9-1-5",
+          "label": "每年养老保险缴费金额",
+          "kind": "number",
+          "unit": "元/年",
+          "min": 0,
+          "allowUnknown": true,
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            },
+            {
+              "questionId": "payment_memory",
+              "containsAny": [
+                "amount"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "province_code",
+          "source_no": "B9-1-6",
+          "label": "B9-1-6.缴纳基本养老保险的省份",
+          "kind": "select",
+          "options": [],
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            },
+            {
+              "questionId": "payment_memory",
+              "containsAny": [
+                "grade"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "city_code",
+          "source_no": "B9-1-6",
+          "label": "缴纳基本养老保险的城市",
+          "kind": "select",
+          "options": [],
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            },
+            {
+              "questionId": "payment_memory",
+              "containsAny": [
+                "grade"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "grade_percent",
+          "source_no": "B9-1-7",
+          "label": "B9-1-7.这段工作经历的缴费档次",
+          "kind": "select",
+          "options": [
+            {
+              "code": "60",
+              "label": "60%：最低档次"
+            },
+            {
+              "code": "80",
+              "label": "80%：较低档次"
+            },
+            {
+              "code": "100",
+              "label": "100%：中等档次"
+            },
+            {
+              "code": "200",
+              "label": "200%：中高档次"
+            },
+            {
+              "code": "300",
+              "label": "300%：最高档次"
+            },
+            {
+              "code": "not_sure",
+              "label": "不清楚"
+            }
+          ],
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            },
+            {
+              "questionId": "payment_memory",
+              "containsAny": [
+                "grade"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "resident_annual_payment_yuan",
+          "source_no": "B9-1-8",
+          "label": "B9-1-8.养老保险缴费额",
+          "kind": "number",
+          "unit": "元/年",
+          "min": 0,
+          "allowUnknown": true,
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "resident_pension"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "resident_medical_payment_yuan",
+          "source_no": "B9-1-8",
+          "label": "医疗保险缴费额（未缴纳填0）",
+          "kind": "number",
+          "unit": "元/年",
+          "min": 0,
+          "allowUnknown": true,
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "resident_pension"
+              ]
+            }
+          ]
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q10",
+      "source_no": "10",
+      "sectionId": "family_pension",
+      "text": "10.您是否参加了个人养老金?（个人养老金是自己给自己存的补充养老金，退休后可领取，国家提供每年最高12000元的免税额度。）",
+      "type": "single",
+      "options": [
+        {
+          "code": "yes",
+          "label": "是"
+        },
+        {
+          "code": "no",
+          "label": "否"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q9",
+        "containsAny": [
+          "employee_pension",
+          "resident_pension"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q10_1",
+      "source_no": "10-1",
+      "sectionId": "family_pension",
+      "text": "10-1.您个人养老金账户开通后平均每年存入多少元?",
+      "type": "single",
+      "options": [
+        {
+          "code": "none",
+          "label": "未存入"
+        },
+        {
+          "code": "lt_1000",
+          "label": "1000元以内"
+        },
+        {
+          "code": "1000_3999",
+          "label": "1000～3999元"
+        },
+        {
+          "code": "4000_7999",
+          "label": "4000～7999元"
+        },
+        {
+          "code": "8000_11999",
+          "label": "8000～11999元"
+        },
+        {
+          "code": "12000",
+          "label": "12000元"
+        },
+        {
+          "code": "not_sure",
+          "label": "不清楚"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q10",
+        "containsAny": [
+          "yes"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q11",
+      "source_no": "11",
+      "sectionId": "family_pension",
+      "text": "11.您是否配置了商业养老年金险/储蓄型保险？",
+      "type": "single",
+      "options": [
+        {
+          "code": "none",
+          "label": "没有"
+        },
+        {
+          "code": "annuity",
+          "label": "有，是养老年金险（达到指定年龄后，每月/每年固定领取养老金）"
+        },
+        {
+          "code": "savings",
+          "label": "有，是养老储蓄险（资金存于保单账户，支取时间、金额可自主安排）"
+        },
+        {
+          "code": "both",
+          "label": "两种都有"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q11_1",
+      "source_no": "11-1",
+      "sectionId": "family_pension",
+      "text": "11-1.您的商业养老年金险",
+      "type": "composite",
+      "showIf": {
+        "questionId": "Q11",
+        "containsAny": [
+          "annuity",
+          "both"
+        ]
+      },
+      "fields": [
+        {
+          "key": "start_age",
+          "source_no": "11-1",
+          "label": "从多少岁开始领？",
+          "kind": "number",
+          "unit": "岁",
+          "min": 0,
+          "max": 100,
+          "integer": true
+        },
+        {
+          "key": "periodic_amount_yuan",
+          "source_no": "11-1",
+          "label": "每期领取金额",
+          "kind": "number",
+          "unit": "元",
+          "min": 0,
+          "allowUnknown": true
+        },
+        {
+          "key": "period",
+          "source_no": "11-1",
+          "label": "领取周期（请注明按月/按年领取）",
+          "kind": "select",
+          "options": [
+            {
+              "code": "monthly",
+              "label": "按月领取"
+            },
+            {
+              "code": "annual",
+              "label": "按年领取"
+            }
+          ]
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q11_2",
+      "source_no": "11-2",
+      "sectionId": "family_pension",
+      "text": "11-2.您储蓄型保险的总保费是（填空）万元",
+      "type": "textarea",
+      "showIf": {
+        "questionId": "Q11",
+        "containsAny": [
+          "savings",
+          "both"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q31",
+      "source_no": "12",
+      "sectionId": "family_pension",
+      "text": "12.您参加了哪种基本医疗保险?",
+      "type": "single",
+      "options": [
+        {
+          "code": "employee_medical",
+          "label": "城镇职工"
+        },
+        {
+          "code": "resident_medical",
+          "label": "城乡居民（新农合）"
+        },
+        {
+          "code": "public_medical",
+          "label": "公费医疗"
+        },
+        {
+          "code": "none",
+          "label": "未参加任何"
+        },
+        {
+          "code": "not_sure",
+          "label": "不清楚"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q32",
+      "source_no": "13",
+      "sectionId": "family_pension",
+      "text": "13.您是否购买以下商业健康险？（可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "commercial_medical",
+          "label": "医疗险"
+        },
+        {
+          "code": "critical_illness",
+          "label": "重疾险"
+        },
+        {
+          "code": "cancer_only",
+          "label": "防癌险"
+        },
+        {
+          "code": "accident",
+          "label": "意外险"
+        },
+        {
+          "code": "long_term_care",
+          "label": "长期护理保险"
+        },
+        {
+          "code": "none",
+          "label": "没有购买"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "P9",
+      "source_no": "P9",
+      "sectionId": "family_pension",
+      "text": "P9.您的配偶一共参加过哪几类养老保险?",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "employee_pension",
+          "label": "城镇职工养老保险（机关事业单位/企业职工保/自主加入的灵活就业人员）"
+        },
+        {
+          "code": "resident_pension",
+          "label": "城乡居民养老保险（新农保/老农保/城镇居民保/被征地农民养老保险）"
+        },
+        {
+          "code": "combined_annuity",
+          "label": "企/职业年金"
+        },
+        {
+          "code": "commercial_pension",
+          "label": "商业养老保险"
+        },
+        {
+          "code": "none",
+          "label": "都没参加过"
+        },
+        {
+          "code": "not_sure",
+          "label": "不清楚"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q4",
+        "containsAny": [
+          "married"
+        ]
+      },
+      "subjectScope": "spouse"
+    },
+    {
+      "id": "SP_PENSION_BENEFIT_CITY",
+      "source_no": "P9附属-9-1",
+      "sectionId": "family_pension",
+      "text": "9-1.您配偶未来计划在哪个城市退休领养老金?",
+      "type": "single",
+      "options": [
+        {
+          "code": "hukou_city",
+          "label": "户籍所在地城市"
+        },
+        {
+          "code": "current_city",
+          "label": "现在工作/居住城市"
+        },
+        {
+          "code": "other_city",
+          "label": "其他城市 （填空）",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        },
+        {
+          "code": "not_sure",
+          "label": "还没确定"
+        }
+      ],
+      "showIfAll": [
+        {
+          "questionId": "Q4",
+          "containsAny": [
+            "married"
+          ]
+        },
+        {
+          "questionId": "P9",
+          "containsAny": [
+            "employee_pension",
+            "resident_pension",
+            "combined_annuity"
+          ]
+        }
+      ],
+      "subjectScope": "spouse"
+    },
+    {
+      "sectionId": "family_pension",
+      "showIfAll": [
+        {
+          "questionId": "Q4",
+          "containsAny": [
+            "married"
+          ]
+        },
+        {
+          "questionId": "P9",
+          "containsAny": [
+            "employee_pension",
+            "resident_pension",
+            "combined_annuity"
+          ]
+        }
+      ],
+      "id": "SP_PENSION_SEGMENT_COUNT",
+      "source_no": "P9附属-9-2",
+      "text": "9-2.您配偶有过多少段工作经历？",
+      "type": "number",
+      "numericConstraint": {
+        "min": 0,
+        "max": 1200,
+        "integer": true
+      },
+      "subjectScope": "spouse"
+    },
+    {
+      "sectionId": "family_pension",
+      "showIfAll": [
+        {
+          "questionId": "Q4",
+          "containsAny": [
+            "married"
+          ]
+        },
+        {
+          "questionId": "P9",
+          "containsAny": [
+            "employee_pension",
+            "resident_pension",
+            "combined_annuity"
+          ]
+        }
+      ],
+      "id": "SP_PENSION_HISTORY",
+      "source_no": "P9附属-B9",
+      "text": "配偶工作经历及养老保险缴费情况",
+      "type": "dynamicTable",
+      "repeatCountFrom": "SP_PENSION_SEGMENT_COUNT",
+      "fields": [
+        {
+          "key": "employment_type",
+          "source_no": "B9-1-1",
+          "label": "B9-1-1.您第{segment}段工作经历是？",
+          "kind": "select",
+          "options": [
+            {
+              "code": "fulltime",
+              "label": "全职工作(有固定单位交社保)"
+            },
+            {
+              "code": "flexible",
+              "label": "灵活就业(自己交社保)"
+            }
+          ]
+        },
+        {
+          "key": "paid_years",
+          "source_no": "B9-1-2",
+          "label": "B9-1-2.这段工作经历缴纳社保时长（年）",
+          "kind": "number",
+          "unit": "年",
+          "min": 0,
+          "max": 100,
+          "integer": true,
+          "allowUnknown": true,
+          "showIf": {
+            "questionId": "employment_type",
+            "containsAny": [
+              "fulltime",
+              "flexible"
+            ]
+          }
+        },
+        {
+          "key": "paid_months",
+          "source_no": "B9-1-2",
+          "label": "缴费时长（月）",
+          "kind": "number",
+          "unit": "个月",
+          "min": 0,
+          "max": 11,
+          "integer": true,
+          "allowUnknown": true,
+          "showIf": {
+            "questionId": "employment_type",
+            "containsAny": [
+              "fulltime",
+              "flexible"
+            ]
+          }
+        },
+        {
+          "key": "annual_income_wan",
+          "source_no": "B9-1-3",
+          "label": "B9-1-3.这段工作经历的平均收入水平",
+          "kind": "number",
+          "unit": "万元/年",
+          "min": 0,
+          "allowUnknown": true,
+          "showIf": {
+            "questionId": "employment_type",
+            "containsAny": [
+              "fulltime"
+            ]
+          }
+        },
+        {
+          "key": "pension_type",
+          "source_no": "B9-1-4",
+          "label": "B9-1-4.这段工作经历是否参加了基本养老保险？",
+          "kind": "select",
+          "options": [
+            {
+              "code": "employee_pension",
+              "label": "是，自主购买了城镇职工基本养老保险"
+            },
+            {
+              "code": "resident_pension",
+              "label": "是，参加了城乡居民养老保险（新农保/老农保/城镇居民保/被征地农民养老保险）"
+            },
+            {
+              "code": "none",
+              "label": "两种均未参加"
+            }
+          ],
+          "showIf": {
+            "questionId": "employment_type",
+            "containsAny": [
+              "flexible"
+            ]
+          }
+        },
+        {
+          "key": "payment_memory",
+          "source_no": "B9-1-5",
+          "label": "B9-1-5.是否记得这段经历每年缴纳多少元基本养老保险？",
+          "kind": "select",
+          "options": [
+            {
+              "code": "amount",
+              "label": "是，记得每年缴费金额"
+            },
+            {
+              "code": "grade",
+              "label": "具体金额不记得，按固定缴费档次缴纳"
+            }
+          ],
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "employee_annual_payment_yuan",
+          "source_no": "B9-1-5",
+          "label": "每年养老保险缴费金额",
+          "kind": "number",
+          "unit": "元/年",
+          "min": 0,
+          "allowUnknown": true,
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            },
+            {
+              "questionId": "payment_memory",
+              "containsAny": [
+                "amount"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "province_code",
+          "source_no": "B9-1-6",
+          "label": "B9-1-6.缴纳基本养老保险的省份",
+          "kind": "select",
+          "options": [],
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            },
+            {
+              "questionId": "payment_memory",
+              "containsAny": [
+                "grade"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "city_code",
+          "source_no": "B9-1-6",
+          "label": "缴纳基本养老保险的城市",
+          "kind": "select",
+          "options": [],
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            },
+            {
+              "questionId": "payment_memory",
+              "containsAny": [
+                "grade"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "grade_percent",
+          "source_no": "B9-1-7",
+          "label": "B9-1-7.这段工作经历的缴费档次",
+          "kind": "select",
+          "options": [
+            {
+              "code": "60",
+              "label": "60%：最低档次"
+            },
+            {
+              "code": "80",
+              "label": "80%：较低档次"
+            },
+            {
+              "code": "100",
+              "label": "100%：中等档次"
+            },
+            {
+              "code": "200",
+              "label": "200%：中高档次"
+            },
+            {
+              "code": "300",
+              "label": "300%：最高档次"
+            },
+            {
+              "code": "not_sure",
+              "label": "不清楚"
+            }
+          ],
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "employee_pension"
+              ]
+            },
+            {
+              "questionId": "payment_memory",
+              "containsAny": [
+                "grade"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "resident_annual_payment_yuan",
+          "source_no": "B9-1-8",
+          "label": "B9-1-8.养老保险缴费额",
+          "kind": "number",
+          "unit": "元/年",
+          "min": 0,
+          "allowUnknown": true,
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "resident_pension"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "resident_medical_payment_yuan",
+          "source_no": "B9-1-8",
+          "label": "医疗保险缴费额（未缴纳填0）",
+          "kind": "number",
+          "unit": "元/年",
+          "min": 0,
+          "allowUnknown": true,
+          "showIfAll": [
+            {
+              "questionId": "employment_type",
+              "containsAny": [
+                "flexible"
+              ]
+            },
+            {
+              "questionId": "pension_type",
+              "containsAny": [
+                "resident_pension"
+              ]
+            }
+          ]
+        }
+      ],
+      "subjectScope": "spouse"
+    },
+    {
+      "id": "P9_4",
+      "source_no": "P9附属-11",
+      "sectionId": "family_pension",
+      "text": "11.您配偶是否配置了商业养老年金险/储蓄型保险？",
+      "type": "single",
+      "options": [
+        {
+          "code": "none",
+          "label": "没有"
+        },
+        {
+          "code": "annuity",
+          "label": "有，是养老年金险（达到指定年龄后，每月/每年固定领取养老金）"
+        },
+        {
+          "code": "savings",
+          "label": "有，是养老储蓄险（资金存于保单账户，支取时间、金额可自主安排）"
+        },
+        {
+          "code": "both",
+          "label": "两种都有"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q4",
+        "containsAny": [
+          "married"
+        ]
+      },
+      "showIfAll": [
+        {
+          "questionId": "Q4",
+          "containsAny": [
+            "married"
+          ]
+        },
+        {
+          "questionId": "P9",
+          "containsAny": [
+            "commercial_pension"
+          ]
+        }
+      ],
+      "subjectScope": "spouse"
+    },
+    {
+      "id": "P9_4_1",
+      "source_no": "P9附属-11-1",
+      "sectionId": "family_pension",
+      "text": "P9附属-11-1.您配偶的商业养老年金险",
+      "type": "composite",
+      "showIfAll": [
+        {
+          "questionId": "Q4",
+          "containsAny": [
+            "married"
+          ]
+        },
+        {
+          "questionId": "P9_4",
+          "containsAny": [
+            "annuity",
+            "both"
+          ]
+        },
+        {
+          "questionId": "Q4",
+          "containsAny": [
+            "married"
+          ]
+        },
+        {
+          "questionId": "P9",
+          "containsAny": [
+            "commercial_pension"
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "key": "start_age",
+          "source_no": "P9附属-11-1",
+          "label": "从多少岁开始领？",
+          "kind": "number",
+          "unit": "岁",
+          "min": 0,
+          "max": 100,
+          "integer": true
+        },
+        {
+          "key": "periodic_amount_yuan",
+          "source_no": "P9附属-11-1",
+          "label": "每期领取金额",
+          "kind": "number",
+          "unit": "元",
+          "min": 0,
+          "allowUnknown": true
+        },
+        {
+          "key": "period",
+          "source_no": "P9附属-11-1",
+          "label": "领取周期（请注明按月/按年领取）",
+          "kind": "select",
+          "options": [
+            {
+              "code": "monthly",
+              "label": "按月领取"
+            },
+            {
+              "code": "annual",
+              "label": "按年领取"
+            }
+          ]
+        }
+      ],
+      "subjectScope": "spouse"
+    },
+    {
+      "id": "P9_4_2",
+      "source_no": "P9附属-11-2",
+      "sectionId": "family_pension",
+      "text": "11-2.您配偶储蓄型保险的总保费是（填空）万元",
+      "type": "textarea",
+      "showIfAll": [
+        {
+          "questionId": "Q4",
+          "containsAny": [
+            "married"
+          ]
+        },
+        {
+          "questionId": "P9_4",
+          "containsAny": [
+            "savings",
+            "both"
+          ]
+        },
+        {
+          "questionId": "Q4",
+          "containsAny": [
+            "married"
+          ]
+        },
+        {
+          "questionId": "P9",
+          "containsAny": [
+            "commercial_pension"
+          ]
+        }
+      ],
+      "subjectScope": "spouse"
+    },
+    {
+      "id": "P9_5",
+      "source_no": "P9-1",
+      "sectionId": "family_pension",
+      "text": "P9-1.您的配偶参加了哪种基本医疗保险?",
+      "type": "single",
+      "options": [
+        {
+          "code": "employee_medical",
+          "label": "城镇职工"
+        },
+        {
+          "code": "resident_medical",
+          "label": "城乡居民（新农合）"
+        },
+        {
+          "code": "public_medical",
+          "label": "公费医疗"
+        },
+        {
+          "code": "none",
+          "label": "未参加任何"
+        },
+        {
+          "code": "not_sure",
+          "label": "不清楚"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q4",
+        "containsAny": [
+          "married"
+        ]
+      },
+      "subjectScope": "spouse"
+    },
+    {
+      "id": "P9_6",
+      "source_no": "P9-2",
+      "sectionId": "family_pension",
+      "text": "P9-2.您的配偶是否购买以下商业健康险？（可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "commercial_medical",
+          "label": "医疗险"
+        },
+        {
+          "code": "critical_illness",
+          "label": "重疾险（含防癌险）"
+        },
+        {
+          "code": "accident",
+          "label": "意外险"
+        },
+        {
+          "code": "long_term_care",
+          "label": "长期护理保险（商业长护险）"
+        },
+        {
+          "code": "none",
+          "label": "没有购买"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q4",
+        "containsAny": [
+          "married"
+        ]
+      },
+      "subjectScope": "spouse"
+    },
+    {
+      "id": "Q12",
+      "source_no": "14",
+      "sectionId": "family_pension",
+      "text": "14.对于我国的养老保险政策，您目前了解以下哪些内容？（可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "min_years",
+          "label": "领取养老金的最低缴费年限"
+        },
+        {
+          "code": "account_query",
+          "label": "如何查询自己的缴费年限、个人账户金额"
+        },
+        {
+          "code": "interruption_effect",
+          "label": "养老金断缴对未来待遇的影响"
+        },
+        {
+          "code": "benefit_calculation",
+          "label": "如何测算自己未来大致能领多少养老金"
+        },
+        {
+          "code": "inheritance_or_withdraw",
+          "label": "养老保险个人账户是否可以继承/退保提现"
+        },
+        {
+          "code": "none",
+          "label": "以上内容均不了解"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q34",
+      "source_no": "15",
+      "sectionId": "family_pension",
+      "text": "15.您计划在哪个城市养老?",
+      "type": "single",
+      "options": [
+        {
+          "code": "not_considered",
+          "label": "暂时没考虑过"
+        },
+        {
+          "code": "direction_undecided",
+          "label": "有大致方向但未最终决定"
+        },
+        {
+          "code": "current_city",
+          "label": "现居住城市"
+        },
+        {
+          "code": "hukou_or_hometown",
+          "label": "户籍地/老家"
+        },
+        {
+          "code": "other_city",
+          "label": "其他城市: （填空）",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q13",
+      "source_no": "16",
+      "sectionId": "family_pension",
+      "text": "16.您是否大致知道自己退休后每个月能领多少养老金?",
+      "type": "single",
+      "options": [
+        {
+          "code": "unknown",
+          "label": "完全不知道"
+        },
+        {
+          "code": "unclear",
+          "label": "不太清楚"
+        },
+        {
+          "code": "general",
+          "label": "一般了解"
+        },
+        {
+          "code": "clear",
+          "label": "比较清楚 （填空）元",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        },
+        {
+          "code": "very_clear",
+          "label": "非常清楚 （填空）元",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q14",
+      "source_no": "17",
+      "sectionId": "family_pension",
+      "text": "17.您是否估算过自己退休后每个月大概需要花多少钱生活?",
+      "type": "single",
+      "options": [
+        {
+          "code": "not_estimated",
+          "label": "完全没有估算过"
+        },
+        {
+          "code": "rarely_considered",
+          "label": "很少考虑"
+        },
+        {
+          "code": "occasionally",
+          "label": "偶尔想过"
+        },
+        {
+          "code": "rough",
+          "label": "大致估算过 （填空）元",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        },
+        {
+          "code": "detailed",
+          "label": "详细计算过 （填空）元",
+          "requiresText": true,
+          "textLabel": "请补充填写"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q15",
+      "source_no": "18",
+      "sectionId": "family_pension",
+      "text": "18.您认为您的退休储备能否支撑晚年生活开支？",
+      "type": "single",
+      "options": [
+        {
+          "code": "not_considered",
+          "label": "没考虑过这个问题"
+        },
+        {
+          "code": "insufficient",
+          "label": "完全不足，难以支撑退休生活开支"
+        },
+        {
+          "code": "somewhat_insufficient",
+          "label": "有所不足，难以完全覆盖养老需求"
+        },
+        {
+          "code": "roughly_balanced",
+          "label": "基本持平，勉强满足日常养老所需"
+        },
+        {
+          "code": "rather_sufficient",
+          "label": "较为充足，可较好覆盖养老各项开支"
+        },
+        {
+          "code": "fully_sufficient",
+          "label": "完全充足，能够充分保障晚年生活"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q16",
+      "source_no": "19",
+      "sectionId": "family_pension",
+      "text": "19.您是否愿意预留出部分收入专门用作未来退休养老开支？",
+      "type": "single",
+      "options": [
+        {
+          "code": "definitely_no",
+          "label": "完全不会"
+        },
+        {
+          "code": "mostly_no",
+          "label": "基本不会"
+        },
+        {
+          "code": "uncertain",
+          "label": "不确定"
+        },
+        {
+          "code": "probably_yes",
+          "label": "可能会"
+        },
+        {
+          "code": "definitely_yes",
+          "label": "一定会"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q17",
+      "source_no": "20",
+      "sectionId": "family_pension",
+      "text": "20.除了政府和单位以外，您认为个人应该在多大程度上承担自己的养老经济责任？",
+      "type": "single",
+      "options": [
+        {
+          "code": "no_personal",
+          "label": "主要依靠单位与政府，个人无需承担"
+        },
+        {
+          "code": "very_little_personal",
+          "label": "以单位、政府为主，个人仅承担极少部分"
+        },
+        {
+          "code": "equal_shared",
+          "label": "个人、单位、政府三方均等分担"
+        },
+        {
+          "code": "mostly_personal",
+          "label": "以个人承担为主，单位与政府仅作补充"
+        },
+        {
+          "code": "all_personal",
+          "label": "完全由个人承担"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q18",
+      "source_no": "21",
+      "sectionId": "family_pension",
+      "text": "21.您认为退休财务规划的重要程度如何？",
+      "type": "single",
+      "options": [
+        {
+          "code": "not_important",
+          "label": "完全不重要"
+        },
+        {
+          "code": "less_important",
+          "label": "不太重要"
+        },
+        {
+          "code": "neutral",
+          "label": "一般"
+        },
+        {
+          "code": "important",
+          "label": "比较重要"
+        },
+        {
+          "code": "very_important",
+          "label": "非常重要"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q19",
+      "source_no": "22",
+      "sectionId": "family_pension",
+      "text": "22.在面对退休规划中的各类财务问题时，您认为自己的理解能力如何？",
+      "type": "single",
+      "options": [
+        {
+          "code": "very_difficult",
+          "label": "非常难理解"
+        },
+        {
+          "code": "difficult",
+          "label": "比较难理解"
+        },
+        {
+          "code": "neutral",
+          "label": "一般"
+        },
+        {
+          "code": "easy",
+          "label": "比较容易理解"
+        },
+        {
+          "code": "very_easy",
+          "label": "非常容易理解"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q20",
+      "source_no": "23",
+      "sectionId": "family_pension",
+      "text": "23.您认为自己目前的退休计划有多完善？",
+      "type": "single",
+      "options": [
+        {
+          "code": "none",
+          "label": "还没有任何退休规划"
+        },
+        {
+          "code": "not_complete",
+          "label": "还不够完善"
+        },
+        {
+          "code": "average",
+          "label": "一般水平"
+        },
+        {
+          "code": "complete",
+          "label": "较为完善"
+        },
+        {
+          "code": "very_complete",
+          "label": "已经非常完善"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q21",
+      "source_no": "24",
+      "sectionId": "family_pension",
+      "text": "24.您对未来获得满意的退休收入，抱有多大信心？",
+      "type": "single",
+      "options": [
+        {
+          "code": "no_confidence",
+          "label": "完全没有信心"
+        },
+        {
+          "code": "low_confidence",
+          "label": "比较没有信心"
+        },
+        {
+          "code": "neutral",
+          "label": "一般"
+        },
+        {
+          "code": "confident",
+          "label": "比较有信心"
+        },
+        {
+          "code": "very_confident",
+          "label": "完全有信心"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q22",
+      "source_no": "25",
+      "sectionId": "finance",
+      "text": "25.假设您在某个储蓄账户中存有1000元，年利率为2%，复利计息。如果您不动用这笔钱，那么5年之后，该账户里的金额是多少?",
+      "type": "single",
+      "options": [
+        {
+          "code": "option_1",
+          "label": "1020元以上"
+        },
+        {
+          "code": "option_2",
+          "label": "1020元"
+        },
+        {
+          "code": "option_3",
+          "label": "1020元以下"
+        },
+        {
+          "code": "not_sure",
+          "label": "不知道"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q23",
+      "source_no": "26",
+      "sectionId": "finance",
+      "text": "26.假设您储蓄账户的年利率为1%，年通胀率为2%。那么1年之后，该账户里的钱能购买多少东西?",
+      "type": "single",
+      "options": [
+        {
+          "code": "option_1",
+          "label": "比现在多"
+        },
+        {
+          "code": "option_2",
+          "label": "和现在一样"
+        },
+        {
+          "code": "option_3",
+          "label": "比现在少"
+        },
+        {
+          "code": "not_sure",
+          "label": "不知道"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q24",
+      "source_no": "27",
+      "sectionId": "finance",
+      "text": "27.您认为以下陈述是否正确?“购买单只股票获得的回报比购买股票基金更安全稳定。”",
+      "type": "single",
+      "options": [
+        {
+          "code": "true",
+          "label": "对"
+        },
+        {
+          "code": "false",
+          "label": "错"
+        },
+        {
+          "code": "not_sure",
+          "label": "不知道"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q25",
+      "source_no": "28",
+      "sectionId": "finance",
+      "text": "28.您认为以下陈述是否正确?“15年期的抵押贷款通常要求比30年期的抵押贷款更高的月供，但贷款期限内支付的总利息会更少。”",
+      "type": "single",
+      "options": [
+        {
+          "code": "true",
+          "label": "对"
+        },
+        {
+          "code": "false",
+          "label": "错"
+        },
+        {
+          "code": "not_sure",
+          "label": "不知道"
+        },
+        {
+          "code": "refuse",
+          "label": "拒绝回答"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q26",
+      "source_no": "29",
+      "sectionId": "finance",
+      "text": "29.如果利率下降，债券价格会如何变化?",
+      "type": "single",
+      "options": [
+        {
+          "code": "up",
+          "label": "上升"
+        },
+        {
+          "code": "down",
+          "label": "下降"
+        },
+        {
+          "code": "irrelevant",
+          "label": "债券价格与利率无关"
+        },
+        {
+          "code": "not_sure",
+          "label": "不知道"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q27",
+      "source_no": "30",
+      "sectionId": "finance",
+      "text": "30.您家庭目前的资产中，以下各项约为: \n家庭成员是夫妻双方及未婚子女（无论年龄、就业、居住状态），由本家庭承担赡养责任的老人、无劳动能力亲属，不计入家庭成员\n现金及活期存款（填空）万元；\n定期存款（填空）万元；\n金融产品投资：股票（填空）万元、基金（填空）万元、债券（填空）万元、保险总保费（填空）万元（此处仅填写终身寿险、年金险等储蓄型保单历史累计总保费）；\n自有房产：（填空）套、市值（填空）万元；\n自有车辆：（填空）辆、市值（填空）万元；\n各分项可留空，留空默认按0计入测算；也可填写0或“/”。",
+      "type": "textarea",
+      "subjectScope": "household",
+      "helpText": "各分项可留空，留空默认按0计入测算；也可填写0或“/”。",
+      "blankAsZero": true
+    },
+    {
+      "id": "Q28",
+      "source_no": "31",
+      "sectionId": "finance",
+      "text": "31.您的家庭收入中，以下各项约为: \n家庭收入包含您本人及上述家庭成员的收入，请填写家庭合计金额。\n固定工资收入（填空）万元/年，自有商业收入（填空）万元/年，租金收入（填空）万元/年，平均投资收入（填空）万元/年，土地收入（填空）万元/年，其他收入（填空）万元/年（含年终奖、绩效等）。\n各分项可留空，留空默认按0计入测算；也可填写0或“/”。",
+      "type": "textarea",
+      "subjectScope": "household",
+      "helpText": "各分项可留空，留空默认按0计入测算；也可填写0或“/”。",
+      "blankAsZero": true
+    },
+    {
+      "id": "Q29",
+      "source_no": "32",
+      "sectionId": "finance",
+      "text": "32.您的家庭是否有贷款或借款? \n家庭成员定义同上",
+      "type": "single",
+      "options": [
+        {
+          "code": "yes",
+          "label": "是"
+        },
+        {
+          "code": "no",
+          "label": "否"
+        }
+      ],
+      "subjectScope": "household"
+    },
+    {
+      "id": "Q29_1",
+      "source_no": "32-1",
+      "sectionId": "finance",
+      "text": "32-1.目前各项未付款项余额约为： \n房屋贷款（填空）万元，车辆贷款（填空）万元，其他贷款与借款（填空）万元。",
+      "type": "textarea",
+      "showIf": {
+        "questionId": "Q29",
+        "containsAny": [
+          "yes"
+        ]
+      },
+      "subjectScope": "household"
+    },
+    {
+      "id": "Q30",
+      "source_no": "33",
+      "sectionId": "finance",
+      "text": "33.您的家庭每月生活消费支出中，以下各项约为: \n家庭成员定义同上\n吃穿（填空）元，医疗（填空）元，住（填空）元，交通（填空）元，赡养老人（填空）元，水电通信（填空）元，子女教育（填空）元，月归还贷款（填空）元，休闲娱乐（填空）元，其他（填空）元。\n各分项可留空，留空默认按0计入测算；也可填写0或“/”。",
+      "type": "textarea",
+      "subjectScope": "household",
+      "helpText": "各分项可留空，留空默认按0计入测算；也可填写0或“/”。",
+      "blankAsZero": true
+    },
+    {
+      "id": "Q35",
+      "source_no": "34",
+      "sectionId": "health",
+      "text": "34.您是否经专业医生明确诊断患有以下慢性疾病? （可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "hypertension",
+          "label": "高血压"
+        },
+        {
+          "code": "chronic_lung",
+          "label": "慢性肺部疾病（哮喘等）"
+        },
+        {
+          "code": "diabetes",
+          "label": "糖尿病"
+        },
+        {
+          "code": "arthritis",
+          "label": "骨关节病/类风湿关节炎"
+        },
+        {
+          "code": "hyperlipidemia",
+          "label": "高血脂"
+        },
+        {
+          "code": "stomach_liver_kidney",
+          "label": "慢性胃病/肝病/肾病"
+        },
+        {
+          "code": "coronary_heart",
+          "label": "冠心病"
+        },
+        {
+          "code": "cancer",
+          "label": "恶性肿瘤"
+        },
+        {
+          "code": "none",
+          "label": "无任何慢性疾病"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q36",
+      "source_no": "35",
+      "sectionId": "health",
+      "text": "35.过去12个月，您是否因疾病/确诊的慢性疾病经医生建议/安排住院治疗?",
+      "type": "single",
+      "options": [
+        {
+          "code": "0",
+          "label": "未住院"
+        },
+        {
+          "code": "1",
+          "label": "住院 1 次"
+        },
+        {
+          "code": "gte_2",
+          "label": "住院2次及以上"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q33",
+      "source_no": "36",
+      "sectionId": "health",
+      "text": "36.您在就医或购药时，是否出现过以下情况？（可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "procedure_unclear",
+          "label": "知道可以用医保报销，但不清楚流程，最终没有使用"
+        },
+        {
+          "code": "eligibility_unclear",
+          "label": "不清楚自己的医保能否报销、能报多少，最终没有使用"
+        },
+        {
+          "code": "cross_region_problem",
+          "label": "不了解异地就医备案政策，在外地看病未使用医保"
+        },
+        {
+          "code": "catalog_unclear",
+          "label": "不知道某些药品 / 检查项目属于医保范围，自费支付"
+        },
+        {
+          "code": "gave_up_due_hassle",
+          "label": "因觉得报销麻烦 / 耗时，主动放弃使用医保"
+        },
+        {
+          "code": "never_happened",
+          "label": "从未出现过以上情况，医保使用正常"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q37",
+      "source_no": "37",
+      "sectionId": "health",
+      "text": "37.您目前的吸烟状态是?",
+      "type": "single",
+      "options": [
+        {
+          "code": "never",
+          "label": "从不吸烟"
+        },
+        {
+          "code": "quit",
+          "label": "曾经吸烟（已戒烟）"
+        },
+        {
+          "code": "monthly_lt_10",
+          "label": "平均每月吸烟＜10支"
+        },
+        {
+          "code": "daily_lt_10",
+          "label": "平均每天吸烟＜10支"
+        },
+        {
+          "code": "daily_gte_10",
+          "label": "平均每天吸烟≥10支"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q38",
+      "source_no": "38",
+      "sectionId": "health",
+      "text": "38.您目前的饮酒状态是?",
+      "type": "single",
+      "options": [
+        {
+          "code": "never",
+          "label": "从不饮酒"
+        },
+        {
+          "code": "monthly_lt_1",
+          "label": "每月饮酒＜1次"
+        },
+        {
+          "code": "monthly_1_3",
+          "label": "每月饮酒≥1次，且＜4次"
+        },
+        {
+          "code": "weekly_gte_4",
+          "label": "每周饮酒≥4次"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q39",
+      "source_no": "39",
+      "sectionId": "health",
+      "text": "39.过去3个月，您是否每周进行中等强度身体活动（如快走、慢跑、游泳、骑自行车、广场舞、球类运动等）?",
+      "type": "single",
+      "options": [
+        {
+          "code": "no",
+          "label": "否"
+        },
+        {
+          "code": "yes_lt_150",
+          "label": "是，每周少于2.5小时"
+        },
+        {
+          "code": "yes_gte_150",
+          "label": "是，每周高于2.5小时"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q40",
+      "source_no": "40",
+      "sectionId": "health",
+      "text": "40.您进行全面健康体检的频率是?",
+      "type": "single",
+      "options": [
+        {
+          "code": "never",
+          "label": "从未体检"
+        },
+        {
+          "code": "rare_no_regular",
+          "label": "很少体检，无固定规律"
+        },
+        {
+          "code": "every_2_3y",
+          "label": "每2-3年体检1次"
+        },
+        {
+          "code": "yearly",
+          "label": "每年至少体检1次"
+        },
+        {
+          "code": "half_yearly",
+          "label": "每半年至少体检1次"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q41",
+      "source_no": "41",
+      "sectionId": "health",
+      "text": "41.您平时在家自己测量并记录健康指标（如血压、血糖）的频率是?",
+      "type": "single",
+      "options": [
+        {
+          "code": "weekly_recorded",
+          "label": "每天/每周固定测且有记录"
+        },
+        {
+          "code": "monthly_or_remember",
+          "label": "每月测1-2次，或想起来才测"
+        },
+        {
+          "code": "quarter_or_half_year",
+          "label": "每季度或半年才测一次"
+        },
+        {
+          "code": "only_uncomfortable",
+          "label": "只有感觉不舒服时才测"
+        },
+        {
+          "code": "never",
+          "label": "从不自己测，完全依赖去医院时才查"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q42",
+      "source_no": "42",
+      "sectionId": "health",
+      "text": "42.回顾过去一周的饮食，您每天有意识搭配“肉蛋奶豆”和“粗粮蔬菜”的天数大约是?",
+      "type": "single",
+      "options": [
+        {
+          "code": "0",
+          "label": "0天:完全没注意"
+        },
+        {
+          "code": "1_2",
+          "label": "1-2天:偶尔才注意"
+        },
+        {
+          "code": "3_4",
+          "label": "3-4天:有时想起来"
+        },
+        {
+          "code": "5_6",
+          "label": "5-6天:经常这样做"
+        },
+        {
+          "code": "7",
+          "label": "7天:每顿都坚持"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q43",
+      "source_no": "43",
+      "sectionId": "activity",
+      "text": "43.您是否考虑过退休后要开展哪些活动?（如休闲爱好、返聘/再就业、学习进修等）",
+      "type": "single",
+      "options": [
+        {
+          "code": "not_considered",
+          "label": "完全没想过"
+        },
+        {
+          "code": "vague",
+          "label": "只有模糊想法，没想好具体项目"
+        },
+        {
+          "code": "one_activity",
+          "label": "已确定1项活动"
+        },
+        {
+          "code": "two_or_more",
+          "label": "已确定2项及以上活动"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q43_1",
+      "source_no": "43-1",
+      "sectionId": "activity",
+      "text": "43-1.为退休后实现这些活动，您做了哪些方面的规划？（可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "time",
+          "label": "时间分配（知道每周/每月需要花多长时间）"
+        },
+        {
+          "code": "channel",
+          "label": "参与渠道（清楚活动的开展方式、平台或场所，如单位 / 机构地址、报名方式、联系方式）"
+        },
+        {
+          "code": "partner",
+          "label": "同伴/协作资源（已有同行伙伴、合作对象，或知道如何找到志同道合的参与者）"
+        },
+        {
+          "code": "cost",
+          "label": "金钱与成本规划（估算过相关花费或收入情况，并确认自己能够负担或实现）"
+        },
+        {
+          "code": "none",
+          "label": "没有想过"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q43",
+        "containsAny": [
+          "one_activity",
+          "two_or_more"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "KIN_SUPPORT",
+      "source_no": "44",
+      "sectionId": "activity",
+      "text": "44.在您遇到困难或需要帮助时，亲属中（父母、配偶、子女、兄弟姐妹等）有多少人可以依靠并提供实际帮助？",
+      "type": "single",
+      "options": [
+        {
+          "code": "0",
+          "label": "完全没有"
+        },
+        {
+          "code": "1_2",
+          "label": "1～2位"
+        },
+        {
+          "code": "gte_3",
+          "label": "3位以上"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q45",
+      "source_no": "45",
+      "sectionId": "activity",
+      "text": "45.您目前有多少位非亲属、可信任、遇到困难时能依靠求助的人?（如朋友、同事、邻居、同学等）",
+      "type": "single",
+      "options": [
+        {
+          "code": "0",
+          "label": "完全没有"
+        },
+        {
+          "code": "1_2",
+          "label": "1～2位"
+        },
+        {
+          "code": "gte_3",
+          "label": "3位以上"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "LTC_KNOWLEDGE",
+      "source_no": "46",
+      "sectionId": "care",
+      "text": "46. 您对长期护理保险（长护险）的了解程度是？\n长期护理保险是为因年老、疾病或伤残导致长期失能的人员提供基本生活照料和医疗护理保障的社会保险制度。目前大部分地区主要保障重度失能人员，对轻度、中度失能的保障可能不足，个人仍需考虑用资产支撑部分护理费用。",
+      "type": "single",
+      "options": [
+        {
+          "code": "none",
+          "label": "完全不了解"
+        },
+        {
+          "code": "heard",
+          "label": "听说过，但不清楚具体内容"
+        },
+        {
+          "code": "some",
+          "label": "了解一些，知道参保方式和基本保障范围"
+        },
+        {
+          "code": "clear",
+          "label": "比较了解，清楚待遇标准和申请流程"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "LTC_STATUS",
+      "source_no": "46-1",
+      "sectionId": "care",
+      "text": "46-1. 您所在的城市是否已实施长期护理保险制度？",
+      "type": "single",
+      "options": [
+        {
+          "code": "enrolled",
+          "label": "已实施，我已参保"
+        },
+        {
+          "code": "not_enrolled",
+          "label": "已实施，但我未参保"
+        },
+        {
+          "code": "not_implemented",
+          "label": "未实施"
+        },
+        {
+          "code": "not_sure",
+          "label": "不清楚"
+        }
+      ],
+      "showIf": {
+        "questionId": "LTC_KNOWLEDGE",
+        "containsAny": [
+          "heard",
+          "some",
+          "clear"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q46",
+      "source_no": "47",
+      "sectionId": "care",
+      "text": "47.如果您退休后失去自理能力，您会选择哪种照护方式?",
+      "type": "single",
+      "options": [
+        {
+          "code": "family_care",
+          "label": "由子女/配偶照护"
+        },
+        {
+          "code": "home_hired_care",
+          "label": "请护工居家照护"
+        },
+        {
+          "code": "institution_care",
+          "label": "机构照护（养老院）"
+        },
+        {
+          "code": "community_care",
+          "label": "社区照护"
+        },
+        {
+          "code": "not_considered",
+          "label": "没想过"
+        }
+      ],
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q46_1",
+      "source_no": "47-1",
+      "sectionId": "care",
+      "text": "47-1.对于您意向养老地的养老机构，您实际了解或考察过以下哪些内容？（可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "none",
+          "label": "完全不了解，也没有关注过"
+        },
+        {
+          "code": "beds",
+          "label": "床位情况"
+        },
+        {
+          "code": "price",
+          "label": "收费标准"
+        },
+        {
+          "code": "service",
+          "label": "服务内容"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q46",
+        "containsAny": [
+          "institution_care"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q46_2",
+      "source_no": "47-2",
+      "sectionId": "care",
+      "text": "47-2.关于护工服务，您了解或评估过以下哪些内容？（可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "none",
+          "label": "完全不了解，也未关注"
+        },
+        {
+          "code": "market",
+          "label": "市场行情（是否容易找到）"
+        },
+        {
+          "code": "price",
+          "label": "大致价格"
+        },
+        {
+          "code": "channel",
+          "label": "聘请渠道"
+        },
+        {
+          "code": "affordability",
+          "label": "评估过能否负担得起"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q46",
+        "containsAny": [
+          "home_hired_care"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q46_3",
+      "source_no": "47-3",
+      "sectionId": "care",
+      "text": "47-3.您对所在社区的日间照料中心、上门护理等养老服务，了解哪些内容？（可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "none",
+          "label": "不了解，也没关注过"
+        },
+        {
+          "code": "availability",
+          "label": "确认过所在社区是否有此类服务"
+        },
+        {
+          "code": "service_content",
+          "label": "确认过所在社区服务的具体内容"
+        },
+        {
+          "code": "application",
+          "label": "了解社区养老服务的申请流程"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q46",
+        "containsAny": [
+          "community_care"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q46_4",
+      "source_no": "47-4",
+      "sectionId": "care",
+      "text": "47-4.您是否确认过配偶或子女具备基础照护技能和条件？（可多选）",
+      "type": "multiple",
+      "options": [
+        {
+          "code": "none",
+          "label": "完全没有确认过"
+        },
+        {
+          "code": "daily_living",
+          "label": "具备日常照料能力（吃饭、穿衣、洗澡等）"
+        },
+        {
+          "code": "medicine_management",
+          "label": "具备用药管理能力（按时服药、剂量正确等）"
+        },
+        {
+          "code": "basic_nursing",
+          "label": "具备基础护理能力（翻身、简单护理、观察身体状况等）"
+        },
+        {
+          "code": "time_energy",
+          "label": "确认过家人有时间和精力提供实际照护"
+        }
+      ],
+      "showIf": {
+        "questionId": "Q46",
+        "containsAny": [
+          "family_care"
+        ]
+      },
+      "subjectScope": "respondent"
+    },
+    {
+      "id": "Q47",
+      "source_no": "48",
+      "sectionId": "care",
+      "text": "48.关于您未来年老需要照护时由谁负责、如何照护，您和家人的情况是?",
+      "type": "single",
+      "options": [
+        {
+          "code": "not_considered_age",
+          "label": "完全没考虑过，觉得年龄不到或暂时不需要考虑"
+        },
+        {
+          "code": "not_discussed",
+          "label": "没有正式商量过，但默认由家人（配偶/子女）负责"
+        },
+        {
+          "code": "mentioned_no_consensus",
+          "label": "偶尔提起过，但家人之间未达成一致"
+        },
+        {
+          "code": "consensus_basic",
+          "label": "已和家人商量清楚，基本达成共识"
+        },
+        {
+          "code": "responsibility_clear",
+          "label": "已明确照护责任人与方式，全家意见统一"
+        },
+        {
+          "code": "written_or_legal",
+          "label": "已明确照护责任人与方式，并形成书面/法律文件"
+        }
+      ],
+      "subjectScope": "household"
+    }
+  ]
+}

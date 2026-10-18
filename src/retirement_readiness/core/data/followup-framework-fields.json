@@ -1,0 +1,18 @@
+[
+  {"code":"pension_transfer_status","domain":"财务准备行为/养老金待遇可得性","ask_when":"跨城市参保、工作地和参保地不一致、断缴或未参保原因指向转移接续障碍时，确认转移接续和记录归集状态。","must_not_duplicate":"不要重复问是否多地参保、是否断缴、参保城市或缴费年限。"},
+  {"code":"benefit_city_eligibility","domain":"财务准备行为/养老金待遇可得性","ask_when":"待遇领取地不确定、多地缴费或计划领取城市可能不满足政策条件时，确认是否存在可作为待遇领取地的关键城市。","must_not_duplicate":"不要重复问计划在哪个城市领养老金，只补充领取地可实现性的判断条件。"},
+  {"code":"pension_record_confidence","domain":"财务准备认知/养老金记录可信度","ask_when":"受访者存在断缴、多地缴费或无法查询记录，养老金估算需要官方记录置信度标签。","must_not_duplicate":"不要重复问缴费金额或缴费时长，只问是否能从官方渠道核验。"},
+  {"code":"overseas_retirement_account","domain":"财务准备行为/境外养老资源","ask_when":"参保地、工作地、家庭支持或文本答案显示海外工作、居住、账户、养老金或海外家人。","must_not_duplicate":"不要重复问是否有海外经历，只问境外养老金、账户或资金是否能用于中国境内养老。"},
+  {"code":"occupation_income_volatility","domain":"财务准备行为/收入稳定性","ask_when":"平台就业、个体经营、临时就业、自由职业或未参保原因显示收入波动会影响连续缴费和养老储蓄。","must_not_duplicate":"不要重复问就业类型或年收入金额，只问收入波动、淡旺季或现金垫情况。"},
+  {"code":"personal_pension_barrier","domain":"财务准备行为/个人养老金参与","ask_when":"个人养老金未参加、未缴存、缴存很低或不清楚，且需要判断障碍来自现金流、政策理解或产品信任。","must_not_duplicate":"不要重复问是否参加个人养老金或每年存入金额。"},
+  {"code":"asset_liquidity_for_retirement","domain":"财务准备行为/资产可变现性","ask_when":"金融资产、股票基金、保险现金价值或房产较多，但问卷未确认可用于医疗、照护或退休现金流的可动用比例。","must_not_duplicate":"不要重复问资产金额或房产套数，只问可动用比例、锁定期限和资产使用意愿。"},
+  {"code":"debt_repayment_schedule","domain":"财务准备行为/负债挤出","ask_when":"存在较高未付贷款或月度还贷支出，可能挤出退休储备和现金流。","must_not_duplicate":"不要重复问贷款余额和月还款金额，只问退休前清偿可能性和利率/期限压力。"},
+  {"code":"medical_reimbursement_certainty","domain":"健康资本积累/医疗保障可用性","ask_when":"未参加医保、不清楚医保、异地就医受阻、医保流程不清或养老地与参保地可能不同。","must_not_duplicate":"不要重复问医保类型或是否买商业医疗险，只问备案、门诊统筹、慢病待遇或报销路径是否清楚。"},
+  {"code":"chronic_disease_control","domain":"健康资本积累/慢病控制","ask_when":"存在慢性病、近期住院、体检/居家监测不足，常规医疗支出需要控制水平解释变量。","must_not_duplicate":"不要重复问病种或住院次数，只问控制情况、复诊用药和年度自付压力。"},
+  {"code":"health_behavior_barrier","domain":"健康资本积累/健康行为障碍","ask_when":"吸烟、饮酒、运动不足、体检或居家监测不足，报告需要给出可执行改善路径。","must_not_duplicate":"不要重复问吸烟饮酒频率、运动频率或体检频率。"},
+  {"code":"care_budget_capacity","domain":"照护规划/照护费用承受力","ask_when":"选择家庭照护、居家护工、机构或社区照护，但基础问卷没有照护月预算上限或资金来源。","must_not_duplicate":"不要重复问照护方式，只问可持续月预算和资金来源。"},
+  {"code":"care_resource_readiness","domain":"照护规划/照护资源对接","ask_when":"选择机构、护工、社区或家庭照护，但对价格、渠道、床位、服务内容、申请流程或家庭照护能力了解不足。","must_not_duplicate":"不要重复问已经了解了哪些内容，只问是否已有可核验的候选资源或下一步验证事项。"},
+  {"code":"social_support_gap","domain":"活动社交规划/支持网络","ask_when":"亲属联系弱、非亲属支持不足、海外家人远程参与或未来照护协调人不明确。","must_not_duplicate":"不要重复问联系频率或可依靠人数，只问紧急联系人、代理决策人或协调人是否明确。"},
+  {"code":"activity_execution_barrier","domain":"活动社交规划/活动落地条件","ask_when":"已有退休活动设想，但问卷没有说明时间、健康、地点、费用或同伴等现实条件是否会阻碍长期开展。","must_not_duplicate":"不要重复问计划开展什么活动或已经做过哪些准备，只问最主要的落地限制。"},
+  {"code":"family_care_consensus","domain":"照护规划/家庭共识","ask_when":"家庭未讨论、未达成一致或缺少书面安排，影响失能后的费用承担和照护执行。","must_not_duplicate":"不要重复问家人是否达成共识，只问责任人、备用联系人和下一次家庭沟通安排。"}
+]

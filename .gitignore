@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+output/
+build/
+dist/
+.env
+.env.*
+!.env.example
+external/
+*.log

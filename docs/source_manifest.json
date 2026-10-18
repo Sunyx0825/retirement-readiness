@@ -1,0 +1,31 @@
+{
+  "baseline_commit": "c33d83592eb865d86a8a8476442025b33d8f9c39",
+  "sha256_before_portability_edits": {
+    "calculation_inputs.py": "91531d82f363272b14a4eb98b643708adf9f131faac4c067b2e07a7ad6e7ae72",
+    "calculations.py": "bac7babf6b9541fa5992deeaf07c6e454d069db0392d44379e689325a4a3decf",
+    "calculator.py": "a2de9f0c127555483287aa4c8cf1012735a99d02112833d284f7803c7a25e2eb",
+    "constants.py": "f4f424204ba536d67ab9216c1969cd4e27098b78b6a775e2c86d9ea55ae7f05c",
+    "followup.py": "862fe0414f54fe3cbd8aa14de5a022e37b7df6eeecf6c6e4922180cf5bfcf2f4",
+    "followup_answers.py": "0118ea2f60ddb961f10106ef745d133498bedfa605d56694cc31005cbc958466",
+    "followup_lifecycle.py": "34a94e57d241b4ec2b14a538db8b0379abffd7e96151ad62ee2a421de3c52ea2",
+    "followup_modules.py": "de50d9aca5ab06ecbf8843932c702a72e6478e078298fa74303f1586e6e4873f",
+    "followup_rules.py": "a0eb1adc783e5ded59f36d37f651db6a4213da5e233fd04b81a33f92a9a9173d",
+    "household_cashflow.py": "8cc381678c73479cf234627e714faf3677b6f35f6cdf905b7214938c3dc2d189",
+    "numeric_answers.py": "57706c6b40c97f9983927a7e1da6bb80d6368e9698d69331ff45f7870b406d56",
+    "parameter_data.py": "91916a75e9c8ff482bb43a12f0316f310412729fbea40bd469954460cbbaafdd",
+    "parameters.py": "310662ea5e31728b48bb810c2bce41c49c0de21af6e70d1cbae82d892fab884a",
+    "pension_calculation.py": "77ded43ac8531ff25525a848b5e6a22174b3df97b35b6c616dcf74d4ac7c9f7f",
+    "pension_reference.py": "86c80fe4bc3134bf869f653626c6e61668a53b3562e01e2dcdfd6bba4ac6d459",
+    "questionnaire.py": "741508199a8c182259395d0abadbfcd8a07cba926b7658ff0228abda0b15b7e9",
+    "report_assessment_context.py": "a2b9e6e04887f89550e7a259f98a326c232263e103465bda3367aee0708ec8ba",
+    "report_generator.py": "d23936dc5d8fe76edcb3988163417fc75cbf9d5b06c3931500c6edad1149f558",
+    "report_labels.py": "94254ca19f0f6e377760d5593f3aae16c172e151b354607cc87a6c87826e0ed4",
+    "report_prompts.py": "4b706337e6100468a81b459de113e54809eb9a37c524b96236565d7cfb375f32",
+    "report_stages.py": "8577c3dfc31e24c7dc9dacf68ff39341077b2dd10ac550fba2dade319d38fd15",
+    "rule_catalog.py": "7b35c47c250fdc8ba4243d4251bc9cc42b4c37e0ce5c753f1afd8ef8a2800ebc",
+    "rule_engine.py": "02976af4ac3b80681cbb04a7190cfb086bc37013ac6b1c1ec2f83cd75c0a201f",
+    "rule_facts.py": "2c8ba3e547d2cf891198d86af0f3b2ebc5662b8825949dd41624599c621dcea9",
+    "score_standards.py": "3f524791172584e5bd639cb549c1fecc1b82f1e8dcb0712d9e619ec60bbdb49b",
+    "supplemental_pension.py": "1a1520fb207befd3cf54dd7bebd41415cdc552a04974585ba977e86ba2f6813f"
+  }
+}

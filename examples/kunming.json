@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "synthetic": true,
+    "case_id": "kunming",
+    "as_of": "2026-09-01",
+    "survey_version": "survey_0909_household_v2.0.1"
+  },
+  "profile": {
+    "display_name": "昆明·李女士家庭（虚构案例）"
+  },
+  "answers": {
+    "Q1": "female",
+    "Q2": 42,
+    "Q3": "senior_high_or_vocational",
+    "Q4": "divorced",
+    "Q5__blank_1": "1",
+    "Q5__blank_2": "15",
+    "Q6": "mother_alive",
+    "Q6__blank_1": "68",
+    "Q6__blank_2": "70",
+    "Q7": {
+      "current_province_code": "53",
+      "current_city_code": "5301",
+      "hukou_province_code": "53",
+      "hukou_city_code": "5301"
+    },
+    "Q8": "flexible",
+    "Q9": [
+      "employee_pension"
+    ],
+    "PENSION_BENEFIT_CITY": "current_city",
+    "PENSION_SEGMENT_COUNT": 1,
+    "PENSION_HISTORY": [
+      {
+        "segment_id": "km_self_1",
+        "employment_type": "flexible",
+        "paid_years": 12,
+        "paid_months": 0,
+        "pension_type": "employee_pension",
+        "payment_memory": "amount",
+        "employee_annual_payment_yuan": 14400
+      }
+    ],
+    "Q10": "no",
+    "Q11": "none",
+    "Q31": "employee_medical",
+    "Q32": [
+      "none"
+    ],
+    "Q12": [
+      "min_years"
+    ],
+    "Q34": "current_city",
+    "Q13": "unclear",
+    "Q14": "not_estimated",
+    "Q14__blank_1": "7000",
+    "Q15": "somewhat_insufficient",
+    "Q16": "probably_yes",
+    "Q17": "equal_shared",
+    "Q18": "important",
+    "Q19": "difficult",
+    "Q20": "none",
+    "Q21": "low_confidence",
+    "Q22": "option_2",
+    "Q23": "option_3",
+    "Q24": "not_sure",
+    "Q25": "not_sure",
+    "Q26": "not_sure",
+    "Q27": {
+      "cash_current_wan": 3,
+      "time_deposit_wan": 12,
+      "fund_wan": 3,
+      "stock_wan": 0,
+      "bond_wan": 0,
+      "insurance_total_premium_wan": 0,
+      "property_count": 1,
+      "property_value_wan": 90,
+      "vehicle_count": 0,
+      "vehicle_value_wan": 0
+    },
+    "Q28": {
+      "wage_income": 0,
+      "business_income": 12,
+      "rent_income": 0,
+      "investment_income": 0,
+      "land_income": 0,
+      "other_income": 0
+    },
+    "Q29": "no",
+    "Q30": {
+      "food": 1800,
+      "medical": 200,
+      "housing": 300,
+      "transport": 300,
+      "elder_support": 600,
+      "utilities": 300,
+      "child_education": 1200,
+      "debt_repayment": 0,
+      "leisure_entertainment": 200,
+      "other": 300
+    },
+    "Q35": [
+      "none"
+    ],
+    "Q36": "0",
+    "Q33": [
+      "never_happened"
+    ],
+    "Q37": "never",
+    "Q38": "monthly_lt_1",
+    "Q39": "yes_lt_150",
+    "Q40": "every_2_3y",
+    "Q41": "only_uncomfortable",
+    "Q42": "3_4",
+    "Q43": "vague",
+    "KIN_SUPPORT": "1_2",
+    "Q45": "1_2",
+    "LTC_KNOWLEDGE": "heard",
+    "LTC_STATUS": "not_sure",
+    "Q46": "family_care",
+    "Q47": "not_discussed",
+    "B8_1": "self_employed_business",
+    "Q46_4": [
+      "none"
+    ],
+    "Q6__mother_alive_text__blank_1": "68"
+  },
+  "followups": [],
+  "followup_events": []
+}

@@ -1,0 +1,20 @@
+{
+  "rulePackId": "report_rule_release_v1.4.4",
+  "versions": {
+    "release": "1.4.4",
+    "problems": "2.5.0",
+    "recommendations": "6.5.0",
+    "relationships": "1.4.0",
+    "facts": "1.1.1"
+  },
+  "expectedCounts": {
+    "facts": 334,
+    "problems": 64,
+    "recommendations": 143,
+    "relationships": 115
+  },
+  "limits": {
+    "problemsPerObject": 3,
+    "recommendationsPerObject": 3
+  }
+}
